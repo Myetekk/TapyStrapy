@@ -10,9 +10,11 @@ import com.tapwithus.sdk.mouse.MousePacket;
 
 public class MyTapListener implements TapListener {
     private final TapSdk tapSdk;
+    private final MainActivity mainActivity;
     private int gyroThresholdInt = 50000;
-    public MyTapListener(TapSdk tapSdk) {
+    public MyTapListener(TapSdk tapSdk, MainActivity mainActivity) {
         this.tapSdk = tapSdk;
+        this.mainActivity = mainActivity;
     }
     @Override
     public void onBluetoothTurnedOn() {
@@ -33,6 +35,8 @@ public class MyTapListener implements TapListener {
     @Override
     public void onTapConnected(String tapIdentifier) {
         Log.d("TAP", "TAP connected: " + tapIdentifier);
+        mainActivity.setConnectionStatus(true);
+
 
         int[] vibrationPattern = {500, 100, 500, 100, 500};
         this.tapSdk.vibrate(tapIdentifier, vibrationPattern);
@@ -40,8 +44,8 @@ public class MyTapListener implements TapListener {
 
     @Override
     public void onTapDisconnected(String tapIdentifier) {
-        // TAP device disconnected
         Log.d("TAP", "TAP device " + tapIdentifier + " disconnected");
+        mainActivity.setConnectionStatus(false);
     }
 
     @Override
