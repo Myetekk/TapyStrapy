@@ -12,10 +12,12 @@ public class MyTapListener implements TapListener {
     private final TapSdk tapSdk;
     private final MainActivity mainActivity;
     private int gyroThresholdInt = 50000;
+
     public MyTapListener(TapSdk tapSdk, MainActivity mainActivity) {
         this.tapSdk = tapSdk;
         this.mainActivity = mainActivity;
     }
+
     @Override
     public void onBluetoothTurnedOn() {
         // Handle Bluetooth turned on
@@ -35,17 +37,16 @@ public class MyTapListener implements TapListener {
     @Override
     public void onTapConnected(String tapIdentifier) {
         Log.d("TAP", "TAP connected: " + tapIdentifier);
-        mainActivity.setConnectionStatus(true);
+        mainActivity.updateConnectionStatus(true);
 
-
-        int[] vibrationPattern = {500, 100, 500, 100, 500};
-        this.tapSdk.vibrate(tapIdentifier, vibrationPattern);
+//        int[] vibrationPattern = {500, 100, 500, 100, 500};
+//        this.tapSdk.vibrate(tapIdentifier, vibrationPattern);
     }
 
     @Override
     public void onTapDisconnected(String tapIdentifier) {
         Log.d("TAP", "TAP device " + tapIdentifier + " disconnected");
-        mainActivity.setConnectionStatus(false);
+        mainActivity.updateConnectionStatus(false);
     }
 
     @Override
@@ -73,6 +74,9 @@ public class MyTapListener implements TapListener {
         Log.d("TAP", "Ring: " + fingers[3]);
         Log.d("TAP", "Pinky: " + fingers[4]);
         Log.d("TAP", "Repeat count: " + repeatData);
+
+        mainActivity.updateFingerStatus(fingers, data, repeatData);
+        // nie łapie repeatData - zawsze daje 1
     }
 
     @Override
