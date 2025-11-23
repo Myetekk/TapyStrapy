@@ -2,6 +2,7 @@ package com.example.tapystrapy;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,10 +12,11 @@ import com.tapwithus.sdk.TapSdkFactory;
 
 public class MainActivity extends AppCompatActivity {
     private TapSdk tapSdk;
-    private String tapIdentifier = "";
     private MyTapListener tapListener;
     private TextView connectionStatus;
+    private LinearLayout tapInputLayout, gyroscopeLayout, accelerometerLayout;
     private TextView thumbStatus, indexStatus, middleStatus, ringStatus, pinkyStatus, tapId, tapRepeatCount;
+    private TextView gyroX, gyroY, gyroZ;
 
 
     @Override
@@ -24,22 +26,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         initializeTapSdk();
     }
-
-//    @Override
-//    protected void onResume() {
-//        super.onResume();
-//        if (tapSdk != null) {
-//            tapSdk.resume();  // Switch TAP devices to Controller Mode
-//        }
-//    }
-//
-//    @Override
-//    protected void onPause() {
-//        super.onPause();
-//        if (tapSdk != null) {
-//            tapSdk.pause();  // Switch TAP devices back to Text Mode
-//        }
-//    }
 
     @Override
     protected void onDestroy() {
@@ -60,9 +46,11 @@ public class MainActivity extends AppCompatActivity {
                 connectionStatus.setText("Connecting");
             } else {
                 Toast.makeText(this, "Failed to initialize Tap SDK", Toast.LENGTH_SHORT).show();
+                Log.e("TAP", "Failed to initialize Tap SDK ");
             }
         } catch (Exception e) {
             Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_LONG).show();
+            Log.e("TAP", "Error: " + e.getMessage());
         }
     }
 
@@ -76,6 +64,14 @@ public class MainActivity extends AppCompatActivity {
         pinkyStatus = findViewById(R.id.pinkyStatus);
         tapId = findViewById(R.id.tapId);
         tapRepeatCount = findViewById(R.id.tapRepeatCount);
+
+        gyroX = findViewById(R.id.gyroX);
+        gyroY = findViewById(R.id.gyroY);
+        gyroZ = findViewById(R.id.gyroZ);
+
+        tapInputLayout = findViewById(R.id.tapInputLayout);
+        gyroscopeLayout = findViewById(R.id.gyroscopeLayout);
+        accelerometerLayout = findViewById(R.id.accelerometerLayout);
     }
 
     public void updateConnectionStatus(boolean connected) {
@@ -83,6 +79,14 @@ public class MainActivity extends AppCompatActivity {
             connectionStatus.setText(connected ? "Connected" : "Disconnected");
             connectionStatus.setTextColor(connected ? 0xFF22c55e : 0xFFC02F2F);
             connectionStatus.setBackgroundColor(connected ? 0xFFeefaf2 : 0xFFffe4e4);
+        });
+    }
+
+    public void updateMode(boolean[] modes) {
+        runOnUiThread(() -> {
+                tapInputLayout.setBackgroundColor(modes[0] ? 0xFFc9dbbd : 0xFFe1ebda);
+                gyroscopeLayout.setBackgroundColor(modes[1] ? 0xFFc9dbbd : 0xFFe1ebda);
+                accelerometerLayout.setBackgroundColor(modes[3] ? 0xFFc9dbbd : 0xFFe1ebda);
         });
     }
 
@@ -96,6 +100,14 @@ public class MainActivity extends AppCompatActivity {
 
             tapId.setText(Integer.toString(data));
             tapRepeatCount.setText(Integer.toString(repeatData));
+        });
+    }
+
+    public void updateGyro(double[] gyro) {
+        runOnUiThread(() -> {
+            gyroX.setText(String.valueOf(gyro[0]));
+            gyroY.setText(String.valueOf(gyro[1]));
+            gyroZ.setText(String.valueOf(gyro[2]));
         });
     }
 }

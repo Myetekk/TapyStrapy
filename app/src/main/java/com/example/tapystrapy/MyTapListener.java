@@ -61,11 +61,8 @@ public class MyTapListener implements TapListener {
 
     @Override
     public void onTapInputReceived(String tapIdentifier, int data, int repeatData) {
-        // Most important callback - receives tap input data
-        // data: 8-bit unsigned integer (1-31) representing finger combination
-        // repeatData: 1 for single tap, 2 for double, 3 for triple
 
-        boolean[] fingers = com.tapwithus.sdk.TapSdk.toFingers(data);
+        boolean[] fingers = TapSdk.toFingers(data);
 
         Log.d("TAP", "Tap received: " + data);
         Log.d("TAP", "Thumb: " + fingers[0]);
@@ -82,7 +79,7 @@ public class MyTapListener implements TapListener {
     @Override
     public void onTapShiftSwitchReceived(String tapIdentifier, int data) {
         // Receives shift and switch states
-        int[] shiftSwitch = com.tapwithus.sdk.TapSdk.toShiftAndSwitch(data);
+        int[] shiftSwitch = TapSdk.toShiftAndSwitch(data);
         int shiftState = shiftSwitch[0]; // 0=off, 1=on, 2=locked
         int switchState = shiftSwitch[1]; // 0=off, !0=on
 
@@ -113,6 +110,7 @@ public class MyTapListener implements TapListener {
             Point3 gyro = rsData.getPoint(RawSensorData.iIMU_GYRO);
             if (gyro != null && (Math.abs(gyro.x)>gyroThresholdInt || Math.abs(gyro.y) >gyroThresholdInt || Math.abs(gyro.z)>gyroThresholdInt)) {
                 Log.d("TAP", "Gyro - X: " + gyro.x + ", Y: " + gyro.y + ", Z: " + gyro.z);
+                mainActivity.updateGyro(new double[]{gyro.x, gyro.y, gyro.z});
             }
         }
     }
@@ -120,6 +118,12 @@ public class MyTapListener implements TapListener {
     @Override
     public void onTapChangedState(String tapIdentifier, int state) {
         // TAP device state changed
+        // 0- tap, 1- air mouse, 3- mouse
+        boolean[] modes = new boolean[4];
+        if (state == 0) modes = new boolean[] {true, false, false, false};
+        if (state == 1) modes = new boolean[] {false, true, false, false};
+        if (state == 3) modes = new boolean[] {false, false, false, true};
+        mainActivity.updateMode(modes);
     }
 
     @Override
