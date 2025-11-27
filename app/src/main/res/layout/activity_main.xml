@@ -43,6 +43,9 @@
                           android:orientation="vertical"
                           android:padding="15dp"
                           android:layout_marginBottom="10dp"
+                          android:focusable="true"
+                          android:clickable="true"
+                          android:onClick="changeMode_Tap"
                           android:background="#e1ebda">
                 <TextView android:layout_width="wrap_content"
                           android:layout_height="wrap_content"
@@ -195,6 +198,9 @@
                           android:orientation="vertical"
                           android:padding="15dp"
                           android:layout_marginBottom="10dp"
+                          android:focusable="true"
+                          android:clickable="true"
+                          android:onClick="changeMode_Gyro"
                           android:background="#e1ebda">
                 <TextView android:layout_width="wrap_content"
                           android:layout_height="wrap_content"
@@ -261,22 +267,6 @@
                 </LinearLayout>
 
             </LinearLayout>
-
-            <LinearLayout android:id="@+id/accelerometerLayout"
-                          android:layout_width="match_parent"
-                          android:layout_height="wrap_content"
-                          android:orientation="vertical"
-                          android:padding="15dp"
-                          android:layout_marginBottom="10dp"
-                          android:background="#e1ebda">
-                <TextView android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:text="Accelerometer"
-                          android:textSize="18sp"
-                          android:textStyle="bold"/>
-
-            </LinearLayout>
-
         </LinearLayout>
 
     </ScrollView>

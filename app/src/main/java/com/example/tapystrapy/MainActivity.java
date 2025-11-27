@@ -2,6 +2,7 @@ package com.example.tapystrapy;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -9,12 +10,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.tapwithus.sdk.TapSdk;
 import com.tapwithus.sdk.TapSdkFactory;
 
+import java.util.Set;
+
 
 public class MainActivity extends AppCompatActivity {
     private TapSdk tapSdk;
     private MyTapListener tapListener;
+    private String tapIdentifier;
     private TextView connectionStatus;
-    private LinearLayout tapInputLayout, gyroscopeLayout, accelerometerLayout;
+    private LinearLayout tapInputLayout, gyroscopeLayout;
     private TextView thumbStatus, indexStatus, middleStatus, ringStatus, pinkyStatus, tapId, tapRepeatCount;
     private TextView gyroX, gyroY, gyroZ;
 
@@ -25,6 +29,25 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
         initializeTapSdk();
+    }
+
+    public void onConnected() {
+        tapInputLayout.setFocusable(true);
+        tapInputLayout.setClickable(true);
+        gyroscopeLayout.setFocusable(true);
+        gyroscopeLayout.setClickable(true);
+
+//        tapSdk.startControllerMode(tapIdentifier);
+        updateMode(new boolean[] {true, false, false, false});
+    }
+
+    public void onDisconnected() {
+        tapInputLayout.setFocusable(false);
+        tapInputLayout.setClickable(false);
+        gyroscopeLayout.setFocusable(false);
+        gyroscopeLayout.setClickable(false);
+
+        updateMode(new boolean[] {false, false, false, false});
     }
 
     @Override
@@ -42,7 +65,8 @@ public class MainActivity extends AppCompatActivity {
             tapSdk = TapSdkFactory.getDefault(this);
             if (tapSdk != null) {
                 tapListener = new MyTapListener(tapSdk, this);
-                this.tapSdk.registerTapListener(tapListener);
+                tapSdk.registerTapListener(tapListener);
+//                tapSdk.disablePauseResumeHandling();
                 connectionStatus.setText("Connecting");
             } else {
                 Toast.makeText(this, "Failed to initialize Tap SDK", Toast.LENGTH_SHORT).show();
@@ -52,6 +76,10 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_LONG).show();
             Log.e("TAP", "Error: " + e.getMessage());
         }
+    }
+
+    public void setTapId(String tapIdentifier) {
+        this.tapIdentifier = tapIdentifier;
     }
 
     private void initializeUIElements() {
@@ -71,7 +99,6 @@ public class MainActivity extends AppCompatActivity {
 
         tapInputLayout = findViewById(R.id.tapInputLayout);
         gyroscopeLayout = findViewById(R.id.gyroscopeLayout);
-        accelerometerLayout = findViewById(R.id.accelerometerLayout);
     }
 
     public void updateConnectionStatus(boolean connected) {
@@ -86,7 +113,6 @@ public class MainActivity extends AppCompatActivity {
         runOnUiThread(() -> {
                 tapInputLayout.setBackgroundColor(modes[0] ? 0xFFc9dbbd : 0xFFe1ebda);
                 gyroscopeLayout.setBackgroundColor(modes[1] ? 0xFFc9dbbd : 0xFFe1ebda);
-                accelerometerLayout.setBackgroundColor(modes[3] ? 0xFFc9dbbd : 0xFFe1ebda);
         });
     }
 
@@ -109,5 +135,19 @@ public class MainActivity extends AppCompatActivity {
             gyroY.setText(String.valueOf(gyro[1]));
             gyroZ.setText(String.valueOf(gyro[2]));
         });
+    }
+
+
+
+    public void changeMode_Tap(View view) {
+        Log.d("TAPPP", "changeMode_Tap");
+        tapSdk.startControllerMode(tapIdentifier);
+        updateMode(new boolean[] {true, false, false, false});
+    }
+
+    public void changeMode_Gyro(View view) {
+        Log.d("TAPPP", "changeMode_Gyro");
+        tapSdk.startRawSensorMode(tapIdentifier, (byte)0, (byte)0, (byte)0);
+        updateMode(new boolean[] {false, true, false, false});
     }
 }

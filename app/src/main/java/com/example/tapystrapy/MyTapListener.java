@@ -7,11 +7,12 @@ import com.tapwithus.sdk.airmouse.AirMousePacket;
 import com.tapwithus.sdk.mode.Point3;
 import com.tapwithus.sdk.mode.RawSensorData;
 import com.tapwithus.sdk.mouse.MousePacket;
+import org.jetbrains.annotations.NotNull;
 
 public class MyTapListener implements TapListener {
     private final TapSdk tapSdk;
     private final MainActivity mainActivity;
-    private int gyroThresholdInt = 50000;
+    private int gyroThresholdInt = 20000;
 
     public MyTapListener(TapSdk tapSdk, MainActivity mainActivity) {
         this.tapSdk = tapSdk;
@@ -29,55 +30,58 @@ public class MyTapListener implements TapListener {
     }
 
     @Override
-    public void onTapStartConnecting(String tapIdentifier) {
+    public void onTapStartConnecting(@NotNull String tapIdentifier) {
         // TAP device is connecting
         Log.d("TAP", "TAP device " + tapIdentifier + " is connecting");
     }
 
     @Override
-    public void onTapConnected(String tapIdentifier) {
+    public void onTapConnected(@NotNull String tapIdentifier) {
         Log.d("TAP", "TAP connected: " + tapIdentifier);
         mainActivity.updateConnectionStatus(true);
+        mainActivity.setTapId(tapIdentifier);
+        mainActivity.onConnected();
 
 //        int[] vibrationPattern = {500, 100, 500, 100, 500};
 //        this.tapSdk.vibrate(tapIdentifier, vibrationPattern);
     }
 
     @Override
-    public void onTapDisconnected(String tapIdentifier) {
+    public void onTapDisconnected(@NotNull String tapIdentifier) {
         Log.d("TAP", "TAP device " + tapIdentifier + " disconnected");
         mainActivity.updateConnectionStatus(false);
+        mainActivity.onDisconnected();
     }
 
     @Override
-    public void onTapResumed(String tapIdentifier) {
+    public void onTapResumed(@NotNull String tapIdentifier) {
         // TAP device resumed (returned from background)
     }
 
     @Override
-    public void onTapChanged(String tapIdentifier) {
+    public void onTapChanged(@NotNull String tapIdentifier) {
         // TAP device changed
     }
 
     @Override
-    public void onTapInputReceived(String tapIdentifier, int data, int repeatData) {
-
+    public void onTapInputReceived(@NotNull String tapIdentifier, int data, int repeatData) {
         boolean[] fingers = TapSdk.toFingers(data);
 
-        Log.d("TAP", "Tap received: " + data);
-        Log.d("TAP", "Thumb: " + fingers[0]);
-        Log.d("TAP", "Index: " + fingers[1]);
-        Log.d("TAP", "Middle: " + fingers[2]);
-        Log.d("TAP", "Ring: " + fingers[3]);
-        Log.d("TAP", "Pinky: " + fingers[4]);
-        Log.d("TAP", "Repeat count: " + repeatData);
+//        Log.d("TAP", "Tap received: " + data);
+//        Log.d("TAP", "Thumb: " + fingers[0]);
+//        Log.d("TAP", "Index: " + fingers[1]);
+//        Log.d("TAP", "Middle: " + fingers[2]);
+//        Log.d("TAP", "Ring: " + fingers[3]);
+//        Log.d("TAP", "Pinky: " + fingers[4]);
+//        Log.d("TAP", "Repeat count: " + repeatData);
 
         mainActivity.updateFingerStatus(fingers, data, repeatData);
-        // nie łapie repeatData - zawsze daje 1
+        mainActivity.updateMode(new boolean[] {true, false, false, false});
+        Log.d("TAPPP", "onTapInputReceived | " + String.valueOf(data));
     }
 
     @Override
-    public void onTapShiftSwitchReceived(String tapIdentifier, int data) {
+    public void onTapShiftSwitchReceived(@NotNull String tapIdentifier, int data) {
         // Receives shift and switch states
         int[] shiftSwitch = TapSdk.toShiftAndSwitch(data);
         int shiftState = shiftSwitch[0]; // 0=off, 1=on, 2=locked
@@ -87,47 +91,44 @@ public class MyTapListener implements TapListener {
     }
 
     @Override
-    public void onMouseInputReceived(String tapIdentifier, MousePacket data) {
+    public void onMouseInputReceived(@NotNull String tapIdentifier, @NotNull MousePacket data) {
         // Receives mouse input if in Controller with Mouse HID mode
+//        tapSdk.startControllerWithMouseHIDMode(tapIdentifier);
+//        mainActivity.updateMode(new boolean[] {false, false, false, true});
+//        Log.d("TAPPP", "onMouseInputReceived | " + String.valueOf(data));
     }
 
     @Override
-    public void onAirMouseInputReceived(String tapIdentifier, AirMousePacket data) {
+    public void onAirMouseInputReceived(@NotNull String tapIdentifier, @NotNull AirMousePacket data) {
         tapSdk.startRawSensorMode(tapIdentifier, (byte)0, (byte)0, (byte)0);
+        mainActivity.updateMode(new boolean[] {false, true, false, false});
+        Log.d("TAPPP", "onAirMouseInputReceived | " + String.valueOf(data));
     }
 
     @Override
-    public void onRawSensorInputReceived(String tapIdentifier, RawSensorData rsData) {
+    public void onRawSensorInputReceived(@NotNull String tapIdentifier, RawSensorData rsData) {
+        // realnie podaje tylko żyro - dane dla 'thumb' są identyczne jak żyro
         // Receives raw sensor data from accelerometers and IMU
-        if (rsData.dataType == RawSensorData.DataType.Device) {
-            // Finger accelerometer data
-            Point3 thumb = rsData.getPoint(RawSensorData.iDEV_THUMB);
-            if (thumb != null) {
-                Log.d("TAP", "Thumb accel - X: " + thumb.x + ", Y: " + thumb.y + ", Z: " + thumb.z);
-            }
-        } else if (rsData.dataType == RawSensorData.DataType.IMU) {
-            // IMU data from thumb sensor
-            Point3 gyro = rsData.getPoint(RawSensorData.iIMU_GYRO);
-            if (gyro != null && (Math.abs(gyro.x)>gyroThresholdInt || Math.abs(gyro.y) >gyroThresholdInt || Math.abs(gyro.z)>gyroThresholdInt)) {
-                Log.d("TAP", "Gyro - X: " + gyro.x + ", Y: " + gyro.y + ", Z: " + gyro.z);
-                mainActivity.updateGyro(new double[]{gyro.x, gyro.y, gyro.z});
-            }
+
+        Point3 gyro = rsData.getPoint(RawSensorData.iIMU_GYRO);
+        if (gyro != null && (Math.abs(gyro.x)>gyroThresholdInt || Math.abs(gyro.y) >gyroThresholdInt || Math.abs(gyro.z)>gyroThresholdInt)) {
+            Log.d("TAP", "Gyro - X: " + gyro.x + ", Y: " + gyro.y + ", Z: " + gyro.z);
+            mainActivity.updateGyro(new double[]{gyro.x, gyro.y, gyro.z});
         }
     }
 
     @Override
-    public void onTapChangedState(String tapIdentifier, int state) {
+    public void onTapChangedState(@NotNull String tapIdentifier, int state) {
         // TAP device state changed
         // 0- tap, 1- air mouse, 3- mouse
         boolean[] modes = new boolean[4];
         if (state == 0) modes = new boolean[] {true, false, false, false};
         if (state == 1) modes = new boolean[] {false, true, false, false};
-        if (state == 3) modes = new boolean[] {false, false, false, true};
         mainActivity.updateMode(modes);
     }
 
     @Override
-    public void onError(String tapIdentifier, int code, String description) {
+    public void onError(@NotNull String tapIdentifier, int code, @NotNull String description) {
         // Handle errors
         Log.e("TAP", "Error for device " + tapIdentifier + ": " + description);
     }
