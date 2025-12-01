@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:padding="15dp"
+              android:background="#f3f7f0">
+
+    <FrameLayout android:layout_width="match_parent"
+                 android:layout_height="60dp"
+                 android:padding="15dp"
+                 android:background="#ebf2e6">
+        <FrameLayout android:layout_width="match_parent"
+                     android:layout_height="match_parent">
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="match_parent">
+                <ImageView android:layout_width="30dp"
+                           android:layout_height="match_parent"
+                           android:layout_marginEnd="5dp"
+                           android:src="@drawable/tapstrap_icon"
+                           android:clickable="true"
+                           android:focusable="true"
+                           android:onClick="changeViewToMain"/>
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="Tap Strap"
+                          android:textSize="24sp"
+                          android:textStyle="bold"
+                          android:textColor="@color/black"
+                          android:clickable="true"
+                          android:focusable="true"
+                          android:onClick="changeViewToMain"/>
+            </LinearLayout>
+        </FrameLayout>
+    </FrameLayout>
+
+</LinearLayout>

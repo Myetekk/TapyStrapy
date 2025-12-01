@@ -7,25 +7,37 @@
               android:background="#f3f7f0">
 
     <FrameLayout android:layout_width="match_parent"
-                 android:layout_height="wrap_content"
+                 android:layout_height="60dp"
                  android:padding="15dp"
-                 android:background="#eff5eb">
-        <TextView android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:text="Tap Strap"
-                  android:textSize="24sp"
-                  android:textStyle="bold"
-                  android:textColor="@color/black"/>
-        <TextView android:id="@+id/connectionStatus" android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:layout_gravity="end"
-                  android:text="Disconnected"
-                  android:textSize="12sp"
-                  android:paddingHorizontal="12dp"
-                  android:paddingVertical="8dp"
-                  android:textColor="#c02f2f"
-                  android:background="#ffe4e4"/>
+                 android:background="#ebf2e6">
+        <FrameLayout android:layout_width="match_parent"
+                     android:layout_height="match_parent">
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="match_parent">
+                <ImageView android:layout_width="30dp"
+                           android:layout_height="match_parent"
+                           android:layout_marginEnd="5dp"
+                           android:src="@drawable/tapstrap_icon"/>
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="Tap Strap"
+                          android:textSize="24sp"
+                          android:textStyle="bold"
+                          android:textColor="@color/black"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="match_parent"
+                          android:layout_gravity="end">
+                <ImageView android:layout_width="30dp"
+                           android:layout_height="match_parent"
+                           android:src="@drawable/settings_icon"
+                           android:clickable="true"
+                           android:focusable="true"
+                           android:onClick="changeViewToSettings"/>
+            </LinearLayout>
+        </FrameLayout>
     </FrameLayout>
+
 
 
     <ScrollView android:layout_width="match_parent"
@@ -37,9 +49,21 @@
                       android:orientation="vertical"
                       android:spacing="15dp">
 
+            <TextView android:id="@+id/connectionStatus"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:gravity="center"
+                      android:text="Disconnected"
+                      android:textSize="12sp"
+                      android:paddingHorizontal="12dp"
+                      android:paddingVertical="8dp"
+                      android:textColor="#c02f2f"
+                      android:background="#ffe4e4"/>
+
             <LinearLayout android:id="@+id/tapInputLayout"
                           android:layout_width="match_parent"
                           android:layout_height="wrap_content"
+                          android:layout_marginTop="15dp"
                           android:orientation="vertical"
                           android:padding="15dp"
                           android:layout_marginBottom="10dp"
