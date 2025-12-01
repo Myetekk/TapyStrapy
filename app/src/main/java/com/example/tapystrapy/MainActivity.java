@@ -1,6 +1,8 @@
 package com.example.tapystrapy;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -17,10 +19,30 @@ public class MainActivity extends AppCompatActivity {
     private TapSdk tapSdk;
     private MyTapListener tapListener;
     private String tapIdentifier;
+    private static final int inactivityTimeout = 3000;
     private TextView connectionStatus;
     private LinearLayout tapInputLayout, gyroscopeLayout;
     private TextView thumbStatus, indexStatus, middleStatus, ringStatus, pinkyStatus, tapId, tapRepeatCount;
     private TextView gyroX, gyroY, gyroZ;
+
+
+    private final Handler inactivityHandler = new Handler(Looper.getMainLooper());
+    private final Runnable resetRunnable = new Runnable() {
+        @Override
+        public void run() {
+            thumbStatus.setText("—");
+            indexStatus.setText("—");
+            middleStatus.setText("—");
+            ringStatus.setText("—");
+            pinkyStatus.setText("—");
+            tapId.setText("—");
+            tapRepeatCount.setText("—");
+
+            gyroX.setText("—");
+            gyroY.setText("—");
+            gyroZ.setText("—");
+        }
+    };
 
 
     @Override
@@ -37,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
         gyroscopeLayout.setFocusable(true);
         gyroscopeLayout.setClickable(true);
 
-//        tapSdk.startControllerMode(tapIdentifier);
         updateMode(new boolean[] {true, false, false, false});
     }
 
@@ -53,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        inactivityHandler.removeCallbacks(resetRunnable);
         if (tapSdk != null) {
             tapSdk.unregisterTapListener(tapListener);
         }
@@ -127,6 +149,9 @@ public class MainActivity extends AppCompatActivity {
             tapId.setText(Integer.toString(data));
             tapRepeatCount.setText(Integer.toString(repeatData));
         });
+
+        inactivityHandler.removeCallbacks(resetRunnable);
+        inactivityHandler.postDelayed(resetRunnable, inactivityTimeout);
     }
 
     public void updateGyro(double[] gyro) {
@@ -135,6 +160,9 @@ public class MainActivity extends AppCompatActivity {
             gyroY.setText(String.valueOf(gyro[1]));
             gyroZ.setText(String.valueOf(gyro[2]));
         });
+
+        inactivityHandler.removeCallbacks(resetRunnable);
+        inactivityHandler.postDelayed(resetRunnable, inactivityTimeout);
     }
 
 

@@ -12,7 +12,7 @@ import org.jetbrains.annotations.NotNull;
 public class MyTapListener implements TapListener {
     private final TapSdk tapSdk;
     private final MainActivity mainActivity;
-    private int gyroThresholdInt = 20000;
+    private int gyroThresholdInt = 50000;
 
     public MyTapListener(TapSdk tapSdk, MainActivity mainActivity) {
         this.tapSdk = tapSdk;
@@ -41,9 +41,6 @@ public class MyTapListener implements TapListener {
         mainActivity.updateConnectionStatus(true);
         mainActivity.setTapId(tapIdentifier);
         mainActivity.onConnected();
-
-//        int[] vibrationPattern = {500, 100, 500, 100, 500};
-//        this.tapSdk.vibrate(tapIdentifier, vibrationPattern);
     }
 
     @Override
@@ -107,7 +104,6 @@ public class MyTapListener implements TapListener {
 
     @Override
     public void onRawSensorInputReceived(@NotNull String tapIdentifier, RawSensorData rsData) {
-        // realnie podaje tylko żyro - dane dla 'thumb' są identyczne jak żyro
         // Receives raw sensor data from accelerometers and IMU
 
         Point3 gyro = rsData.getPoint(RawSensorData.iIMU_GYRO);
