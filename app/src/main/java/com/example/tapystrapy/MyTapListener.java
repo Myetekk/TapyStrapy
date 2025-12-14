@@ -11,10 +11,10 @@ import org.jetbrains.annotations.NotNull;
 
 public class MyTapListener implements TapListener {
     private final TapSdk tapSdk;
-    private final MainActivity mainActivity;
+    private final DebugActivity mainActivity;
     private int gyroThresholdInt = 50000;
 
-    public MyTapListener(TapSdk tapSdk, MainActivity mainActivity) {
+    public MyTapListener(TapSdk tapSdk, DebugActivity mainActivity) {
         this.tapSdk = tapSdk;
         this.mainActivity = mainActivity;
     }
@@ -63,14 +63,6 @@ public class MyTapListener implements TapListener {
     @Override
     public void onTapInputReceived(@NotNull String tapIdentifier, int data, int repeatData) {
         boolean[] fingers = TapSdk.toFingers(data);
-
-//        Log.d("TAP", "Tap received: " + data);
-//        Log.d("TAP", "Thumb: " + fingers[0]);
-//        Log.d("TAP", "Index: " + fingers[1]);
-//        Log.d("TAP", "Middle: " + fingers[2]);
-//        Log.d("TAP", "Ring: " + fingers[3]);
-//        Log.d("TAP", "Pinky: " + fingers[4]);
-//        Log.d("TAP", "Repeat count: " + repeatData);
 
         mainActivity.updateFingerStatus(fingers, data, repeatData);
         mainActivity.updateMode(new boolean[] {true, false, false, false});

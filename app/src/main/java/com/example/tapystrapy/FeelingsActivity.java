@@ -1,10 +1,10 @@
 package com.example.tapystrapy;
 
 import android.os.Bundle;
-import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class SettingsActivity extends AppCompatActivity {
+public class FeelingsActivity extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -12,6 +12,6 @@ public class SettingsActivity extends AppCompatActivity {
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
         }
-        setContentView(R.layout.activity_settings);
+        setContentView(R.layout.activity_feelings);
     }
 }
