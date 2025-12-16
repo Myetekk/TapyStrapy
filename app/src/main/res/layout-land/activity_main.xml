@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:fillViewport="true"
+              android:padding="20dp">
+
+    <HorizontalScrollView android:layout_width="match_parent"
+                          android:layout_height="match_parent">
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:orientation="horizontal">
+
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="match_parent"
+                          android:orientation="vertical"
+                          android:layout_marginEnd="10dp"
+                          android:paddingHorizontal="10dp"
+                          android:paddingVertical="40dp"
+                          android:background="@color/almost_white"
+                          android:focusable="true"
+                          android:clickable="true"
+                          android:onClick="changeViewToFeelings">
+                <LinearLayout android:layout_width="wrap_content"
+                              android:layout_height="match_parent"
+                              android:layout_weight="5">
+                    <ImageView android:layout_width="match_parent"
+                               android:layout_height="match_parent"
+                               android:scaleType="centerCrop"
+                               android:adjustViewBounds="true"
+                               android:src="@drawable/emote_happy_1"/>
+                </LinearLayout>
+                <TextView android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_weight="1"
+                          android:gravity="center"
+                          android:text="Co czuję"
+                          android:textSize="20sp"/>
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="match_parent"
+                          android:orientation="vertical"
+                          android:layout_marginEnd="10dp"
+                          android:paddingHorizontal="10dp"
+                          android:paddingVertical="40dp"
+                          android:background="@color/almost_white"
+                          android:focusable="true"
+                          android:clickable="true"
+                          android:onClick="changeViewToActivities">
+                <LinearLayout android:layout_width="wrap_content"
+                              android:layout_height="match_parent"
+                              android:layout_weight="5">
+                    <ImageView android:layout_width="match_parent"
+                               android:layout_height="match_parent"
+                               android:scaleType="centerCrop"
+                               android:adjustViewBounds="true"
+                               android:src="@drawable/emote_eating_1"/>
+                </LinearLayout>
+                <TextView android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:gravity="center"
+                          android:text="Co chcę"
+                          android:textSize="20sp"/>
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="match_parent"
+                          android:orientation="vertical"
+                          android:layout_marginEnd="10dp"
+                          android:paddingHorizontal="10dp"
+                          android:paddingVertical="40dp"
+                          android:background="@color/almost_white"
+                          android:focusable="true"
+                          android:clickable="true"
+                          android:onClick="changeViewToPain">
+                <LinearLayout android:layout_width="wrap_content"
+                              android:layout_height="match_parent"
+                              android:layout_weight="5">
+                    <ImageView android:layout_width="match_parent"
+                               android:layout_height="match_parent"
+                               android:scaleType="centerCrop"
+                               android:adjustViewBounds="true"
+                               android:src="@drawable/emote_pain_1"/>
+                </LinearLayout>
+                <TextView android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:gravity="center"
+                          android:text="Co boli"
+                          android:textSize="20sp"/>
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="match_parent"
+                          android:orientation="vertical"
+                          android:paddingHorizontal="10dp"
+                          android:paddingVertical="40dp"
+                          android:background="@color/almost_white"
+                          android:focusable="true"
+                          android:clickable="true"
+                          android:onClick="changeViewToSettings">
+                <LinearLayout android:layout_width="wrap_content"
+                              android:layout_height="match_parent"
+                              android:layout_weight="5">
+                    <ImageView android:layout_width="match_parent"
+                               android:layout_height="match_parent"
+                               android:scaleType="centerCrop"
+                               android:adjustViewBounds="true"
+                               android:src="@drawable/settings_icon"/>
+                </LinearLayout>
+                <TextView android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:gravity="center"
+                          android:text="Ustawienia"
+                          android:textSize="20sp"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+</LinearLayout>
