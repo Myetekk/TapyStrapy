@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:padding="5dp">
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:orientation="vertical"
+                  android:baselineAligned="false" >
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:orientation="vertical"
+                      android:baselineAligned="false"
+                      android:layout_weight="1"
+                      android:layout_margin="3dp"
+                      android:padding="5dp"
+                      android:background="@color/almost_white">
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_weight="1"
+                          android:layout_gravity="center"
+                          android:gravity="center">
+                <TextView android:layout_width="match_parent"
+                          android:layout_height="70dp"
+                          android:gravity="center"
+                          android:text="Czy to twój wybór?"
+                          android:textSize="50sp"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="match_parent"
+                          android:layout_weight="5"
+                          android:padding="20dp"
+                          android:layout_gravity="center"
+                          android:gravity="center">
+                <ImageView android:id="@+id/confirmationFeelingImage"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:scaleType="centerCrop"
+                           android:adjustViewBounds="true"
+                           android:src="@drawable/tapstrap_icon"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:orientation="horizontal"
+                      android:baselineAligned="false"
+                      android:layout_weight="2"
+                      android:padding="1dp"
+                      android:background="@color/gray">
+
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="match_parent"
+                          android:orientation="horizontal"
+                          android:layout_weight="1"
+                          android:padding="5dp"
+                          android:background="@color/almost_white"
+                          android:layout_gravity="center"
+                          android:gravity="center">
+                <TextView android:layout_width="match_parent"
+                          android:layout_height="match_parent"
+                          android:layout_marginBottom="3dp"
+                          android:gravity="center"
+                          android:text="TAK"
+                          android:textSize="70sp"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="60dp"
+                          android:layout_height="match_parent"
+                          android:orientation="horizontal"
+                          android:layout_marginHorizontal="1dp"
+                          android:background="@color/selected_item">
+
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="match_parent"
+                          android:orientation="horizontal"
+                          android:layout_weight="1"
+                          android:padding="5dp"
+                          android:background="@color/almost_white">
+                <TextView android:layout_width="match_parent"
+                          android:layout_height="match_parent"
+                          android:layout_marginBottom="3dp"
+                          android:gravity="center"
+                          android:text="NIE"
+                          android:textSize="70sp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

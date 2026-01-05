@@ -1,5 +1,6 @@
 package com.example.tapystrapy;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -20,26 +21,18 @@ public class FeelingsActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
     }
-    public void changeViewToMain(View view) {
-        finish();
-    }
 
-    public void chooseHappy(View view) {
-        Log.d("TAPPP", "chooseHappy");
-    }
-    public void chooseSad(View view) {
-        Log.d("TAPPP", "chooseSad");
-    }
-    public void chooseFeared(View view) {
-        Log.d("TAPPP", "chooseFeared");
-    }
-    public void chooseAngry(View view) {
-        Log.d("TAPPP", "chooseAngry");
-    }
-    public void choosePain(View view) {
-        Log.d("TAPPP", "choosePain");
-    }
-    public void chooseTired(View view) {
-        Log.d("TAPPP", "chooseTired");
+
+
+    public void changeViewToConfirmation(View view) {
+        try {
+            String emotion = (String) view.getTag();
+            Intent intent = new Intent(this, ConfirmationActivity.class);
+            intent.putExtra("EMOTION", emotion);
+            startActivity(intent);
+        }
+        catch (Exception e) {
+            Log.e("TAPPP", "Exception: "+e);
+        }
     }
 }
