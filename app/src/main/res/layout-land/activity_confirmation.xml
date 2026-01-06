@@ -34,11 +34,12 @@
                           android:padding="5dp"
                           android:layout_gravity="center"
                           android:gravity="center">
-                <ImageView android:layout_width="wrap_content"
+                <ImageView android:id="@+id/confirmationFeelingImage"
+                           android:layout_width="wrap_content"
                            android:layout_height="match_parent"
                            android:scaleType="centerCrop"
                            android:adjustViewBounds="true"
-                           android:src="@drawable/emote_happy_1"/>
+                           android:src="@drawable/tapstrap_icon"/>
             </LinearLayout>
         </LinearLayout>
 
@@ -57,7 +58,10 @@
                           android:padding="5dp"
                           android:background="@color/almost_white"
                           android:layout_gravity="center"
-                          android:gravity="center">
+                          android:gravity="center"
+                          android:focusable="true"
+                          android:clickable="true"
+                          android:onClick="changeView_Confirm_EmotionLevel">
                 <TextView android:layout_width="match_parent"
                           android:layout_height="match_parent"
                           android:layout_marginBottom="3dp"
@@ -77,7 +81,12 @@
                           android:orientation="horizontal"
                           android:layout_weight="1"
                           android:padding="5dp"
-                          android:background="@color/almost_white">
+                          android:background="@color/almost_white"
+                          android:layout_gravity="center"
+                          android:gravity="center"
+                          android:focusable="true"
+                          android:clickable="true"
+                          android:onClick="changeView_Confirm_Feelings">
                 <TextView android:layout_width="match_parent"
                           android:layout_height="match_parent"
                           android:layout_marginBottom="3dp"

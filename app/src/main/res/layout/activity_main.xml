@@ -18,7 +18,7 @@
                           android:background="@color/almost_white"
                           android:focusable="true"
                           android:clickable="true"
-                          android:onClick="changeViewToFeelings">
+                          android:onClick="changeView_Main_Feelings">
                 <LinearLayout android:layout_width="wrap_content"
                               android:layout_height="match_parent"
                               android:layout_weight="5"
@@ -53,7 +53,7 @@
                           android:background="@color/almost_white"
                           android:focusable="true"
                           android:clickable="true"
-                          android:onClick="changeViewToActivities">
+                          android:onClick="changeView_Main_Activities">
 
                 <LinearLayout android:layout_width="wrap_content"
                               android:layout_height="match_parent"
@@ -88,8 +88,8 @@
                           android:padding="5dp"
                           android:background="@color/almost_white"
                           android:focusable="true"
-                      android:clickable="true"
-                      android:onClick="changeViewToPain">
+                          android:clickable="true"
+                          android:onClick="changeView_Main_Pain">
 
                 <LinearLayout android:layout_width="wrap_content"
                               android:layout_height="match_parent"

@@ -20,7 +20,7 @@
                       android:background="@color/almost_white"
                       android:focusable="true"
                       android:clickable="true"
-                      android:onClick="changeViewToConfirmation"
+                      android:onClick="changeView_Feelings_Confirmation"
                       android:tag="emotion_happy">
             <LinearLayout android:layout_width="wrap_content"
                           android:layout_height="match_parent"
@@ -56,7 +56,7 @@
                       android:background="@color/almost_white"
                       android:focusable="true"
                       android:clickable="true"
-                      android:onClick="changeViewToConfirmation"
+                      android:onClick="changeView_Feelings_Confirmation"
                       android:tag="emotion_sad">
             <LinearLayout android:layout_width="wrap_content"
                           android:layout_height="match_parent"
@@ -92,7 +92,7 @@
                       android:background="@color/almost_white"
                       android:focusable="true"
                       android:clickable="true"
-                      android:onClick="changeViewToConfirmation"
+                      android:onClick="changeView_Feelings_Confirmation"
                       android:tag="emotion_fear">
             <LinearLayout android:layout_width="wrap_content"
                           android:layout_height="match_parent"
@@ -137,7 +137,7 @@
                       android:background="@color/almost_white"
                       android:focusable="true"
                       android:clickable="true"
-                      android:onClick="changeViewToConfirmation"
+                      android:onClick="changeView_Feelings_Confirmation"
                       android:tag="emotion_angry">
             <LinearLayout android:layout_width="wrap_content"
                           android:layout_height="match_parent"
@@ -173,7 +173,7 @@
                       android:background="@color/almost_white"
                       android:focusable="true"
                       android:clickable="true"
-                      android:onClick="changeViewToConfirmation"
+                      android:onClick="changeView_Feelings_Confirmation"
                       android:tag="emotion_pain">
             <LinearLayout android:layout_width="wrap_content"
                           android:layout_height="match_parent"
@@ -209,7 +209,7 @@
                       android:background="@color/almost_white"
                       android:focusable="true"
                       android:clickable="true"
-                      android:onClick="changeViewToConfirmation"
+                      android:onClick="changeView_Feelings_Confirmation"
                       android:tag="emotion_tired">
             <LinearLayout android:layout_width="wrap_content"
                           android:layout_height="match_parent"

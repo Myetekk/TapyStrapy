@@ -11,28 +11,15 @@ public class FeelingsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().hide();
-        }
         setContentView(R.layout.activity_feelings);
     }
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-    }
 
 
 
-    public void changeViewToConfirmation(View view) {
-        try {
-            String emotion = (String) view.getTag();
-            Intent intent = new Intent(this, ConfirmationActivity.class);
-            intent.putExtra("EMOTION", emotion);
-            startActivity(intent);
-        }
-        catch (Exception e) {
-            Log.e("TAPPP", "Exception: "+e);
-        }
+    public void changeView_Feelings_Confirmation(View view) {
+        String emotion = (String) view.getTag();
+        Intent intent = new Intent(this, ConfirmationActivity.class);
+        intent.putExtra("EMOTION", emotion);
+        startActivity(intent);
     }
 }

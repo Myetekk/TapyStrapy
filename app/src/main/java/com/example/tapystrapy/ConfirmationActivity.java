@@ -3,28 +3,32 @@ package com.example.tapystrapy;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ConfirmationActivity  extends AppCompatActivity {
     private ImageView confirmationFeelingImage;
+    String emotion;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_confirmation);
-        Intent intent = getIntent();
-        String emotion = intent.getStringExtra("EMOTION");
         initializeUIElements();
-        setEmotion(emotion);
+
+        Intent intent = getIntent();
+        emotion = intent.getStringExtra("EMOTION");
+        setEmotionImage();
     }
 
     private void initializeUIElements() {
         confirmationFeelingImage = findViewById(R.id.confirmationFeelingImage);
     }
 
-    private void setEmotion(String emotion) {
+    private void setEmotionImage() {
         try {
             switch (emotion) {
                 case "emotion_happy": confirmationFeelingImage.setImageResource(R.drawable.emote_happy_1); break;
@@ -39,5 +43,14 @@ public class ConfirmationActivity  extends AppCompatActivity {
         catch (Exception e) {
             Log.e("TAPPP", "Exception: "+e);
         }
+    }
+
+    public void changeView_Confirm_EmotionLevel(View view) {
+        Intent intent = new Intent(this, EmotionLevel.class);
+        startActivity(intent);
+    }
+
+    public void changeView_Confirm_Feelings(View view) {
+        finish();
     }
 }

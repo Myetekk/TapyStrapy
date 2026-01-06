@@ -18,19 +18,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void changeViewToFeelings(View view) {
+    public void changeView_Main_Feelings(View view) {
         Intent intent = new Intent(this, FeelingsActivity.class);
         startActivity(intent);
     }
-    public void changeViewToActivities(View view) {
+    public void changeView_Main_Activities(View view) {
         Intent intent = new Intent(this, ActivitiesActivity.class);
         startActivity(intent);
     }
-    public void changeViewToPain(View view) {
+    public void changeView_Main_Pain(View view) {
         Intent intent = new Intent(this, PainActivity.class);
         startActivity(intent);
     }
-    public void changeViewToSettings(View view) {
+    public void changeView_Main_Settings(View view) {
         Intent intent = new Intent(this, SettingsActivity.class);
         startActivity(intent);
     }
