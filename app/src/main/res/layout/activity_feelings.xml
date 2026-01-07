@@ -21,7 +21,7 @@
                       android:focusable="true"
                       android:clickable="true"
                       android:onClick="changeView_Feelings_Confirmation"
-                      android:tag="emotion_happy">
+                      android:tag="emotion_happy_1">
             <LinearLayout android:layout_width="wrap_content"
                           android:layout_height="match_parent"
                           android:layout_weight="5"
@@ -39,11 +39,12 @@
                           android:layout_gravity="center"
                           android:gravity="center">
                 <TextView android:layout_width="match_parent"
-                          android:layout_height="40sp"
+                          android:layout_height="wrap_content"
+                          android:minHeight="44dp"
                           android:layout_marginBottom="3dp"
                           android:gravity="center"
                           android:text="Radość"
-                          android:textSize="30sp"/>
+                          android:textSize="28sp"/>
             </LinearLayout>
         </LinearLayout>
 
@@ -57,7 +58,7 @@
                       android:focusable="true"
                       android:clickable="true"
                       android:onClick="changeView_Feelings_Confirmation"
-                      android:tag="emotion_sad">
+                      android:tag="emotion_sad_1">
             <LinearLayout android:layout_width="wrap_content"
                           android:layout_height="match_parent"
                           android:layout_weight="5"
@@ -75,11 +76,12 @@
                           android:layout_gravity="center"
                           android:gravity="center">
                 <TextView android:layout_width="match_parent"
-                          android:layout_height="40sp"
+                          android:layout_height="wrap_content"
+                          android:minHeight="44dp"
                           android:layout_marginBottom="3dp"
                           android:gravity="center"
                           android:text="Smutek"
-                          android:textSize="30sp"/>
+                          android:textSize="28sp"/>
             </LinearLayout>
         </LinearLayout>
 
@@ -93,7 +95,7 @@
                       android:focusable="true"
                       android:clickable="true"
                       android:onClick="changeView_Feelings_Confirmation"
-                      android:tag="emotion_fear">
+                      android:tag="emotion_fear_1">
             <LinearLayout android:layout_width="wrap_content"
                           android:layout_height="match_parent"
                           android:layout_weight="5"
@@ -111,11 +113,12 @@
                           android:layout_gravity="center"
                           android:gravity="center">
                 <TextView android:layout_width="match_parent"
-                          android:layout_height="40sp"
+                          android:layout_height="wrap_content"
+                          android:minHeight="44dp"
                           android:layout_marginBottom="3dp"
                           android:gravity="center"
                           android:text="Strach"
-                          android:textSize="30sp"/>
+                          android:textSize="28sp"/>
             </LinearLayout>
         </LinearLayout>
 
@@ -138,7 +141,7 @@
                       android:focusable="true"
                       android:clickable="true"
                       android:onClick="changeView_Feelings_Confirmation"
-                      android:tag="emotion_angry">
+                      android:tag="emotion_angry_1">
             <LinearLayout android:layout_width="wrap_content"
                           android:layout_height="match_parent"
                           android:layout_weight="5"
@@ -156,11 +159,12 @@
                           android:layout_gravity="center"
                           android:gravity="center">
                 <TextView android:layout_width="match_parent"
-                          android:layout_height="40sp"
+                          android:layout_height="wrap_content"
+                          android:minHeight="44dp"
                           android:layout_marginBottom="3dp"
                           android:gravity="center"
                           android:text="Złość"
-                          android:textSize="30sp"/>
+                          android:textSize="28sp"/>
             </LinearLayout>
         </LinearLayout>
 
@@ -174,7 +178,7 @@
                       android:focusable="true"
                       android:clickable="true"
                       android:onClick="changeView_Feelings_Confirmation"
-                      android:tag="emotion_pain">
+                      android:tag="emotion_pain_1">
             <LinearLayout android:layout_width="wrap_content"
                           android:layout_height="match_parent"
                           android:layout_weight="5"
@@ -192,11 +196,12 @@
                           android:layout_gravity="center"
                           android:gravity="center">
                 <TextView android:layout_width="match_parent"
-                          android:layout_height="40sp"
+                          android:layout_height="wrap_content"
+                          android:minHeight="44dp"
                           android:layout_marginBottom="3dp"
                           android:gravity="center"
                           android:text="Ból"
-                          android:textSize="30sp"/>
+                          android:textSize="28sp"/>
             </LinearLayout>
         </LinearLayout>
 
@@ -210,7 +215,7 @@
                       android:focusable="true"
                       android:clickable="true"
                       android:onClick="changeView_Feelings_Confirmation"
-                      android:tag="emotion_tired">
+                      android:tag="emotion_tired_1">
             <LinearLayout android:layout_width="wrap_content"
                           android:layout_height="match_parent"
                           android:layout_weight="5"
@@ -228,11 +233,12 @@
                           android:layout_gravity="center"
                           android:gravity="center">
                 <TextView android:layout_width="match_parent"
-                          android:layout_height="40sp"
+                          android:layout_height="wrap_content"
+                          android:minHeight="44dp"
                           android:layout_marginBottom="3dp"
                           android:gravity="center"
                           android:text="Zmęczenie"
-                          android:textSize="30sp"/>
+                          android:textSize="28sp"/>
             </LinearLayout>
         </LinearLayout>
 

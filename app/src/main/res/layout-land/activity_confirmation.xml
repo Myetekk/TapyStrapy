@@ -23,7 +23,8 @@
                           android:layout_gravity="center"
                           android:gravity="center">
                 <TextView android:layout_width="match_parent"
-                          android:layout_height="55dp"
+                          android:layout_height="wrap_content"
+                          android:minHeight="70dp"
                           android:gravity="center"
                           android:text="Czy to twój wybór?"
                           android:textSize="40sp"/>
@@ -34,7 +35,7 @@
                           android:padding="5dp"
                           android:layout_gravity="center"
                           android:gravity="center">
-                <ImageView android:id="@+id/confirmationFeelingImage"
+                <ImageView android:id="@+id/confirmationImage_land"
                            android:layout_width="wrap_content"
                            android:layout_height="match_parent"
                            android:scaleType="centerCrop"
@@ -61,7 +62,7 @@
                           android:gravity="center"
                           android:focusable="true"
                           android:clickable="true"
-                          android:onClick="changeView_Confirm_EmotionLevel">
+                          android:onClick="confirmationAnswerYes_click">
                 <TextView android:layout_width="match_parent"
                           android:layout_height="match_parent"
                           android:layout_marginBottom="3dp"
@@ -86,7 +87,7 @@
                           android:gravity="center"
                           android:focusable="true"
                           android:clickable="true"
-                          android:onClick="changeView_Confirm_Feelings">
+                          android:onClick="confirmationAnswerNo_click">
                 <TextView android:layout_width="match_parent"
                           android:layout_height="match_parent"
                           android:layout_marginBottom="3dp"
