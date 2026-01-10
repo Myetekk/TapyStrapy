@@ -30,8 +30,4 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, PainActivity.class);
         startActivity(intent);
     }
-    public void changeView_Main_Settings(View view) {
-        Intent intent = new Intent(this, SettingsActivity.class);
-        startActivity(intent);
-    }
 }
