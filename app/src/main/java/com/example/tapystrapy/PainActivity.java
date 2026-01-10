@@ -1,6 +1,7 @@
 package com.example.tapystrapy;
 
 import android.os.Bundle;
+import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class PainActivity extends AppCompatActivity {
@@ -13,5 +14,9 @@ public class PainActivity extends AppCompatActivity {
             getSupportActionBar().hide();
         }
         setContentView(R.layout.activity_pain);
+    }
+
+    public void temp(View view) {
+
     }
 }

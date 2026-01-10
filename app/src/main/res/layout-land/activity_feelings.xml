@@ -217,12 +217,12 @@
                       android:onClick="changeView_Feelings_Confirmation"
                       android:tag="emotion_tired_1">
             <LinearLayout android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
+                          android:layout_height="match_parent"
                           android:layout_weight="5"
                           android:layout_gravity="center"
                           android:gravity="center">
                 <ImageView android:layout_width="match_parent"
-                           android:layout_height="match_parent"
+                           android:layout_height="wrap_content"
                            android:scaleType="centerCrop"
                            android:adjustViewBounds="true"
                            android:src="@drawable/emote_tired_1"/>

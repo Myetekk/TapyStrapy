@@ -40,7 +40,7 @@
                            android:layout_height="match_parent"
                            android:scaleType="centerCrop"
                            android:adjustViewBounds="true"
-                           android:src="@drawable/tapstrap_icon"/>
+                           android:src="@drawable/icon_image"/>
             </LinearLayout>
         </LinearLayout>
 

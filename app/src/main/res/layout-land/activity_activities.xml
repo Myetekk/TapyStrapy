@@ -1,12 +1,236 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_height="match_parent"
+              android:orientation="horizontal"
+              android:padding="5dp">
 
-    <TextView android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:gravity="center"
-              android:text="Co chcę"
-              android:textSize="20sp"/>
+
+
+    <LinearLayout android:layout_width="wrap_content"
+                  android:layout_height="match_parent"
+                  android:orientation="horizontal"
+                  android:layout_weight="1"
+                  android:layout_gravity="center">
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:orientation="vertical"
+                      android:layout_weight="1"
+                      android:layout_margin="3dp"
+                      android:padding="5dp"
+                      android:background="@color/almost_white"
+                      android:focusable="true"
+                      android:clickable="true"
+                      android:onClick="temp"
+                      android:tag="temp">
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="match_parent"
+                          android:layout_weight="5"
+                          android:layout_gravity="center"
+                          android:gravity="center">
+                <ImageView android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:scaleType="centerCrop"
+                           android:adjustViewBounds="true"
+                           android:src="@drawable/icon_image"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_weight="1"
+                          android:layout_gravity="center"
+                          android:gravity="center">
+                <TextView android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:minHeight="44dp"
+                          android:layout_marginBottom="3dp"
+                          android:gravity="center"
+                          android:text="Zwroty"
+                          android:textSize="28sp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:orientation="vertical"
+                  android:layout_weight="2"
+                  android:padding="5dp">
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:orientation="horizontal"
+                      android:layout_weight="1">
+
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="match_parent"
+                          android:orientation="horizontal"
+                          android:layout_weight="1">
+                <LinearLayout android:layout_width="match_parent"
+                              android:layout_height="match_parent"
+                              android:orientation="vertical"
+                              android:layout_weight="1"
+                              android:layout_margin="3dp"
+                              android:padding="5dp"
+                              android:background="@color/almost_white"
+                              android:focusable="true"
+                              android:clickable="true"
+                              android:onClick="temp"
+                              android:tag="temp">
+                    <LinearLayout android:layout_width="wrap_content"
+                                  android:layout_height="match_parent"
+                                  android:layout_weight="5"
+                                  android:layout_gravity="center"
+                                  android:gravity="center">
+                        <ImageView android:layout_width="match_parent"
+                                   android:layout_height="wrap_content"
+                                   android:scaleType="centerCrop"
+                                   android:adjustViewBounds="true"
+                                   android:src="@drawable/icon_image"/>
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="match_parent"
+                                  android:layout_height="wrap_content"
+                                  android:layout_weight="1"
+                                  android:layout_gravity="center"
+                                  android:gravity="center">
+                        <TextView android:layout_width="match_parent"
+                                  android:layout_height="wrap_content"
+                                  android:minHeight="44dp"
+                                  android:layout_marginBottom="3dp"
+                                  android:gravity="center"
+                                  android:text="Podstawowe"
+                                  android:textSize="28sp"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout android:layout_width="match_parent"
+                              android:layout_height="match_parent"
+                              android:orientation="vertical"
+                              android:layout_weight="1"
+                              android:layout_margin="3dp"
+                              android:padding="5dp"
+                              android:background="@color/almost_white"
+                              android:focusable="true"
+                              android:clickable="true"
+                              android:onClick="temp"
+                              android:tag="temp">
+                    <LinearLayout android:layout_width="wrap_content"
+                                  android:layout_height="match_parent"
+                                  android:layout_weight="5"
+                                  android:layout_gravity="center"
+                                  android:gravity="center">
+                        <ImageView android:layout_width="match_parent"
+                                   android:layout_height="wrap_content"
+                                   android:scaleType="centerCrop"
+                                   android:adjustViewBounds="true"
+                                   android:src="@drawable/icon_image"/>
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="match_parent"
+                                  android:layout_height="wrap_content"
+                                  android:layout_weight="1"
+                                  android:layout_gravity="center"
+                                  android:gravity="center">
+                        <TextView android:layout_width="match_parent"
+                                  android:layout_height="wrap_content"
+                                  android:minHeight="44dp"
+                                  android:layout_marginBottom="3dp"
+                                  android:gravity="center"
+                                  android:text="Osoby"
+                                  android:textSize="28sp"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:orientation="horizontal"
+                      android:layout_weight="1">
+
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="match_parent"
+                          android:orientation="horizontal"
+                          android:layout_weight="1">
+                <LinearLayout android:layout_width="match_parent"
+                              android:layout_height="match_parent"
+                              android:orientation="vertical"
+                              android:layout_weight="1"
+                              android:layout_margin="3dp"
+                              android:padding="5dp"
+                              android:background="@color/almost_white"
+                              android:focusable="true"
+                              android:clickable="true"
+                              android:onClick="temp"
+                              android:tag="temp">
+                    <LinearLayout android:layout_width="wrap_content"
+                                  android:layout_height="match_parent"
+                                  android:layout_weight="5"
+                                  android:layout_gravity="center"
+                                  android:gravity="center">
+                        <ImageView android:layout_width="match_parent"
+                                   android:layout_height="wrap_content"
+                                   android:scaleType="centerCrop"
+                                   android:adjustViewBounds="true"
+                                   android:src="@drawable/icon_image"/>
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="match_parent"
+                                  android:layout_height="wrap_content"
+                                  android:layout_weight="1"
+                                  android:layout_gravity="center"
+                                  android:gravity="center">
+                        <TextView android:layout_width="match_parent"
+                                  android:layout_height="wrap_content"
+                                  android:minHeight="44dp"
+                                  android:layout_marginBottom="3dp"
+                                  android:gravity="center"
+                                  android:text="Miejsce"
+                                  android:textSize="28sp"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout android:layout_width="match_parent"
+                              android:layout_height="match_parent"
+                              android:orientation="vertical"
+                              android:layout_weight="1"
+                              android:layout_margin="3dp"
+                              android:padding="5dp"
+                              android:background="@color/almost_white"
+                              android:focusable="true"
+                              android:clickable="true"
+                              android:onClick="temp"
+                              android:tag="temp">
+                    <LinearLayout android:layout_width="wrap_content"
+                                  android:layout_height="match_parent"
+                                  android:layout_weight="5"
+                                  android:layout_gravity="center"
+                                  android:gravity="center">
+                        <ImageView android:layout_width="match_parent"
+                                   android:layout_height="wrap_content"
+                                   android:scaleType="centerCrop"
+                                   android:adjustViewBounds="true"
+                                   android:src="@drawable/icon_image"/>
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="match_parent"
+                                  android:layout_height="wrap_content"
+                                  android:layout_weight="1"
+                                  android:layout_gravity="center"
+                                  android:gravity="center">
+                        <TextView android:layout_width="match_parent"
+                                  android:layout_height="wrap_content"
+                                  android:minHeight="44dp"
+                                  android:layout_marginBottom="3dp"
+                                  android:gravity="center"
+                                  android:text="Przedmioty"
+                                  android:textSize="28sp"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
 
 </LinearLayout>
