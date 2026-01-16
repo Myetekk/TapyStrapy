@@ -5,11 +5,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class FinalActivity extends AppCompatActivity {
-    String emotion;
+    String emotion, bodyPart, fullAnswer;
     private ImageView finalImage;
+    TextView answerText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +21,11 @@ public class FinalActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         emotion = intent.getStringExtra("EMOTION");
+        bodyPart = intent.getStringExtra("BODY_PART");
+
+        fullAnswer = intent.getStringExtra("FULL_ANSWER");
+        answerText = findViewById((R.id.text_answer));
+        answerText.setText(fullAnswer);
 
         setFinalImage();
     }
@@ -29,17 +36,28 @@ public class FinalActivity extends AppCompatActivity {
 
     private void setFinalImage() {
         try {
-            switch (emotion) {
-                case "emotion_happy_1": finalImage.setImageResource(R.drawable.emote_happy_1); break;
-                case "emotion_happy_2": finalImage.setImageResource(R.drawable.emote_happy_2); break;
-                case "emotion_happy_3": finalImage.setImageResource(R.drawable.emote_happy_3); break;
-                case "emotion_sad_1": finalImage.setImageResource(R.drawable.emote_sad_1); break;
-                case "emotion_fear_1": finalImage.setImageResource(R.drawable.emote_feared_1); break;
-                case "emotion_angry_1": finalImage.setImageResource(R.drawable.emote_angry_1); break;
-                case "emotion_pain_1": finalImage.setImageResource(R.drawable.emote_pain_1); break;
-                case "emotion_tired_1": finalImage.setImageResource(R.drawable.emote_tired_1); break;
-                default: finalImage.setImageResource(R.drawable.tapstrap_icon); break;
+            if (emotion != null) {
+                switch (emotion) {
+                    case "emotion_happy_1": finalImage.setImageResource(R.drawable.emote_happy_1); break;
+                    case "emotion_happy_2": finalImage.setImageResource(R.drawable.emote_happy_2); break;
+                    case "emotion_happy_3": finalImage.setImageResource(R.drawable.emote_happy_3); break;
+                    case "emotion_sad_1": finalImage.setImageResource(R.drawable.emote_sad_1); break;
+                    case "emotion_fear_1": finalImage.setImageResource(R.drawable.emote_feared_1); break;
+                    case "emotion_angry_1": finalImage.setImageResource(R.drawable.emote_angry_1); break;
+                    case "emotion_pain_1": finalImage.setImageResource(R.drawable.emote_pain_1); break;
+                    case "emotion_tired_1": finalImage.setImageResource(R.drawable.emote_tired_1); break;
+                    default: finalImage.setImageResource(R.drawable.tapstrap_icon); break;
+                }
             }
+            else if (bodyPart != null) {
+                switch (bodyPart) {
+                    case "pain_arm": finalImage.setImageResource(R.drawable.pain_arm); break;
+                    case "pain_elbow": finalImage.setImageResource(R.drawable.pain_elbow); break;
+                    case "pain_palm": finalImage.setImageResource(R.drawable.pain_palm); break;
+                    default: finalImage.setImageResource(R.drawable.tapstrap_icon); break;
+                }
+            }
+
         }
         catch (Exception e) {
             Log.e("TAPPP", "Exception: "+e);

@@ -1,24 +1,22 @@
 package com.example.tapystrapy;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
+import com.example.tapystrapy.model.Gender;
 
 public class PainLeftRightSelection extends AppCompatActivity {
-    public enum Gender {
-        MASCULINE,
-        FEMININE,
-        NEUTER
-    }
-
     Gender gender;
-    String genderStr;
+    String genderStr, bodyPart, bodyPartPolish;
+    TextView questionText;
+    TextView leftText;
+    TextView rightText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
 
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
@@ -27,17 +25,20 @@ public class PainLeftRightSelection extends AppCompatActivity {
 
         genderStr = getIntent().getStringExtra("GENDER");
         if (genderStr != null) {
-            gender = Gender.valueOf(genderStr.toUpperCase());
+            gender = Gender.valueOf(genderStr);
         }
 
+
+        questionText = findViewById((R.id.text_question));
+        leftText = findViewById((R.id.text_left));
+        rightText = findViewById((R.id.text_right));
+
         genderLoad();
+        bodyPart = getIntent().getStringExtra("BODY_PART");
+        bodyPartPolish =  getIntent().getStringExtra("BODY_PART_POLISH");
     }
 
     void genderLoad(){
-        TextView questionText = findViewById((R.id.text_question));
-        TextView leftText = findViewById((R.id.text_left));
-        TextView rightText = findViewById((R.id.text_right));
-
         switch (gender) {
             case MASCULINE:
                 questionText.setText(R.string.question_masculine);
@@ -57,7 +58,22 @@ public class PainLeftRightSelection extends AppCompatActivity {
         }
     }
 
-    void temp(View view){
-        //tu będzie kolejny change view ale to później się tym zajmę
+    String getFullAnswer(View view){
+        String tag = (String) view.getTag();
+        String fullAnswer = "";
+
+        switch (tag) {
+            case "left": fullAnswer = leftText.getText().toString() + " " + bodyPartPolish; break;
+            case "right": fullAnswer = rightText.getText().toString() + " " + bodyPartPolish; break;
+        }
+        return fullAnswer;
+    }
+
+    public void changeView_Final(View view){
+        Intent intent = new Intent(this, FinalActivity.class);
+        String fullAnswer = getFullAnswer(view);
+        intent.putExtra("BODY_PART", "pain_" + bodyPart);
+        intent.putExtra("FULL_ANSWER", fullAnswer);
+        startActivity(intent);
     }
 }

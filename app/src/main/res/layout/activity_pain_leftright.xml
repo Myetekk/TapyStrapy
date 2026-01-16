@@ -28,7 +28,7 @@
                   android:background="@color/almost_white"
                   android:focusable="true"
                   android:clickable="true"
-                  android:onClick="changeView_Pain_Leftright"
+                  android:onClick="changeView_Final"
                   android:tag="left">
         <LinearLayout android:layout_width="wrap_content"
                       android:layout_height="match_parent"
@@ -67,7 +67,7 @@
                   android:background="@color/almost_white"
                   android:focusable="true"
                   android:clickable="true"
-                  android:onClick="changeView_Pain_Leftright"
+                  android:onClick="changeView_Final"
                   android:tag="right">
         <LinearLayout android:layout_width="wrap_content"
                       android:layout_height="match_parent"
