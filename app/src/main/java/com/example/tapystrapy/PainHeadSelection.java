@@ -4,8 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class PainActivity extends AppCompatActivity {
-
+public class PainHeadSelection extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -13,10 +12,10 @@ public class PainActivity extends AppCompatActivity {
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
         }
-        setContentView(R.layout.activity_pain);
+        setContentView(R.layout.activity_pain_main);
     }
 
-    public void temp(View view) {
+    void changeView_Pain_Leftright(View view) {
 
     }
 }

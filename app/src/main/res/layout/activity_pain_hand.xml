@@ -4,7 +4,6 @@
               android:layout_height="match_parent"
               android:orientation="vertical"
               android:padding="5dp">
-
     <LinearLayout android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:layout_margin="3dp"
@@ -15,7 +14,7 @@
                   android:layout_height="wrap_content"
                   android:minHeight="60dp"
                   android:gravity="center"
-                  android:text="Co cię boli?!"
+                  android:text="Gdzie ręka boli?"
                   android:textSize="35sp"/>
     </LinearLayout>
 
@@ -28,8 +27,8 @@
                   android:background="@color/almost_white"
                   android:focusable="true"
                   android:clickable="true"
-                  android:onClick="temp"
-                  android:tag="temp">
+                  android:id="@+id/arm_layout"
+                  android:onClick="changeView_Pain_Leftright">
         <LinearLayout android:layout_width="wrap_content"
                       android:layout_height="match_parent"
                       android:layout_weight="5"
@@ -40,7 +39,7 @@
                        android:layout_height="wrap_content"
                        android:scaleType="centerCrop"
                        android:adjustViewBounds="true"
-                       android:src="@drawable/icon_image"/>
+                       android:src="@drawable/pain_arm"/>
         </LinearLayout>
         <LinearLayout android:layout_width="match_parent"
                       android:layout_height="wrap_content"
@@ -52,7 +51,7 @@
                       android:minHeight="40dp"
                       android:layout_marginBottom="3dp"
                       android:gravity="center"
-                      android:text="Głowa"
+                      android:text="Ramię"
                       android:textSize="26sp"/>
         </LinearLayout>
     </LinearLayout>
@@ -66,8 +65,8 @@
                   android:background="@color/almost_white"
                   android:focusable="true"
                   android:clickable="true"
-                  android:onClick="temp"
-                  android:tag="temp">
+                  android:id="@+id/elbow_layout"
+                  android:onClick="changeView_Pain_Leftright">
         <LinearLayout android:layout_width="wrap_content"
                       android:layout_height="match_parent"
                       android:layout_weight="5"
@@ -78,7 +77,7 @@
                        android:layout_height="wrap_content"
                        android:scaleType="centerCrop"
                        android:adjustViewBounds="true"
-                       android:src="@drawable/icon_image"/>
+                       android:src="@drawable/pain_elbow"/>
         </LinearLayout>
         <LinearLayout android:layout_width="match_parent"
                       android:layout_height="wrap_content"
@@ -90,7 +89,7 @@
                       android:minHeight="40dp"
                       android:layout_marginBottom="3dp"
                       android:gravity="center"
-                      android:text="Ręce"
+                      android:text="Łokieć"
                       android:textSize="26sp"/>
         </LinearLayout>
     </LinearLayout>
@@ -104,8 +103,8 @@
                   android:background="@color/almost_white"
                   android:focusable="true"
                   android:clickable="true"
-                  android:onClick="temp"
-                  android:tag="temp">
+                  android:id="@+id/palm_layout"
+                  android:onClick="changeView_Pain_Leftright">
         <LinearLayout android:layout_width="wrap_content"
                       android:layout_height="match_parent"
                       android:layout_weight="5"
@@ -116,7 +115,7 @@
                        android:layout_height="wrap_content"
                        android:scaleType="centerCrop"
                        android:adjustViewBounds="true"
-                       android:src="@drawable/icon_image"/>
+                       android:src="@drawable/pain_palm"/>
         </LinearLayout>
         <LinearLayout android:layout_width="match_parent"
                       android:layout_height="wrap_content"
@@ -128,49 +127,8 @@
                       android:minHeight="40dp"
                       android:layout_marginBottom="3dp"
                       android:gravity="center"
-                      android:text="Tułów"
+                      android:text="Dłoń"
                       android:textSize="26sp"/>
         </LinearLayout>
     </LinearLayout>
-
-    <LinearLayout android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:orientation="vertical"
-                  android:layout_weight="1"
-                  android:layout_margin="3dp"
-                  android:padding="5dp"
-                  android:background="@color/almost_white"
-                  android:focusable="true"
-                  android:clickable="true"
-                  android:onClick="temp"
-                  android:tag="temp">
-        <LinearLayout android:layout_width="wrap_content"
-                      android:layout_height="match_parent"
-                      android:layout_weight="5"
-                      android:layout_gravity="center"
-                      android:gravity="center">
-            <ImageView android:id="@+id/painLegsImage1"
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content"
-                       android:scaleType="centerCrop"
-                       android:adjustViewBounds="true"
-                       android:src="@drawable/icon_image"/>
-        </LinearLayout>
-        <LinearLayout android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:layout_weight="1"
-                      android:layout_gravity="center"
-                      android:gravity="center">
-            <TextView android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:minHeight="40dp"
-                      android:layout_marginBottom="3dp"
-                      android:gravity="center"
-                      android:text="Nogi"
-                      android:textSize="26sp"/>
-        </LinearLayout>
-    </LinearLayout>
-
-
-
 </LinearLayout>

@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
     public void changeView_Main_Pain(View view) {
-        Intent intent = new Intent(this, PainActivity.class);
+        Intent intent = new Intent(this, PainMainSelection.class);
         startActivity(intent);
     }
 }
