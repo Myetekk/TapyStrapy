@@ -6,7 +6,7 @@ public class BodyPartData {
 
     public BodyPartData(String bodyPart, String bodyPartPolish, Gender gender) {
         this.bodyPart = bodyPart;
-        this.bodyPartPolish = bodyPartPolish;
+        this.bodyPartPolish = bodyPartPolish; // must be singular when deciding later if left or right
         this.gender = gender;
     }
 }

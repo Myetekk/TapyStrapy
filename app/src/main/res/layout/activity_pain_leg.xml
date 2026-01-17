@@ -14,7 +14,7 @@
                   android:layout_height="wrap_content"
                   android:minHeight="60dp"
                   android:gravity="center"
-                  android:text="Gdzie ręka boli?"
+                  android:text="Gdzie noga boli?"
                   android:textSize="35sp"/>
     </LinearLayout>
 
@@ -27,7 +27,7 @@
                   android:background="@color/almost_white"
                   android:focusable="true"
                   android:clickable="true"
-                  android:id="@+id/arm_layout"
+                  android:id="@+id/thigh_layout"
                   android:onClick="changeView_Pain_Leftright">
         <LinearLayout android:layout_width="wrap_content"
                       android:layout_height="match_parent"
@@ -38,7 +38,7 @@
                        android:layout_height="wrap_content"
                        android:scaleType="centerCrop"
                        android:adjustViewBounds="true"
-                       android:src="@drawable/pain_arm"/>
+                       android:src="@drawable/pain_thigh"/>
         </LinearLayout>
         <LinearLayout android:layout_width="match_parent"
                       android:layout_height="wrap_content"
@@ -50,7 +50,7 @@
                       android:minHeight="40dp"
                       android:layout_marginBottom="3dp"
                       android:gravity="center"
-                      android:text="Ramię"
+                      android:text="Udo"
                       android:textSize="26sp"/>
         </LinearLayout>
     </LinearLayout>
@@ -64,7 +64,7 @@
                   android:background="@color/almost_white"
                   android:focusable="true"
                   android:clickable="true"
-                  android:id="@+id/elbow_layout"
+                  android:id="@+id/knee_layout"
                   android:onClick="changeView_Pain_Leftright">
         <LinearLayout android:layout_width="wrap_content"
                       android:layout_height="match_parent"
@@ -75,7 +75,7 @@
                        android:layout_height="wrap_content"
                        android:scaleType="centerCrop"
                        android:adjustViewBounds="true"
-                       android:src="@drawable/pain_elbow"/>
+                       android:src="@drawable/pain_knee"/>
         </LinearLayout>
         <LinearLayout android:layout_width="match_parent"
                       android:layout_height="wrap_content"
@@ -87,7 +87,7 @@
                       android:minHeight="40dp"
                       android:layout_marginBottom="3dp"
                       android:gravity="center"
-                      android:text="Łokieć"
+                      android:text="Kolano"
                       android:textSize="26sp"/>
         </LinearLayout>
     </LinearLayout>
@@ -101,7 +101,7 @@
                   android:background="@color/almost_white"
                   android:focusable="true"
                   android:clickable="true"
-                  android:id="@+id/palm_layout"
+                  android:id="@+id/calf_layout"
                   android:onClick="changeView_Pain_Leftright">
         <LinearLayout android:layout_width="wrap_content"
                       android:layout_height="match_parent"
@@ -112,7 +112,7 @@
                        android:layout_height="wrap_content"
                        android:scaleType="centerCrop"
                        android:adjustViewBounds="true"
-                       android:src="@drawable/pain_palm"/>
+                       android:src="@drawable/pain_calf"/>
         </LinearLayout>
         <LinearLayout android:layout_width="match_parent"
                       android:layout_height="wrap_content"
@@ -124,8 +124,45 @@
                       android:minHeight="40dp"
                       android:layout_marginBottom="3dp"
                       android:gravity="center"
-                      android:text="Dłoń"
+                      android:text="Łydka"
                       android:textSize="26sp"/>
         </LinearLayout>
     </LinearLayout>
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="vertical"
+                  android:layout_weight="1"
+                  android:layout_margin="3dp"
+                  android:padding="5dp"
+                  android:background="@color/almost_white"
+                  android:focusable="true"
+                  android:clickable="true"
+                  android:id="@+id/foot_layout"
+                  android:onClick="changeView_Pain_Leftright">
+        <LinearLayout android:layout_width="wrap_content"
+                      android:layout_height="match_parent"
+                      android:layout_weight="5"
+                      android:layout_gravity="center"
+                      android:gravity="center">
+            <ImageView android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:scaleType="centerCrop"
+                       android:adjustViewBounds="true"
+                       android:src="@drawable/pain_foot"/>
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_weight="1"
+                      android:layout_gravity="center"
+                      android:gravity="center">
+            <TextView android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:minHeight="40dp"
+                      android:layout_marginBottom="3dp"
+                      android:gravity="center"
+                      android:text="Stopa"
+                      android:textSize="26sp"/>
+        </LinearLayout>
+    </LinearLayout>
+
 </LinearLayout>

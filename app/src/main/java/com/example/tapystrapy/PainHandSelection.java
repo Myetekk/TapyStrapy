@@ -4,8 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
-import com.example.tapystrapy.model.Gender;
 import com.example.tapystrapy.model.BodyPartData;
+import com.example.tapystrapy.model.Gender;
 
 public class PainHandSelection extends AppCompatActivity {
 
