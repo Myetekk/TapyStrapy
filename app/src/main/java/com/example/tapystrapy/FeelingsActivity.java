@@ -2,7 +2,6 @@ package com.example.tapystrapy;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,9 +15,9 @@ public class FeelingsActivity extends AppCompatActivity {
 
 
 
-    public void changeView_Feelings_Confirmation(View view) {
+    public void changeView_Feelings_EmotionLevel(View view) {
         String emotion = (String) view.getTag();
-        Intent intent = new Intent(this, ConfirmationActivity.class);
+        Intent intent = new Intent(this, EmotionLevel.class);
         intent.putExtra("EMOTION", emotion);
         startActivity(intent);
     }
