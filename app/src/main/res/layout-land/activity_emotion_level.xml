@@ -52,7 +52,8 @@
                           android:layout_weight="1"
                           android:layout_gravity="center"
                           android:gravity="center">
-                <TextView android:layout_width="match_parent"
+                <TextView android:id="@+id/emotionLevelLabel1"
+                          android:layout_width="match_parent"
                           android:layout_height="wrap_content"
                           android:minHeight="44dp"
                           android:layout_marginBottom="3dp"
@@ -90,7 +91,8 @@
                           android:layout_weight="1"
                           android:layout_gravity="center"
                           android:gravity="center">
-                <TextView android:layout_width="match_parent"
+                <TextView android:id="@+id/emotionLevelLabel2"
+                          android:layout_width="match_parent"
                           android:layout_height="wrap_content"
                           android:minHeight="44dp"
                           android:layout_marginBottom="3dp"
@@ -128,7 +130,8 @@
                           android:layout_weight="1"
                           android:layout_gravity="center"
                           android:gravity="center">
-                <TextView android:layout_width="match_parent"
+                <TextView android:id="@+id/emotionLevelLabel3"
+                          android:layout_width="match_parent"
                           android:layout_height="wrap_content"
                           android:minHeight="44dp"
                           android:layout_marginBottom="3dp"
