@@ -6,11 +6,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ConfirmationActivity  extends AppCompatActivity {
     String emotion, isFinal;
     private ImageView confirmationImage;
+    private TextView confirmationLabel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,20 +30,37 @@ public class ConfirmationActivity  extends AppCompatActivity {
 
     private void initializeUIElements() {
         confirmationImage = findViewById(R.id.confirmationImage);
+        confirmationLabel = findViewById(R.id.confirmationLabel);
     }
 
     private void setConfirmationImage() {
         try {
             switch (emotion) {
-                case "emotion_happy_1": confirmationImage.setImageResource(R.drawable.emote_happy_1); break;
-                case "emotion_happy_2": confirmationImage.setImageResource(R.drawable.emote_happy_2); break;
-                case "emotion_happy_3": confirmationImage.setImageResource(R.drawable.emote_happy_3); break;
-                case "emotion_sad_1": confirmationImage.setImageResource(R.drawable.emote_sad_1); break;
-                case "emotion_fear_1": confirmationImage.setImageResource(R.drawable.emote_feared_1); break;
-                case "emotion_angry_1": confirmationImage.setImageResource(R.drawable.emote_angry_1); break;
-                case "emotion_pain_1": confirmationImage.setImageResource(R.drawable.emote_pain_1); break;
-                case "emotion_tired_1": confirmationImage.setImageResource(R.drawable.emote_tired_1); break;
-                default: confirmationImage.setImageResource(R.drawable.tapstrap_icon); break;
+                case "emotion_happy_1": confirmationImage.setImageResource(R.drawable.emote_happy_1); confirmationLabel.setText("Lekka radość"); break;
+                case "emotion_happy_2": confirmationImage.setImageResource(R.drawable.emote_happy_2); confirmationLabel.setText("Radość"); break;
+                case "emotion_happy_3": confirmationImage.setImageResource(R.drawable.emote_happy_3); confirmationLabel.setText("Duża radość"); break;
+
+                case "emotion_sad_1": confirmationImage.setImageResource(R.drawable.emote_sad_1); confirmationLabel.setText("Lekki smutek"); break;
+                case "emotion_sad_2": confirmationImage.setImageResource(R.drawable.emote_sad_1); confirmationLabel.setText("Smutek"); break;
+                case "emotion_sad_3": confirmationImage.setImageResource(R.drawable.emote_sad_1); confirmationLabel.setText("Duży smutek"); break;
+
+                case "emotion_fear_1": confirmationImage.setImageResource(R.drawable.emote_feared_1); confirmationLabel.setText("Lekki strach"); break;
+                case "emotion_fear_2": confirmationImage.setImageResource(R.drawable.emote_feared_1); confirmationLabel.setText("Strach"); break;
+                case "emotion_fear_3": confirmationImage.setImageResource(R.drawable.emote_feared_1); confirmationLabel.setText("Duży strach"); break;
+
+                case "emotion_angry_1": confirmationImage.setImageResource(R.drawable.emote_angry_1); confirmationLabel.setText("Lekka złość"); break;
+                case "emotion_angry_2": confirmationImage.setImageResource(R.drawable.emote_angry_1); confirmationLabel.setText("Złość"); break;
+                case "emotion_angry_3": confirmationImage.setImageResource(R.drawable.emote_angry_1); confirmationLabel.setText("Duża złość"); break;
+
+                case "emotion_pain_1": confirmationImage.setImageResource(R.drawable.emote_pain_1); confirmationLabel.setText("Lekki ból"); break;
+                case "emotion_pain_2": confirmationImage.setImageResource(R.drawable.emote_pain_1); confirmationLabel.setText("Ból"); break;
+                case "emotion_pain_3": confirmationImage.setImageResource(R.drawable.emote_pain_1); confirmationLabel.setText("Duży ból"); break;
+
+                case "emotion_tired_1": confirmationImage.setImageResource(R.drawable.emote_tired_1); confirmationLabel.setText("Lekkie zmęczenie"); break;
+                case "emotion_tired_2": confirmationImage.setImageResource(R.drawable.emote_tired_1); confirmationLabel.setText("Zmęczenie"); break;
+                case "emotion_tired_3": confirmationImage.setImageResource(R.drawable.emote_tired_1); confirmationLabel.setText("Duże zmęczenie"); break;
+
+                default: confirmationImage.setImageResource(R.drawable.tapstrap_icon); confirmationLabel.setText("-"); break;
             }
         }
         catch (Exception e) {
