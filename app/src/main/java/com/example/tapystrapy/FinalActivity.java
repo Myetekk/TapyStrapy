@@ -54,9 +54,9 @@ public class FinalActivity extends AppCompatActivity {
                     case "emotion_angry_2": finalImage.setImageResource(R.drawable.emote_angry_2); finalLabel.setText("Złość"); break;
                     case "emotion_angry_3": finalImage.setImageResource(R.drawable.emote_angry_3); finalLabel.setText("Duża złość"); break;
 
-                    case "emotion_pain_1": finalImage.setImageResource(R.drawable.emote_pain_2); finalLabel.setText("Lekki ból"); break;
+                    case "emotion_pain_1": finalImage.setImageResource(R.drawable.emote_pain_1); finalLabel.setText("Lekki ból"); break;
                     case "emotion_pain_2": finalImage.setImageResource(R.drawable.emote_pain_2); finalLabel.setText("Ból"); break;
-                    case "emotion_pain_3": finalImage.setImageResource(R.drawable.emote_pain_2); finalLabel.setText("Duży ból"); break;
+                    case "emotion_pain_3": finalImage.setImageResource(R.drawable.emote_pain_3); finalLabel.setText("Duży ból"); break;
 
                     case "emotion_tired_1": finalImage.setImageResource(R.drawable.emote_tired_1); finalLabel.setText("Lekkie zmęczenie"); break;
                     case "emotion_tired_2": finalImage.setImageResource(R.drawable.emote_tired_2); finalLabel.setText("Zmęczenie"); break;

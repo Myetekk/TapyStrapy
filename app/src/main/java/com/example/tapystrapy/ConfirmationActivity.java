@@ -52,9 +52,9 @@ public class ConfirmationActivity  extends AppCompatActivity {
                 case "emotion_angry_2": confirmationImage.setImageResource(R.drawable.emote_angry_2); confirmationLabel.setText("Złość"); break;
                 case "emotion_angry_3": confirmationImage.setImageResource(R.drawable.emote_angry_3); confirmationLabel.setText("Duża złość"); break;
 
-                case "emotion_pain_1": confirmationImage.setImageResource(R.drawable.emote_pain_2); confirmationLabel.setText("Lekki ból"); break;
+                case "emotion_pain_1": confirmationImage.setImageResource(R.drawable.emote_pain_1); confirmationLabel.setText("Lekki ból"); break;
                 case "emotion_pain_2": confirmationImage.setImageResource(R.drawable.emote_pain_2); confirmationLabel.setText("Ból"); break;
-                case "emotion_pain_3": confirmationImage.setImageResource(R.drawable.emote_pain_2); confirmationLabel.setText("Duży ból"); break;
+                case "emotion_pain_3": confirmationImage.setImageResource(R.drawable.emote_pain_3); confirmationLabel.setText("Duży ból"); break;
 
                 case "emotion_tired_1": confirmationImage.setImageResource(R.drawable.emote_tired_1); confirmationLabel.setText("Lekkie zmęczenie"); break;
                 case "emotion_tired_2": confirmationImage.setImageResource(R.drawable.emote_tired_2); confirmationLabel.setText("Zmęczenie"); break;

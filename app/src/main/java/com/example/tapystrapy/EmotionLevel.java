@@ -46,42 +46,42 @@ public class EmotionLevel extends AppCompatActivity {
                     emotionLevelLabel2.setText("Radość");
                     emotionLevelLabel3.setText("Duża radość");
                 } break;
-                case "emotion_sad_1": {
+                case "emotion_sad_2": {
                     emotionLevelImage1.setImageResource(R.drawable.emote_sad_1);
-                    emotionLevelImage2.setImageResource(R.drawable.emote_sad_1);
-                    emotionLevelImage3.setImageResource(R.drawable.emote_sad_1);
+                    emotionLevelImage2.setImageResource(R.drawable.emote_sad_2);
+                    emotionLevelImage3.setImageResource(R.drawable.emote_sad_3);
                     emotionLevelLabel1.setText("Lekki smutek");
                     emotionLevelLabel2.setText("Smutek");
                     emotionLevelLabel3.setText("Duży smutek");
                 } break;
-                case "emotion_fear_1": {
+                case "emotion_fear_2": {
                     emotionLevelImage1.setImageResource(R.drawable.emote_feared_1);
-                    emotionLevelImage2.setImageResource(R.drawable.emote_feared_1);
-                    emotionLevelImage3.setImageResource(R.drawable.emote_feared_1);
+                    emotionLevelImage2.setImageResource(R.drawable.emote_feared_2);
+                    emotionLevelImage3.setImageResource(R.drawable.emote_feared_3);
                     emotionLevelLabel1.setText("Lekki strach");
                     emotionLevelLabel2.setText("Strach");
                     emotionLevelLabel3.setText("Duży strach");
                 } break;
-                case "emotion_angry_1": {
+                case "emotion_angry_2": {
                     emotionLevelImage1.setImageResource(R.drawable.emote_angry_1);
-                    emotionLevelImage2.setImageResource(R.drawable.emote_angry_1);
-                    emotionLevelImage3.setImageResource(R.drawable.emote_angry_1);
+                    emotionLevelImage2.setImageResource(R.drawable.emote_angry_2);
+                    emotionLevelImage3.setImageResource(R.drawable.emote_angry_3);
                     emotionLevelLabel1.setText("Lekka złość");
                     emotionLevelLabel2.setText("Złość");
                     emotionLevelLabel3.setText("Duża złość");
                 } break;
-                case "emotion_pain_1": {
+                case "emotion_pain_2": {
                     emotionLevelImage1.setImageResource(R.drawable.emote_pain_1);
-                    emotionLevelImage2.setImageResource(R.drawable.emote_pain_1);
-                    emotionLevelImage3.setImageResource(R.drawable.emote_pain_1);
+                    emotionLevelImage2.setImageResource(R.drawable.emote_pain_2);
+                    emotionLevelImage3.setImageResource(R.drawable.emote_pain_3 );
                     emotionLevelLabel1.setText("Lekki ból");
                     emotionLevelLabel2.setText("Ból");
                     emotionLevelLabel3.setText("Duży ból");
                 } break;
-                case "emotion_tired_1": {
+                case "emotion_tired_2": {
                     emotionLevelImage1.setImageResource(R.drawable.emote_tired_1);
-                    emotionLevelImage2.setImageResource(R.drawable.emote_tired_1);
-                    emotionLevelImage3.setImageResource(R.drawable.emote_tired_1);
+                    emotionLevelImage2.setImageResource(R.drawable.emote_tired_2);
+                    emotionLevelImage3.setImageResource(R.drawable.emote_tired_3);
                     emotionLevelLabel1.setText("Lekkie zmęczenie");
                     emotionLevelLabel2.setText("Zmęczenie");
                     emotionLevelLabel3.setText("Duże zmęczenie");
