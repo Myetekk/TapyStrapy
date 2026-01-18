@@ -42,11 +42,6 @@
                 android:exported="true">
         </activity>
         <activity
-                android:name=".PainActivity"
-                android:label="@string/app_name"
-                android:exported="true">
-        </activity>
-        <activity
                 android:name=".DebugActivity"
                 android:label="@string/app_name"
                 android:exported="true">
@@ -63,6 +58,36 @@
         </activity>
         <activity
                 android:name=".FinalActivity"
+                android:label="@string/app_name"
+                android:exported="true">
+        </activity>
+        <activity
+                android:name=".PainMainSelection"
+                android:label="@string/app_name"
+                android:exported="true">
+        </activity>
+        <activity
+                android:name=".PainHandSelection"
+                android:label="@string/app_name"
+                android:exported="true">
+        </activity>
+        <activity
+                android:name=".PainHeadSelection"
+                android:label="@string/app_name"
+                android:exported="true">
+        </activity>
+        <activity
+                android:name=".PainTorsoSelection"
+                android:label="@string/app_name"
+                android:exported="true">
+        </activity>
+        <activity
+                android:name=".PainLegSelection"
+                android:label="@string/app_name"
+                android:exported="true">
+        </activity>
+        <activity
+                android:name=".PainLeftRightSelection"
                 android:label="@string/app_name"
                 android:exported="true">
         </activity>

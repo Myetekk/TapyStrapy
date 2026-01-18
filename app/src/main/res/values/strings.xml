@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">TapyStrapy</string>
+
+    <string name="question_feminine">Lewa czy prawa?</string>
+    <string name="question_masculine">Lewy czy prawy?</string>
+    <string name="question_neuter">Lewe czy prawe?</string>
+
+    <string name="left_feminine">Lewa</string>
+    <string name="right_feminine">Prawa</string>
+
+    <string name="left_masculine">Lewy</string>
+    <string name="right_masculine">Prawy</string>
+
+    <string name="left_neuter">Lewe</string>
+    <string name="right_neuter">Prawe</string>
+
 </resources>

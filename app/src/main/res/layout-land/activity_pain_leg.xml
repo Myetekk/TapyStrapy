@@ -15,7 +15,7 @@
                   android:layout_height="wrap_content"
                   android:minHeight="60dp"
                   android:gravity="center"
-                  android:text="Co cię boli?"
+                  android:text="Gdzie noga boli?"
                   android:textSize="35sp"/>
     </LinearLayout>
 
@@ -32,19 +32,18 @@
                       android:background="@color/almost_white"
                       android:focusable="true"
                       android:clickable="true"
-                      android:onClick="temp"
-                      android:tag="temp">
+                      android:id="@+id/thigh_layout"
+                      android:onClick="changeView_Pain_Leftright">
             <LinearLayout android:layout_width="wrap_content"
                           android:layout_height="match_parent"
                           android:layout_weight="5"
                           android:layout_gravity="center"
                           android:gravity="center">
-                <ImageView android:id="@+id/painHeadImage1"
-                           android:layout_width="match_parent"
+                <ImageView android:layout_width="match_parent"
                            android:layout_height="wrap_content"
                            android:scaleType="centerCrop"
                            android:adjustViewBounds="true"
-                           android:src="@drawable/icon_image"/>
+                           android:src="@drawable/pain_thigh"/>
             </LinearLayout>
             <LinearLayout android:layout_width="match_parent"
                           android:layout_height="wrap_content"
@@ -56,7 +55,7 @@
                           android:minHeight="44dp"
                           android:layout_marginBottom="3dp"
                           android:gravity="center"
-                          android:text="Głowa"
+                          android:text="Udo"
                           android:textSize="28sp"/>
             </LinearLayout>
         </LinearLayout>
@@ -70,19 +69,18 @@
                       android:background="@color/almost_white"
                       android:focusable="true"
                       android:clickable="true"
-                      android:onClick="temp"
-                      android:tag="temp">
+                      android:id="@+id/knee_layout"
+                      android:onClick="changeView_Pain_Leftright">
             <LinearLayout android:layout_width="wrap_content"
                           android:layout_height="match_parent"
                           android:layout_weight="5"
                           android:layout_gravity="center"
                           android:gravity="center">
-                <ImageView android:id="@+id/painHandsImage1"
-                           android:layout_width="match_parent"
+                <ImageView android:layout_width="match_parent"
                            android:layout_height="wrap_content"
                            android:scaleType="centerCrop"
                            android:adjustViewBounds="true"
-                           android:src="@drawable/icon_image"/>
+                           android:src="@drawable/pain_knee"/>
             </LinearLayout>
             <LinearLayout android:layout_width="match_parent"
                           android:layout_height="wrap_content"
@@ -94,7 +92,7 @@
                           android:minHeight="44dp"
                           android:layout_marginBottom="3dp"
                           android:gravity="center"
-                          android:text="Ręka"
+                          android:text="Kolano"
                           android:textSize="28sp"/>
             </LinearLayout>
         </LinearLayout>
@@ -108,19 +106,18 @@
                       android:background="@color/almost_white"
                       android:focusable="true"
                       android:clickable="true"
-                      android:onClick="temp"
-                      android:tag="temp">
+                      android:id="@+id/calf_layout"
+                      android:onClick="changeView_Pain_Leftright">
             <LinearLayout android:layout_width="wrap_content"
                           android:layout_height="match_parent"
                           android:layout_weight="5"
                           android:layout_gravity="center"
                           android:gravity="center">
-                <ImageView android:id="@+id/painBodyImage1"
-                           android:layout_width="match_parent"
+                <ImageView android:layout_width="match_parent"
                            android:layout_height="wrap_content"
                            android:scaleType="centerCrop"
                            android:adjustViewBounds="true"
-                           android:src="@drawable/icon_image"/>
+                           android:src="@drawable/pain_calf"/>
             </LinearLayout>
             <LinearLayout android:layout_width="match_parent"
                           android:layout_height="wrap_content"
@@ -132,7 +129,7 @@
                           android:minHeight="44dp"
                           android:layout_marginBottom="3dp"
                           android:gravity="center"
-                          android:text="Tułów"
+                          android:text="Łydka"
                           android:textSize="28sp"/>
             </LinearLayout>
         </LinearLayout>
@@ -146,19 +143,18 @@
                       android:background="@color/almost_white"
                       android:focusable="true"
                       android:clickable="true"
-                      android:onClick="temp"
-                      android:tag="temp">
+                      android:id="@+id/foot_layout"
+                      android:onClick="changeView_Pain_Leftright">
             <LinearLayout android:layout_width="wrap_content"
                           android:layout_height="match_parent"
                           android:layout_weight="5"
                           android:layout_gravity="center"
                           android:gravity="center">
-                <ImageView android:id="@+id/painLegsImage1"
-                           android:layout_width="match_parent"
+                <ImageView android:layout_width="match_parent"
                            android:layout_height="wrap_content"
                            android:scaleType="centerCrop"
                            android:adjustViewBounds="true"
-                           android:src="@drawable/icon_image"/>
+                           android:src="@drawable/pain_foot"/>
             </LinearLayout>
             <LinearLayout android:layout_width="match_parent"
                           android:layout_height="wrap_content"
@@ -170,12 +166,11 @@
                           android:minHeight="44dp"
                           android:layout_marginBottom="3dp"
                           android:gravity="center"
-                          android:text="Noga"
+                          android:text="Stopa"
                           android:textSize="28sp"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-
 
 
 </LinearLayout>
