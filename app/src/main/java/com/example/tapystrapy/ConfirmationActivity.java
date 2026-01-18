@@ -41,24 +41,24 @@ public class ConfirmationActivity  extends AppCompatActivity {
                 case "emotion_happy_3": confirmationImage.setImageResource(R.drawable.emote_happy_3); confirmationLabel.setText("Duża radość"); break;
 
                 case "emotion_sad_1": confirmationImage.setImageResource(R.drawable.emote_sad_1); confirmationLabel.setText("Lekki smutek"); break;
-                case "emotion_sad_2": confirmationImage.setImageResource(R.drawable.emote_sad_1); confirmationLabel.setText("Smutek"); break;
-                case "emotion_sad_3": confirmationImage.setImageResource(R.drawable.emote_sad_1); confirmationLabel.setText("Duży smutek"); break;
+                case "emotion_sad_2": confirmationImage.setImageResource(R.drawable.emote_sad_2); confirmationLabel.setText("Smutek"); break;
+                case "emotion_sad_3": confirmationImage.setImageResource(R.drawable.emote_sad_3); confirmationLabel.setText("Duży smutek"); break;
 
                 case "emotion_fear_1": confirmationImage.setImageResource(R.drawable.emote_feared_1); confirmationLabel.setText("Lekki strach"); break;
-                case "emotion_fear_2": confirmationImage.setImageResource(R.drawable.emote_feared_1); confirmationLabel.setText("Strach"); break;
-                case "emotion_fear_3": confirmationImage.setImageResource(R.drawable.emote_feared_1); confirmationLabel.setText("Duży strach"); break;
+                case "emotion_fear_2": confirmationImage.setImageResource(R.drawable.emote_feared_2); confirmationLabel.setText("Strach"); break;
+                case "emotion_fear_3": confirmationImage.setImageResource(R.drawable.emote_feared_3); confirmationLabel.setText("Duży strach"); break;
 
                 case "emotion_angry_1": confirmationImage.setImageResource(R.drawable.emote_angry_1); confirmationLabel.setText("Lekka złość"); break;
-                case "emotion_angry_2": confirmationImage.setImageResource(R.drawable.emote_angry_1); confirmationLabel.setText("Złość"); break;
-                case "emotion_angry_3": confirmationImage.setImageResource(R.drawable.emote_angry_1); confirmationLabel.setText("Duża złość"); break;
+                case "emotion_angry_2": confirmationImage.setImageResource(R.drawable.emote_angry_2); confirmationLabel.setText("Złość"); break;
+                case "emotion_angry_3": confirmationImage.setImageResource(R.drawable.emote_angry_3); confirmationLabel.setText("Duża złość"); break;
 
-                case "emotion_pain_1": confirmationImage.setImageResource(R.drawable.emote_pain_1); confirmationLabel.setText("Lekki ból"); break;
-                case "emotion_pain_2": confirmationImage.setImageResource(R.drawable.emote_pain_1); confirmationLabel.setText("Ból"); break;
-                case "emotion_pain_3": confirmationImage.setImageResource(R.drawable.emote_pain_1); confirmationLabel.setText("Duży ból"); break;
+                case "emotion_pain_1": confirmationImage.setImageResource(R.drawable.emote_pain_2); confirmationLabel.setText("Lekki ból"); break;
+                case "emotion_pain_2": confirmationImage.setImageResource(R.drawable.emote_pain_2); confirmationLabel.setText("Ból"); break;
+                case "emotion_pain_3": confirmationImage.setImageResource(R.drawable.emote_pain_2); confirmationLabel.setText("Duży ból"); break;
 
                 case "emotion_tired_1": confirmationImage.setImageResource(R.drawable.emote_tired_1); confirmationLabel.setText("Lekkie zmęczenie"); break;
-                case "emotion_tired_2": confirmationImage.setImageResource(R.drawable.emote_tired_1); confirmationLabel.setText("Zmęczenie"); break;
-                case "emotion_tired_3": confirmationImage.setImageResource(R.drawable.emote_tired_1); confirmationLabel.setText("Duże zmęczenie"); break;
+                case "emotion_tired_2": confirmationImage.setImageResource(R.drawable.emote_tired_2); confirmationLabel.setText("Zmęczenie"); break;
+                case "emotion_tired_3": confirmationImage.setImageResource(R.drawable.emote_tired_3); confirmationLabel.setText("Duże zmęczenie"); break;
 
                 default: confirmationImage.setImageResource(R.drawable.tapstrap_icon); confirmationLabel.setText("-"); break;
             }

@@ -43,24 +43,24 @@ public class FinalActivity extends AppCompatActivity {
                     case "emotion_happy_3": finalImage.setImageResource(R.drawable.emote_happy_3); finalLabel.setText("Duża radość"); break;
 
                     case "emotion_sad_1": finalImage.setImageResource(R.drawable.emote_sad_1); finalLabel.setText("Lekki smutek"); break;
-                    case "emotion_sad_2": finalImage.setImageResource(R.drawable.emote_sad_1); finalLabel.setText("Smutek"); break;
-                    case "emotion_sad_3": finalImage.setImageResource(R.drawable.emote_sad_1); finalLabel.setText("Duży smutek"); break;
+                    case "emotion_sad_2": finalImage.setImageResource(R.drawable.emote_sad_2); finalLabel.setText("Smutek"); break;
+                    case "emotion_sad_3": finalImage.setImageResource(R.drawable.emote_sad_3); finalLabel.setText("Duży smutek"); break;
 
                     case "emotion_fear_1": finalImage.setImageResource(R.drawable.emote_feared_1); finalLabel.setText("Lekki strach"); break;
-                    case "emotion_fear_2": finalImage.setImageResource(R.drawable.emote_feared_1); finalLabel.setText("Strach"); break;
-                    case "emotion_fear_3": finalImage.setImageResource(R.drawable.emote_feared_1); finalLabel.setText("Duży strach"); break;
+                    case "emotion_fear_2": finalImage.setImageResource(R.drawable.emote_feared_2); finalLabel.setText("Strach"); break;
+                    case "emotion_fear_3": finalImage.setImageResource(R.drawable.emote_feared_3); finalLabel.setText("Duży strach"); break;
 
                     case "emotion_angry_1": finalImage.setImageResource(R.drawable.emote_angry_1); finalLabel.setText("Lekka złość"); break;
-                    case "emotion_angry_2": finalImage.setImageResource(R.drawable.emote_angry_1); finalLabel.setText("Złość"); break;
-                    case "emotion_angry_3": finalImage.setImageResource(R.drawable.emote_angry_1); finalLabel.setText("Duża złość"); break;
+                    case "emotion_angry_2": finalImage.setImageResource(R.drawable.emote_angry_2); finalLabel.setText("Złość"); break;
+                    case "emotion_angry_3": finalImage.setImageResource(R.drawable.emote_angry_3); finalLabel.setText("Duża złość"); break;
 
-                    case "emotion_pain_1": finalImage.setImageResource(R.drawable.emote_pain_1); finalLabel.setText("Lekki ból"); break;
-                    case "emotion_pain_2": finalImage.setImageResource(R.drawable.emote_pain_1); finalLabel.setText("Ból"); break;
-                    case "emotion_pain_3": finalImage.setImageResource(R.drawable.emote_pain_1); finalLabel.setText("Duży ból"); break;
+                    case "emotion_pain_1": finalImage.setImageResource(R.drawable.emote_pain_2); finalLabel.setText("Lekki ból"); break;
+                    case "emotion_pain_2": finalImage.setImageResource(R.drawable.emote_pain_2); finalLabel.setText("Ból"); break;
+                    case "emotion_pain_3": finalImage.setImageResource(R.drawable.emote_pain_2); finalLabel.setText("Duży ból"); break;
 
                     case "emotion_tired_1": finalImage.setImageResource(R.drawable.emote_tired_1); finalLabel.setText("Lekkie zmęczenie"); break;
-                    case "emotion_tired_2": finalImage.setImageResource(R.drawable.emote_tired_1); finalLabel.setText("Zmęczenie"); break;
-                    case "emotion_tired_3": finalImage.setImageResource(R.drawable.emote_tired_1); finalLabel.setText("Duże zmęczenie"); break;
+                    case "emotion_tired_2": finalImage.setImageResource(R.drawable.emote_tired_2); finalLabel.setText("Zmęczenie"); break;
+                    case "emotion_tired_3": finalImage.setImageResource(R.drawable.emote_tired_3); finalLabel.setText("Duże zmęczenie"); break;
 
                     default: finalImage.setImageResource(R.drawable.tapstrap_icon); finalLabel.setText("-"); break;
                 }

@@ -52,7 +52,7 @@
                           android:layout_height="wrap_content"
                           android:minHeight="60dp"
                           android:gravity="center"
-                          android:text="x"
+                          android:text=""
                           android:textSize="28sp"/>
             </LinearLayout>
         </LinearLayout>
