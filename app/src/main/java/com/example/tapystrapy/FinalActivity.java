@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class FinalActivity extends AppCompatActivity {
-    String emotion, bodyPart, fullAnswer;
+    String emotion, bodyPart, bodyFullAnswer;
     private ImageView finalImage;
     private TextView finalLabel;
 
@@ -22,9 +22,7 @@ public class FinalActivity extends AppCompatActivity {
         Intent intent = getIntent();
         emotion = intent.getStringExtra("EMOTION");
         bodyPart = intent.getStringExtra("BODY_PART");
-
-        fullAnswer = intent.getStringExtra("FULL_ANSWER");
-        finalLabel.setText(fullAnswer);
+        bodyFullAnswer = intent.getStringExtra("FULL_ANSWER");
 
         setFinalImage();
     }
@@ -66,6 +64,8 @@ public class FinalActivity extends AppCompatActivity {
                 }
             }
             else if (bodyPart != null) {
+                finalLabel.setText(bodyFullAnswer);
+
                 switch (bodyPart) {
                     //head
                     case "pain_forehead": finalImage.setImageResource(R.drawable.pain_forehead); break;

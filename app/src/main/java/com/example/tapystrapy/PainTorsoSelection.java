@@ -47,7 +47,7 @@ public class PainTorsoSelection extends AppCompatActivity {
     }
 
     public void changeView_Final(View view){
-        Intent intent = new Intent(this, FinalActivity.class);
+        Intent intent = new Intent(this, ConfirmationActivity.class);
         BodyPartData bodyPartData = (BodyPartData) view.getTag();
         String fullAnswer = getFullAnswer(view);
         intent.putExtra("BODY_PART", "pain_" + bodyPartData.bodyPart);

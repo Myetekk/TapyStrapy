@@ -49,8 +49,8 @@ public class PainHeadSelection extends AppCompatActivity {
         return fullAnswer;
     }
 
-    public void changeView_Final(View view){
-        Intent intent = new Intent(this, FinalActivity.class);
+    public void changeView_Final(View view) {
+        Intent intent = new Intent(this, ConfirmationActivity.class);
         BodyPartData bodyPartData = (BodyPartData) view.getTag();
         String fullAnswer = getFullAnswer(view);
         intent.putExtra("BODY_PART", "pain_" + bodyPartData.bodyPart);

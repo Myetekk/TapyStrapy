@@ -10,9 +10,7 @@ import com.example.tapystrapy.model.Gender;
 public class PainLeftRightSelection extends AppCompatActivity {
     Gender gender;
     String genderStr, bodyPart, bodyPartPolish;
-    TextView questionText;
-    TextView leftText;
-    TextView rightText;
+    TextView questionText, leftText, rightText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +68,7 @@ public class PainLeftRightSelection extends AppCompatActivity {
     }
 
     public void changeView_Final(View view){
-        Intent intent = new Intent(this, FinalActivity.class);
+        Intent intent = new Intent(this, ConfirmationActivity.class);
         String fullAnswer = getFullAnswer(view);
         intent.putExtra("BODY_PART", "pain_" + bodyPart);
         intent.putExtra("FULL_ANSWER", fullAnswer);

@@ -98,7 +98,6 @@ public class EmotionLevel extends AppCompatActivity {
         String emotionLevel = setChoosenEmotionString((String) view.getTag());
         Intent intent = new Intent(this, ConfirmationActivity.class);
         intent.putExtra("EMOTION", emotionLevel);
-        intent.putExtra("IS_FINAL", "true");
         startActivity(intent);
     }
 
