@@ -11,12 +11,10 @@ import org.jetbrains.annotations.NotNull;
 
 public class MyTapListener implements TapListener {
     private final TapSdk tapSdk;
-    private final DebugActivity debugActivity;
     private int gyroThresholdInt = 50000;
 
-    public MyTapListener(TapSdk tapSdk, DebugActivity debugActivity) {
+    public MyTapListener(TapSdk tapSdk) {
         this.tapSdk = tapSdk;
-        this.debugActivity = debugActivity;
     }
 
     @Override
@@ -38,16 +36,18 @@ public class MyTapListener implements TapListener {
     @Override
     public void onTapConnected(@NotNull String tapIdentifier) {
         Log.d("TAP", "TAP connected: " + tapIdentifier);
-        debugActivity.updateConnectionStatus(true);
-        debugActivity.setTapId(tapIdentifier);
-        debugActivity.onConnected();
+        AppState.getInstance().set_connectionStatus(true);
+        AppState.getInstance().call_updateConnectionStatus();
+        AppState.getInstance().set_tapIdentifier(tapIdentifier);
+        AppState.getInstance().call_onConnected();
     }
 
     @Override
     public void onTapDisconnected(@NotNull String tapIdentifier) {
         Log.d("TAP", "TAP device " + tapIdentifier + " disconnected");
-        debugActivity.updateConnectionStatus(false);
-        debugActivity.onDisconnected();
+        AppState.getInstance().set_connectionStatus(false);
+        AppState.getInstance().call_updateConnectionStatus();
+        AppState.getInstance().call_onDisconnected();
     }
 
     @Override
@@ -61,12 +61,13 @@ public class MyTapListener implements TapListener {
     }
 
     @Override
-    public void onTapInputReceived(@NotNull String tapIdentifier, int data, int repeatData) {
-        boolean[] fingers = TapSdk.toFingers(data);
+    public void onTapInputReceived(@NotNull String tapIdentifier, int fingersId, int repeatData) {
+        boolean[] fingers = TapSdk.toFingers(fingersId);
 
-        debugActivity.updateFingerStatus(fingers, data, repeatData);
-        debugActivity.updateMode(new boolean[] {true, false, false, false});
-        Log.d("TAPPP", "onTapInputReceived | " + String.valueOf(data));
+        AppState.getInstance().call_updateFingerStatus(fingers, fingersId, repeatData);
+        AppState.getInstance().call_updateMode(new boolean[]{true, false, false, false});
+
+        Log.d("TAPPP", "onTapInputReceived | " + String.valueOf(fingersId));
     }
 
     @Override
@@ -83,14 +84,14 @@ public class MyTapListener implements TapListener {
     public void onMouseInputReceived(@NotNull String tapIdentifier, @NotNull MousePacket data) {
         // Receives mouse input if in Controller with Mouse HID mode
 //        tapSdk.startControllerWithMouseHIDMode(tapIdentifier);
-//        debugActivity.updateMode(new boolean[] {false, false, false, true});
+//        AppState.getInstance().call_updateMode(new boolean[]{false, false, false, true});
 //        Log.d("TAPPP", "onMouseInputReceived | " + String.valueOf(data));
     }
 
     @Override
     public void onAirMouseInputReceived(@NotNull String tapIdentifier, @NotNull AirMousePacket data) {
         tapSdk.startRawSensorMode(tapIdentifier, (byte)0, (byte)0, (byte)0);
-        debugActivity.updateMode(new boolean[] {false, true, false, false});
+        AppState.getInstance().call_updateMode(new boolean[]{false, true, false, false});
         Log.d("TAPPP", "onAirMouseInputReceived | " + String.valueOf(data));
     }
 
@@ -101,7 +102,7 @@ public class MyTapListener implements TapListener {
         Point3 gyro = rsData.getPoint(RawSensorData.iIMU_GYRO);
         if (gyro != null && (Math.abs(gyro.x)>gyroThresholdInt || Math.abs(gyro.y) >gyroThresholdInt || Math.abs(gyro.z)>gyroThresholdInt)) {
             Log.d("TAP", "Gyro - X: " + gyro.x + ", Y: " + gyro.y + ", Z: " + gyro.z);
-            debugActivity.updateGyro(new double[]{gyro.x, gyro.y, gyro.z});
+            AppState.getInstance().call_updateGyro(new double[]{gyro.x, gyro.y, gyro.z});
         }
     }
 
@@ -112,7 +113,8 @@ public class MyTapListener implements TapListener {
         boolean[] modes = new boolean[4];
         if (state == 0) modes = new boolean[] {true, false, false, false};
         if (state == 1) modes = new boolean[] {false, true, false, false};
-        debugActivity.updateMode(modes);
+
+        AppState.getInstance().call_updateMode(new boolean[]{false, true, false, false});
     }
 
     @Override
