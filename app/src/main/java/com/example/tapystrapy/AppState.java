@@ -21,7 +21,7 @@ public class AppState {
 
 
     // MyTapListener
-    public MyTapListener getTapListener() { return tapListener; }
+    public MyTapListener get_tapListener() { return tapListener; }
     public void set_tapSdk(TapSdk tapSdk) { this.tapSdk = tapSdk; }
     public void set_tapListener(MyTapListener tapListener) { this.tapListener = tapListener; }
     public void set_connectionStatus(boolean connectionStatus) { this.connectionStatus = connectionStatus; }

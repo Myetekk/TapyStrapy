@@ -1,5 +1,8 @@
 package com.example.tapystrapy;
 
+import android.os.Handler;
+import android.os.Looper;
+import com.example.tapystrapy.model.Gesture;
 import android.util.Log;
 import com.tapwithus.sdk.TapListener;
 import com.tapwithus.sdk.TapSdk;
@@ -8,10 +11,15 @@ import com.tapwithus.sdk.mode.Point3;
 import com.tapwithus.sdk.mode.RawSensorData;
 import com.tapwithus.sdk.mouse.MousePacket;
 import org.jetbrains.annotations.NotNull;
+import com.example.tapystrapy.model.Gesture;
+
+import java.util.ArrayList;
 
 public class MyTapListener implements TapListener {
     private final TapSdk tapSdk;
-    private int gyroThresholdInt = 50000;
+    private final int gyroThresholdInt = 70000;
+    private static final int inactivityTimeout = 400;
+    private ArrayList<Gesture> gestureList = new ArrayList<Gesture>();
 
     public MyTapListener(TapSdk tapSdk) {
         this.tapSdk = tapSdk;
@@ -48,6 +56,8 @@ public class MyTapListener implements TapListener {
         AppState.getInstance().set_connectionStatus(false);
         AppState.getInstance().call_updateConnectionStatus();
         AppState.getInstance().call_onDisconnected();
+
+        inactivityHandler.removeCallbacks(resetRunnable);
     }
 
     @Override
@@ -100,9 +110,14 @@ public class MyTapListener implements TapListener {
         // Receives raw sensor data from accelerometers and IMU
 
         Point3 gyro = rsData.getPoint(RawSensorData.iIMU_GYRO);
-        if (gyro != null && (Math.abs(gyro.x)>gyroThresholdInt || Math.abs(gyro.y) >gyroThresholdInt || Math.abs(gyro.z)>gyroThresholdInt)) {
+        if (gyro != null && (Math.abs(gyro.x)>gyroThresholdInt*0.8 || Math.abs(gyro.y)>gyroThresholdInt*0.7|| Math.abs(gyro.z)>gyroThresholdInt*0.8)) {
             Log.d("TAP", "Gyro - X: " + gyro.x + ", Y: " + gyro.y + ", Z: " + gyro.z);
             AppState.getInstance().call_updateGyro(new double[]{gyro.x, gyro.y, gyro.z});
+
+            identifySingleGesture(gyro);
+
+            inactivityHandler.removeCallbacks(resetRunnable);
+            inactivityHandler.postDelayed(resetRunnable, inactivityTimeout);
         }
     }
 
@@ -121,5 +136,67 @@ public class MyTapListener implements TapListener {
     public void onError(@NotNull String tapIdentifier, int code, @NotNull String description) {
         // Handle errors
         Log.e("TAP", "Error for device " + tapIdentifier + ": " + description);
+    }
+
+
+
+    private final Handler inactivityHandler = new Handler(Looper.getMainLooper());
+    private final Runnable resetRunnable = () -> {
+        Log.d("TAP_gesture", String.valueOf(gestureList));
+        Gesture gesture = identifyGesture();
+        Log.d("TAP_gesture", "GESTURE: " + gesture);
+        Log.d("TAP", "GESTURE: " + gesture);
+        Log.d("TAPPP", "GESTURE: " + gesture);
+        Log.d("TAP_gesture", "");
+
+        gestureList.clear();
+    };
+
+    private void identifySingleGesture(Point3 gyro) {
+        if (gyro.y < -gyroThresholdInt*0.75  &&  gyro.y < gyro.z*2) {
+            Log.d("TAP_gesture", "UP      Gyro - X: " + gyro.x + ", Y: " + gyro.y + ", Z: " + gyro.z);
+            gestureList.add(Gesture.UP);
+        }
+        else if (gyro.z < -gyroThresholdInt  &&  gyro.z < gyro.y*1.3) {
+            Log.d("TAP_gesture", "RIGHT   Gyro - X: " + gyro.x + ", Y: " + gyro.y + ", Z: " + gyro.z);
+            gestureList.add(Gesture.RIGHT);
+        }
+        else if (gyro.z > gyroThresholdInt  &&  gyro.z > gyro.y*1.4) {
+            Log.d("TAP_gesture", "LEFT    Gyro - X: " + gyro.x + ", Y: " + gyro.y + ", Z: " + gyro.z);
+            gestureList.add(Gesture.LEFT);
+        } else {
+            Log.d("TAP_gesture", "        Gyro - X: " + gyro.x + ", Y: " + gyro.y + ", Z: " + gyro.z);
+        }
+    }
+
+    private Gesture identifyGesture() {
+        if (gestureList.size() == 1) { return gestureList.get(0); }
+        else if (gestureList.size() > 1) {
+            Gesture firstGesture, mostCommonGesture = Gesture.NONE;
+            int countUp = 0, countRight = 0, countLeft = 0;
+
+            firstGesture = gestureList.get(0);
+            Log.d("TAP_gesture", "firstGesture:      " + firstGesture);
+
+            for (int i=0; i<gestureList.size()/2; i++) {
+                switch (gestureList.get(i)) {
+                    case UP: countUp++; break;
+                    case RIGHT: countRight++; break;
+                    case LEFT: countLeft++; break;
+                }
+            }
+            if (countUp == countRight  &&  countUp == countLeft) { mostCommonGesture = Gesture.NONE; }
+            else if (countUp == countRight  &&  (firstGesture == Gesture.UP || firstGesture == Gesture.RIGHT)) { mostCommonGesture = firstGesture; }
+            else if (countUp == countLeft  &&  (firstGesture == Gesture.UP || firstGesture == Gesture.RIGHT)) { mostCommonGesture = firstGesture; }
+            else if (countRight == countLeft  &&  (firstGesture == Gesture.UP || firstGesture == Gesture.RIGHT)) { mostCommonGesture = firstGesture; }
+            else if (countUp > countRight  &&  countUp > countLeft) { mostCommonGesture = Gesture.UP; }
+            else if (countRight > countUp  &&  countRight > countLeft) { mostCommonGesture = Gesture.RIGHT; }
+            else if (countLeft > countUp  &&  countLeft > countRight) { mostCommonGesture = Gesture.LEFT; }
+            Log.d("TAP_gesture", "mostCommonGesture: " + mostCommonGesture);
+
+            return mostCommonGesture;
+        }
+
+        return Gesture.NONE;
     }
 }
