@@ -3,74 +3,56 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical"
-              android:padding="15dp"
-              android:background="#f3f7f0">
+              android:padding="5dp">
 
-    <FrameLayout android:layout_width="match_parent"
-                 android:layout_height="60dp"
+    <LinearLayout android:layout_width="match_parent"
+                 android:layout_height="70dp"
                  android:padding="15dp"
-                 android:background="#ebf2e6">
-        <FrameLayout android:layout_width="match_parent"
-                     android:layout_height="match_parent">
-            <LinearLayout android:layout_width="wrap_content"
-                          android:layout_height="match_parent">
-                <ImageView android:layout_width="30dp"
-                           android:layout_height="match_parent"
-                           android:layout_marginEnd="5dp"
-                           android:src="@drawable/tapstrap_icon"/>
-                <TextView android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:text="Tap Strap"
-                          android:textSize="24sp"
-                          android:textStyle="bold"
-                          android:textColor="@color/black"/>
-            </LinearLayout>
-            <LinearLayout android:layout_width="wrap_content"
-                          android:layout_height="match_parent"
-                          android:layout_gravity="end">
-                <ImageView android:layout_width="30dp"
-                           android:layout_height="match_parent"
-                           android:src="@drawable/settings_icon"
-                           android:clickable="true"
-                           android:focusable="true"
-                           android:onClick="changeView_Main_Settings"/>
-            </LinearLayout>
-        </FrameLayout>
-    </FrameLayout>
+                 android:background="@color/almost_white">
+        <ImageView android:layout_width="30dp"
+                   android:layout_height="match_parent"
+                   android:layout_marginEnd="7dp"
+                   android:src="@drawable/tapstrap_icon"/>
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="Tap Strap"
+                  android:textSize="28sp"
+                  android:textStyle="bold"/>
+    </LinearLayout>
 
 
 
     <ScrollView android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp">
+                android:layout_margin="3dp">
 
         <LinearLayout android:layout_width="match_parent"
                       android:layout_height="wrap_content"
-                      android:orientation="vertical"
-                      android:spacing="15dp">
+                      android:orientation="vertical">
 
             <TextView android:id="@+id/connectionStatus"
                       android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:gravity="center"
-                      android:text="Disconnected"
-                      android:textSize="12sp"
+                      android:layout_margin="3dp"
                       android:paddingHorizontal="12dp"
                       android:paddingVertical="8dp"
+                      android:text="Disconnected"
+                      android:textSize="12sp"
                       android:textColor="#c02f2f"
                       android:background="#ffe4e4"/>
 
             <LinearLayout android:id="@+id/tapInputLayout"
                           android:layout_width="match_parent"
                           android:layout_height="wrap_content"
-                          android:layout_marginTop="15dp"
+                          android:layout_margin="3dp"
                           android:orientation="vertical"
                           android:padding="15dp"
-                          android:layout_marginBottom="10dp"
                           android:focusable="true"
                           android:clickable="true"
                           android:onClick="changeMode_Tap"
-                          android:background="#e1ebda">
+                          android:background="@color/almost_white">
+
                 <TextView android:layout_width="wrap_content"
                           android:layout_height="wrap_content"
                           android:text="Tap input"
@@ -79,14 +61,16 @@
 
                 <LinearLayout android:layout_width="match_parent"
                               android:layout_height="wrap_content"
-                              android:orientation="vertical"
-                              android:layout_marginTop="10dp">
+                              android:orientation="horizontal"
+                              android:layout_marginTop="15dp">
 
                     <LinearLayout android:layout_width="match_parent"
-                                  android:layout_height="match_parent"
-                                  android:orientation="horizontal">
+                                  android:layout_height="wrap_content"
+                                  android:orientation="vertical"
+                                  android:layout_weight="1">
                         <TextView android:layout_width="wrap_content"
                                   android:layout_height="wrap_content"
+                                  android:layout_gravity="center"
                                   android:text="Thumb"
                                   android:textSize="15sp"
                                   android:layout_weight="1"/>
@@ -95,15 +79,17 @@
                                   android:layout_height="wrap_content"
                                   android:text="—"
                                   android:textSize="15sp"
-                                  android:gravity="end"
+                                  android:layout_gravity="center"
                                   android:layout_weight="3"/>
                     </LinearLayout>
 
                     <LinearLayout android:layout_width="match_parent"
-                                  android:layout_height="match_parent"
-                                  android:orientation="horizontal">
+                                  android:layout_height="wrap_content"
+                                  android:orientation="vertical"
+                                  android:layout_weight="1">
                         <TextView android:layout_width="wrap_content"
                                   android:layout_height="wrap_content"
+                                  android:layout_gravity="center"
                                   android:text="Index"
                                   android:textSize="15sp"
                                   android:layout_weight="1"/>
@@ -112,15 +98,17 @@
                                   android:layout_height="wrap_content"
                                   android:text="—"
                                   android:textSize="15sp"
-                                  android:gravity="end"
+                                  android:layout_gravity="center"
                                   android:layout_weight="3"/>
                     </LinearLayout>
 
                     <LinearLayout android:layout_width="match_parent"
-                                  android:layout_height="match_parent"
-                                  android:orientation="horizontal">
+                                  android:layout_height="wrap_content"
+                                  android:orientation="vertical"
+                                  android:layout_weight="1">
                         <TextView android:layout_width="wrap_content"
                                   android:layout_height="wrap_content"
+                                  android:layout_gravity="center"
                                   android:text="Middle"
                                   android:textSize="15sp"
                                   android:layout_weight="1"/>
@@ -129,15 +117,17 @@
                                   android:layout_height="wrap_content"
                                   android:text="—"
                                   android:textSize="15sp"
-                                  android:gravity="end"
+                                  android:layout_gravity="center"
                                   android:layout_weight="3"/>
                     </LinearLayout>
 
                     <LinearLayout android:layout_width="match_parent"
-                                  android:layout_height="match_parent"
-                                  android:orientation="horizontal">
+                                  android:layout_height="wrap_content"
+                                  android:orientation="vertical"
+                                  android:layout_weight="1">
                         <TextView android:layout_width="wrap_content"
                                   android:layout_height="wrap_content"
+                                  android:layout_gravity="center"
                                   android:text="Ring"
                                   android:textSize="15sp"
                                   android:layout_weight="1"/>
@@ -146,15 +136,17 @@
                                   android:layout_height="wrap_content"
                                   android:text="—"
                                   android:textSize="15sp"
-                                  android:gravity="end"
+                                  android:layout_gravity="center"
                                   android:layout_weight="3"/>
                     </LinearLayout>
 
                     <LinearLayout android:layout_width="match_parent"
-                                  android:layout_height="match_parent"
-                                  android:orientation="horizontal">
+                                  android:layout_height="wrap_content"
+                                  android:orientation="vertical"
+                                  android:layout_weight="1">
                         <TextView android:layout_width="wrap_content"
                                   android:layout_height="wrap_content"
+                                  android:layout_gravity="center"
                                   android:text="Pinky"
                                   android:textSize="15sp"
                                   android:layout_weight="1"/>
@@ -163,7 +155,7 @@
                                   android:layout_height="wrap_content"
                                   android:text="—"
                                   android:textSize="15sp"
-                                  android:gravity="end"
+                                  android:layout_gravity="center"
                                   android:layout_weight="3"/>
                     </LinearLayout>
 
@@ -172,7 +164,7 @@
                 <LinearLayout android:layout_width="match_parent"
                               android:layout_height="wrap_content"
                               android:orientation="horizontal"
-                              android:layout_marginTop="10dp">
+                              android:layout_marginTop="15dp">
 
                     <LinearLayout android:layout_width="match_parent"
                                   android:layout_height="match_parent"
@@ -216,16 +208,18 @@
 
             </LinearLayout>
 
+
+
             <LinearLayout android:id="@+id/gyroscopeLayout"
                           android:layout_width="match_parent"
                           android:layout_height="wrap_content"
                           android:orientation="vertical"
+                          android:layout_margin="3dp"
                           android:padding="15dp"
-                          android:layout_marginBottom="10dp"
                           android:focusable="true"
                           android:clickable="true"
                           android:onClick="changeMode_Gyro"
-                          android:background="#e1ebda">
+                          android:background="@color/almost_white">
                 <TextView android:layout_width="wrap_content"
                           android:layout_height="wrap_content"
                           android:text="Gyroscope"

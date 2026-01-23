@@ -30,4 +30,8 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, PainMainSelection.class);
         startActivity(intent);
     }
+    public void changeView_Main_Debug(View view) {
+        Intent intent = new Intent(this, DebugActivity.class);
+        startActivity(intent);
+    }
 }
