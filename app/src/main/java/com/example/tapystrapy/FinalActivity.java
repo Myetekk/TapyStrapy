@@ -16,6 +16,11 @@ public class FinalActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
+        }
+        AppState.getInstance().set_activity(this);
+
         setContentView(R.layout.activity_final);
         initializeUIElements();
 
@@ -25,6 +30,11 @@ public class FinalActivity extends AppCompatActivity {
         bodyFullAnswer = intent.getStringExtra("FULL_ANSWER");
 
         setFinalImage();
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        AppState.getInstance().set_activity(this);
     }
 
     private void initializeUIElements() {

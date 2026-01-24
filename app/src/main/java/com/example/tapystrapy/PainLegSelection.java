@@ -11,16 +11,22 @@ public class PainLegSelection extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
         }
+        AppState.getInstance().set_activity(this);
+
         setContentView(R.layout.activity_pain_leg);
 
         findViewById(R.id.thigh_layout).setTag(new BodyPartData("thigh", "udo", Gender.NEUTER));
         findViewById(R.id.knee_layout).setTag(new BodyPartData("knee", "kolano", Gender.NEUTER));
         findViewById(R.id.calf_layout).setTag(new BodyPartData("calf", "łydka", Gender.FEMININE));
         findViewById(R.id.foot_layout).setTag(new BodyPartData("foot", "stopa", Gender.FEMININE));
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        AppState.getInstance().set_activity(this);
     }
 
     public void changeView_Pain_Leftright(View view) {

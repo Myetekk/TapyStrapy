@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 
 public class DebugActivity extends AppCompatActivity {
@@ -40,15 +41,20 @@ public class DebugActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
         }
+        AppState.getInstance().set_activity(this);
+
         setContentView(R.layout.activity_debug);
         initializeUIElements();
 
-        AppState.getInstance().set_debugActivity(this);
         AppState.getInstance().call_updateConnectionStatus();
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        AppState.getInstance().set_activity(this);
     }
     @Override
     protected void onDestroy() {
@@ -103,8 +109,8 @@ public class DebugActivity extends AppCompatActivity {
     }
     public void updateMode(boolean[] modes) {
         runOnUiThread(() -> {
-                tapInputLayout.setBackgroundColor(modes[0] ? 0xFFc9dbbd : 0xFFe1ebda);
-                gyroscopeLayout.setBackgroundColor(modes[1] ? 0xFFc9dbbd : 0xFFe1ebda);
+                tapInputLayout.setBackgroundColor(modes[0] ? ContextCompat.getColor(this, R.color.chosen_element) : ContextCompat.getColor(this, R.color.almost_white));
+                gyroscopeLayout.setBackgroundColor(modes[1] ? ContextCompat.getColor(this, R.color.chosen_element) : ContextCompat.getColor(this, R.color.almost_white));
         });
     }
     public void updateFingerStatus(boolean[] fingers, int fingersId, int repeatData) {

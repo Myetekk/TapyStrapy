@@ -16,6 +16,10 @@ public class EmotionLevel extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
+        }
+        AppState.getInstance().set_activity(this);
 
         setContentView(R.layout.activity_emotion_level);
         initializeUIElements();
@@ -23,6 +27,11 @@ public class EmotionLevel extends AppCompatActivity {
         Intent intent = getIntent();
         emotion = intent.getStringExtra("EMOTION");
         setEmotionImages();
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        AppState.getInstance().set_activity(this);
     }
 
     private void initializeUIElements() {

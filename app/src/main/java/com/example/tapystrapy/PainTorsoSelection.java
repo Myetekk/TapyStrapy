@@ -11,10 +11,11 @@ public class PainTorsoSelection extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
         }
+        AppState.getInstance().set_activity(this);
+
         setContentView(R.layout.activity_pain_torso);
 
         findViewById(R.id.shoulders_layout).setTag(new BodyPartData("shoulders", "bark", Gender.MASCULINE));
@@ -22,6 +23,11 @@ public class PainTorsoSelection extends AppCompatActivity {
         findViewById(R.id.stomach_layout).setTag(new BodyPartData("stomach", "brzuch", Gender.MASCULINE));
         findViewById(R.id.back_layout).setTag(new BodyPartData("back", "plecy", Gender.NEUTER));
         findViewById(R.id.lowerback_layout).setTag(new BodyPartData("lowerback", "lędźwie", Gender.NEUTER));
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        AppState.getInstance().set_activity(this);
     }
 
     public void changeView_Pain_Leftright(View view) {

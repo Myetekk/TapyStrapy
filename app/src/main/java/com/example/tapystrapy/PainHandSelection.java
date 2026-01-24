@@ -12,15 +12,21 @@ public class PainHandSelection extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
         }
+        AppState.getInstance().set_activity(this);
+
         setContentView(R.layout.activity_pain_hand);
 
         findViewById(R.id.arm_layout).setTag(new BodyPartData("arm", "ramię", Gender.NEUTER));
         findViewById(R.id.elbow_layout).setTag(new BodyPartData("elbow", "łokieć", Gender.MASCULINE));
         findViewById(R.id.palm_layout).setTag(new BodyPartData("palm", "dłoń", Gender.FEMININE));
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        AppState.getInstance().set_activity(this);
     }
 
     public void changeView_Pain_Leftright(View view) {

@@ -11,13 +11,12 @@ import com.tapwithus.sdk.mode.Point3;
 import com.tapwithus.sdk.mode.RawSensorData;
 import com.tapwithus.sdk.mouse.MousePacket;
 import org.jetbrains.annotations.NotNull;
-import com.example.tapystrapy.model.Gesture;
 
 import java.util.ArrayList;
 
 public class MyTapListener implements TapListener {
     private final TapSdk tapSdk;
-    private final int gyroThresholdInt = 70000;
+    private final int gyroThresholdInt = 60000;
     private static final int inactivityTimeout = 400;
     private ArrayList<Gesture> gestureList = new ArrayList<Gesture>();
 
@@ -110,7 +109,7 @@ public class MyTapListener implements TapListener {
         // Receives raw sensor data from accelerometers and IMU
 
         Point3 gyro = rsData.getPoint(RawSensorData.iIMU_GYRO);
-        if (gyro != null && (Math.abs(gyro.x)>gyroThresholdInt*0.8 || Math.abs(gyro.y)>gyroThresholdInt*0.7|| Math.abs(gyro.z)>gyroThresholdInt*0.8)) {
+        if (gyro != null && (Math.abs(gyro.x)>gyroThresholdInt*0.75 || Math.abs(gyro.y)>gyroThresholdInt*0.7 || Math.abs(gyro.z)>gyroThresholdInt*0.75)) {
             Log.d("TAP", "Gyro - X: " + gyro.x + ", Y: " + gyro.y + ", Z: " + gyro.z);
             AppState.getInstance().call_updateGyro(new double[]{gyro.x, gyro.y, gyro.z});
 
@@ -142,8 +141,10 @@ public class MyTapListener implements TapListener {
 
     private final Handler inactivityHandler = new Handler(Looper.getMainLooper());
     private final Runnable resetRunnable = () -> {
-        Log.d("TAP_gesture", String.valueOf(gestureList));
         Gesture gesture = identifyGesture();
+        AppState.getInstance().set_gesture(gesture);
+
+        Log.d("TAP_gesture", String.valueOf(gestureList));
         Log.d("TAP_gesture", "GESTURE: " + gesture);
         Log.d("TAP", "GESTURE: " + gesture);
         Log.d("TAPPP", "GESTURE: " + gesture);
@@ -153,15 +154,15 @@ public class MyTapListener implements TapListener {
     };
 
     private void identifySingleGesture(Point3 gyro) {
-        if (gyro.y < -gyroThresholdInt*0.75  &&  gyro.y < gyro.z*2) {
+        if (gyro.y < -gyroThresholdInt*0.75  &&  gyro.y < gyro.z*2.5) {
             Log.d("TAP_gesture", "UP      Gyro - X: " + gyro.x + ", Y: " + gyro.y + ", Z: " + gyro.z);
             gestureList.add(Gesture.UP);
         }
-        else if (gyro.z < -gyroThresholdInt  &&  gyro.z < gyro.y*1.3) {
+        else if (gyro.z < -gyroThresholdInt  &&  gyro.z < gyro.y*1.05) {
             Log.d("TAP_gesture", "RIGHT   Gyro - X: " + gyro.x + ", Y: " + gyro.y + ", Z: " + gyro.z);
             gestureList.add(Gesture.RIGHT);
         }
-        else if (gyro.z > gyroThresholdInt  &&  gyro.z > gyro.y*1.4) {
+        else if (gyro.z > gyroThresholdInt  &&  gyro.z > gyro.y*1.1) {
             Log.d("TAP_gesture", "LEFT    Gyro - X: " + gyro.x + ", Y: " + gyro.y + ", Z: " + gyro.z);
             gestureList.add(Gesture.LEFT);
         } else {

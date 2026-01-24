@@ -10,11 +10,17 @@ public class PainMainSelection extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
         }
+        AppState.getInstance().set_activity(this);
+
         setContentView(R.layout.activity_pain_main);
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        AppState.getInstance().set_activity(this);
     }
 
     public void changeView_Pain_Head(View view) {

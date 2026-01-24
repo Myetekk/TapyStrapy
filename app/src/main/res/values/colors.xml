@@ -13,6 +13,7 @@
     <color name="transparent">#00000000</color>
 
     <color name="almost_white">#f3f7f0</color>
+    <color name="chosen_element">#c9dbbd</color>
     <color name="greeeen">#6dff00</color>
 
     <color name="selected_item">#d2ffb0</color>

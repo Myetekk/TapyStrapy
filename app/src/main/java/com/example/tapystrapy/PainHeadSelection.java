@@ -11,10 +11,11 @@ public class PainHeadSelection extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
         }
+        AppState.getInstance().set_activity(this);
+
         setContentView(R.layout.activity_pain_head);
 
         findViewById(R.id.forehead_layout).setTag(new BodyPartData("forehead", "czoło", Gender.NEUTER));
@@ -25,6 +26,11 @@ public class PainHeadSelection extends AppCompatActivity {
         findViewById(R.id.tooth_layout).setTag(new BodyPartData("tooth", "ząb", Gender.MASCULINE));
         findViewById(R.id.ear_layout).setTag(new BodyPartData("ears", "ucho", Gender.NEUTER));
         findViewById(R.id.throat_layout).setTag(new BodyPartData("throat", "gardło", Gender.NEUTER));
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        AppState.getInstance().set_activity(this);
     }
 
     public void changeView_Pain_Leftright(View view) {

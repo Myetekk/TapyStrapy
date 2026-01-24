@@ -15,10 +15,11 @@ public class PainLeftRightSelection extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
         }
+        AppState.getInstance().set_activity(this);
+
         setContentView(R.layout.activity_pain_leftright);
 
         genderStr = getIntent().getStringExtra("GENDER");
@@ -34,6 +35,11 @@ public class PainLeftRightSelection extends AppCompatActivity {
         genderLoad();
         bodyPart = getIntent().getStringExtra("BODY_PART");
         bodyPartPolish =  getIntent().getStringExtra("BODY_PART_POLISH");
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        AppState.getInstance().set_activity(this);
     }
 
     void genderLoad(){

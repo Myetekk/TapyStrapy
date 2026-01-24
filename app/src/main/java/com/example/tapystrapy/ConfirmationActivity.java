@@ -17,6 +17,10 @@ public class ConfirmationActivity  extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
+        }
+        AppState.getInstance().set_activity(this);
 
         setContentView(R.layout.activity_confirmation);
         initializeUIElements();
@@ -27,6 +31,11 @@ public class ConfirmationActivity  extends AppCompatActivity {
         bodyFullAnswer = intent.getStringExtra("FULL_ANSWER");
 
         setConfirmationImage();
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        AppState.getInstance().set_activity(this);
     }
 
     private void initializeUIElements() {
