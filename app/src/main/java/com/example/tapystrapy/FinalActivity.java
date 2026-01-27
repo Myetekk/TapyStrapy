@@ -5,13 +5,17 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import com.example.tapystrapy.model.Gesture;
 
 public class FinalActivity extends AppCompatActivity {
     String emotion, bodyPart, bodyFullAnswer;
     private ImageView finalImage;
     private TextView finalLabel;
+    private LinearLayout finalMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +39,9 @@ public class FinalActivity extends AppCompatActivity {
         super.onResume();
         AppState.getInstance().set_activity(this);
         AppState.getInstance().initializeTapSdk();
+
+        unchoseElement();
+        if (AppState.getInstance().get_connectionStatus()) choseElement();
     }
     @Override
     protected void onPause() {
@@ -47,7 +54,23 @@ public class FinalActivity extends AppCompatActivity {
     private void initializeUIElements() {
         finalImage = findViewById(R.id.finalImage);
         finalLabel = findViewById(R.id.finalLabel);
+
+        finalMenu = findViewById(R.id.finalMenu);
     }
+
+    public void changeChosenElement(Gesture gesture) {
+        if (gesture==Gesture.UP) {
+            finalMenu.performClick();
+        }
+        else choseElement();
+    }
+    private void choseElement() {
+        finalMenu.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element));
+    }
+    private void unchoseElement() {
+        finalMenu.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+    }
+
 
     private void setFinalImage() {
         try {

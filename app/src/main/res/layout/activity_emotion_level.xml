@@ -23,7 +23,8 @@
                       android:textSize="35sp"/>
         </LinearLayout>
 
-        <LinearLayout android:layout_width="match_parent"
+        <LinearLayout android:id="@+id/emotionLevel_low"
+                      android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:orientation="vertical"
                       android:layout_weight="1"
@@ -62,7 +63,8 @@
             </LinearLayout>
         </LinearLayout>
 
-        <LinearLayout android:layout_width="match_parent"
+        <LinearLayout android:id="@+id/emotionLevel_medium"
+                      android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:orientation="vertical"
                       android:layout_weight="1"
@@ -101,7 +103,8 @@
             </LinearLayout>
         </LinearLayout>
 
-        <LinearLayout android:layout_width="match_parent"
+        <LinearLayout android:id="@+id/emotionLevel_high"
+                      android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:orientation="vertical"
                       android:layout_weight="1"

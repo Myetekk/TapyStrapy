@@ -52,7 +52,7 @@
                           android:layout_height="wrap_content"
                           android:minHeight="60dp"
                           android:gravity="center"
-                          android:text="x"
+                          android:text=""
                           android:textSize="28sp"/>
             </LinearLayout>
         </LinearLayout>
@@ -65,7 +65,8 @@
                       android:padding="1dp"
                       android:background="@color/gray">
 
-            <LinearLayout android:layout_width="match_parent"
+            <LinearLayout android:id="@+id/confirmationAnswerYes"
+                          android:layout_width="match_parent"
                           android:layout_height="match_parent"
                           android:orientation="horizontal"
                           android:layout_weight="1"
@@ -83,14 +84,16 @@
                           android:text="TAK"
                           android:textSize="50sp"/>
             </LinearLayout>
-            <LinearLayout android:layout_width="60dp"
+            <LinearLayout android:id="@+id/confirmationAnswerMedium"
+                          android:layout_width="60dp"
                           android:layout_height="match_parent"
                           android:orientation="horizontal"
                           android:layout_marginHorizontal="1dp"
-                          android:background="@color/selected_item">
+                          android:background="@color/almost_white">
 
             </LinearLayout>
-            <LinearLayout android:layout_width="match_parent"
+            <LinearLayout android:id="@+id/confirmationAnswerNo"
+                          android:layout_width="match_parent"
                           android:layout_height="match_parent"
                           android:orientation="horizontal"
                           android:layout_weight="1"

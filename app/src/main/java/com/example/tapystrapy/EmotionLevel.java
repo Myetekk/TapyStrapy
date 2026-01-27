@@ -5,13 +5,18 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import com.example.tapystrapy.model.Gesture;
 
 public class EmotionLevel extends AppCompatActivity {
     String emotion;
     private ImageView emotionLevelImage1, emotionLevelImage2, emotionLevelImage3;
     private TextView emotionLevelLabel1, emotionLevelLabel2, emotionLevelLabel3;
+    private LinearLayout emotionLevel_low, emotionLevel_medium, emotionLevel_high;
+    private int chosenElementId = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +37,9 @@ public class EmotionLevel extends AppCompatActivity {
         super.onResume();
         AppState.getInstance().set_activity(this);
         AppState.getInstance().initializeTapSdk();
+
+        unchoseElement();
+        if (AppState.getInstance().get_connectionStatus()) choseElement();
     }
     @Override
     protected void onPause() {
@@ -49,7 +57,46 @@ public class EmotionLevel extends AppCompatActivity {
         emotionLevelLabel1 = findViewById(R.id.emotionLevelLabel1);
         emotionLevelLabel2 = findViewById(R.id.emotionLevelLabel2);
         emotionLevelLabel3 = findViewById(R.id.emotionLevelLabel3);
+
+        emotionLevel_low = findViewById(R.id.emotionLevel_low);
+        emotionLevel_medium = findViewById(R.id.emotionLevel_medium);
+        emotionLevel_high = findViewById(R.id.emotionLevel_high);
+
+        chosenElementId = 0;
     }
+
+    public void changeChosenElement(Gesture gesture) {
+        if (gesture==Gesture.UP) {
+            switch (chosenElementId) {
+                case 0: emotionLevel_low.performClick(); break;
+                case 1: emotionLevel_medium.performClick(); break;
+                case 2: emotionLevel_high.performClick(); break;
+            }
+        }
+        else if (gesture==Gesture.RIGHT  &&  chosenElementId<2) {
+            chosenElementId++;
+            choseElement();
+        }
+        else if (gesture==Gesture.LEFT  &&  chosenElementId>0) {
+            chosenElementId--;
+            choseElement();
+        }
+        else choseElement();
+    }
+    private void choseElement() {
+        unchoseElement();
+        switch (chosenElementId) {
+            case 0: emotionLevel_low.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
+            case 1: emotionLevel_medium.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
+            case 2: emotionLevel_high.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
+        }
+    }
+    private void unchoseElement() {
+        emotionLevel_low.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+        emotionLevel_medium.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+        emotionLevel_high.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+    }
+
 
     private void setEmotionImages() {
         try {

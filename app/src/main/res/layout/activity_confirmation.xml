@@ -84,14 +84,16 @@
                           android:text="TAK"
                           android:textSize="70sp"/>
             </LinearLayout>
-            <LinearLayout android:layout_width="60dp"
+            <LinearLayout android:id="@+id/confirmationAnswerMedium"
+                          android:layout_width="50dp"
                           android:layout_height="match_parent"
                           android:orientation="horizontal"
                           android:layout_marginHorizontal="1dp"
-                          android:background="@color/selected_item">
+                          android:background="@color/almost_white">
 
             </LinearLayout>
-            <LinearLayout android:layout_width="match_parent"
+            <LinearLayout android:id="@+id/confirmationAnswerNo"
+                          android:layout_width="match_parent"
                           android:layout_height="match_parent"
                           android:orientation="horizontal"
                           android:layout_weight="1"

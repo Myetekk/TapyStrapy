@@ -8,11 +8,15 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import com.example.tapystrapy.model.Gesture;
 
 public class ConfirmationActivity  extends AppCompatActivity {
     String emotion, bodyPart, bodyFullAnswer;
     private ImageView confirmationImage;
     private TextView confirmationLabel;
+    private LinearLayout confirmationAnswerYes, confirmationAnswerMedium, confirmationAnswerNo;
+    private int chosenElementId = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +40,10 @@ public class ConfirmationActivity  extends AppCompatActivity {
         super.onResume();
         AppState.getInstance().set_activity(this);
         AppState.getInstance().initializeTapSdk();
+
+        unchoseElement();
+        if (AppState.getInstance().get_connectionStatus()) choseElement();
+        chosenElementId = 1;
     }
     @Override
     protected void onPause() {
@@ -48,7 +56,43 @@ public class ConfirmationActivity  extends AppCompatActivity {
     private void initializeUIElements() {
         confirmationImage = findViewById(R.id.confirmationImage);
         confirmationLabel = findViewById(R.id.confirmationLabel);
+
+        confirmationAnswerYes = findViewById(R.id.confirmationAnswerYes);
+        confirmationAnswerMedium = findViewById(R.id.confirmationAnswerMedium);
+        confirmationAnswerNo = findViewById(R.id.confirmationAnswerNo);
     }
+
+    public void changeChosenElement(Gesture gesture) {
+        if (gesture==Gesture.UP) {
+            switch (chosenElementId) {
+                case 0: confirmationAnswerYes.performClick(); break;
+                case 2: confirmationAnswerNo.performClick(); break;
+            }
+        }
+        else if (gesture==Gesture.RIGHT  &&  chosenElementId<2) {
+            chosenElementId++;
+            choseElement();
+        }
+        else if (gesture==Gesture.LEFT  &&  chosenElementId>0) {
+            chosenElementId--;
+            choseElement();
+        }
+        else choseElement();
+    }
+    private void choseElement() {
+        unchoseElement();
+        switch (chosenElementId) {
+            case 0: confirmationAnswerYes.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
+            case 1: confirmationAnswerMedium.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
+            case 2: confirmationAnswerNo.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
+        }
+    }
+    private void unchoseElement() {
+        confirmationAnswerYes.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+        confirmationAnswerMedium.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+        confirmationAnswerNo.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+    }
+
 
     private void setConfirmationImage() {
         try {
@@ -119,7 +163,9 @@ public class ConfirmationActivity  extends AppCompatActivity {
     }
 
     public void confirmationAnswerNo_click(View view) {
-        finish();
+        Intent intent = new Intent(this, FeelingsActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        startActivity(intent);
     }
 
     public void changeView_Confirm_Final(View view) {

@@ -47,6 +47,7 @@ public class MyTapListener implements TapListener {
         AppState.getInstance().call_updateConnectionStatus();
         AppState.getInstance().set_tapIdentifier(tapIdentifier);
         AppState.getInstance().call_onConnected();
+        AppState.getInstance().call_startRawSensorMode();
     }
 
     @Override

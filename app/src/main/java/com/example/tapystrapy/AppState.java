@@ -45,7 +45,6 @@ public class AppState {
     public Activity get_activity() { return currentActivity; }
     public void set_activity(Activity activity) {
         this.currentActivity = activity;
-        Log.d("TAPPP", "currentActivity: " + currentActivity.getClass().getSimpleName());
         switch(currentActivity.getClass().getSimpleName()) {
             case "ActivitiesActivity": activitiesActivity = (ActivitiesActivity) activity; break;
             case "ConfirmationActivity": confirmationActivity = (ConfirmationActivity) activity; break;
@@ -107,7 +106,10 @@ public class AppState {
         this.gesture = gesture;
 
         switch(currentActivity.getClass().getSimpleName()) {
+            case "ConfirmationActivity": confirmationActivity.changeChosenElement(gesture); break;
+            case "EmotionLevel": emotionLevel.changeChosenElement(gesture); break;
             case "FeelingsActivity": feelingsActivity.changeChosenElement(gesture); break;
+            case "FinalActivity": finalActivity.changeChosenElement(gesture); break;
             case "MainActivity": mainActivity.changeChosenElement(gesture); break;
         }
     }
@@ -119,8 +121,11 @@ public class AppState {
     public void call_updateGyro(double[] gyro) { if (debugActivity != null) debugActivity.updateGyro(gyro); }
     public void call_updateConnectionStatus() { if (debugActivity != null) debugActivity.updateConnectionStatus(connectionStatus); }
     public void call_onConnected() {
+        if (confirmationActivity != null) confirmationActivity.changeChosenElement(Gesture.NONE);
         if (debugActivity != null) debugActivity.onConnected();
+        if (emotionLevel != null) emotionLevel.changeChosenElement(Gesture.NONE);
         if (feelingsActivity != null) feelingsActivity.changeChosenElement(Gesture.NONE);
+        if (finalActivity != null) finalActivity.changeChosenElement(Gesture.NONE);
         if (mainActivity != null) mainActivity.changeChosenElement(Gesture.NONE);
     }
     public void call_onDisconnected() { if (debugActivity != null) debugActivity.onDisconnected(); }

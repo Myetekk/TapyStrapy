@@ -65,7 +65,7 @@
                       android:padding="1dp"
                       android:background="@color/gray">
 
-            <LinearLayout android:id="@+id/confirmationAnswerYes"
+            <LinearLayout android:id="@+id/finalMenu"
                           android:layout_width="match_parent"
                           android:layout_height="match_parent"
                           android:orientation="horizontal"
