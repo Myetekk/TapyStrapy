@@ -19,7 +19,6 @@ public class EmotionLevel extends AppCompatActivity {
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
         }
-        AppState.getInstance().set_activity(this);
 
         setContentView(R.layout.activity_emotion_level);
         initializeUIElements();
@@ -32,7 +31,15 @@ public class EmotionLevel extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         AppState.getInstance().set_activity(this);
+        AppState.getInstance().initializeTapSdk();
     }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        AppState.getInstance().destroyTapSdk();
+    }
+
+
 
     private void initializeUIElements() {
         emotionLevelImage1 = findViewById(R.id.emotionLevelImage1);

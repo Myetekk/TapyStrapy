@@ -15,7 +15,6 @@ public class PainHandSelection extends AppCompatActivity {
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
         }
-        AppState.getInstance().set_activity(this);
 
         setContentView(R.layout.activity_pain_hand);
 
@@ -27,7 +26,15 @@ public class PainHandSelection extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         AppState.getInstance().set_activity(this);
+        AppState.getInstance().initializeTapSdk();
     }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        AppState.getInstance().destroyTapSdk();
+    }
+
+
 
     public void changeView_Pain_Leftright(View view) {
         BodyPartData bodyPartData = (BodyPartData) view.getTag();

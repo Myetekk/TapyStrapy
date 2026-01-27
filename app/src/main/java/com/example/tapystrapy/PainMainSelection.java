@@ -13,7 +13,6 @@ public class PainMainSelection extends AppCompatActivity {
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
         }
-        AppState.getInstance().set_activity(this);
 
         setContentView(R.layout.activity_pain_main);
     }
@@ -21,7 +20,15 @@ public class PainMainSelection extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         AppState.getInstance().set_activity(this);
+        AppState.getInstance().initializeTapSdk();
     }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        AppState.getInstance().destroyTapSdk();
+    }
+
+
 
     public void changeView_Pain_Head(View view) {
         Intent intent = new Intent(this, PainHeadSelection.class);

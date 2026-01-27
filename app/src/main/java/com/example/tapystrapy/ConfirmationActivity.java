@@ -20,7 +20,6 @@ public class ConfirmationActivity  extends AppCompatActivity {
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
         }
-        AppState.getInstance().set_activity(this);
 
         setContentView(R.layout.activity_confirmation);
         initializeUIElements();
@@ -36,7 +35,15 @@ public class ConfirmationActivity  extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         AppState.getInstance().set_activity(this);
+        AppState.getInstance().initializeTapSdk();
     }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        AppState.getInstance().destroyTapSdk();
+    }
+
+
 
     private void initializeUIElements() {
         confirmationImage = findViewById(R.id.confirmationImage);

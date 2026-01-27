@@ -18,7 +18,6 @@ public class PainLeftRightSelection extends AppCompatActivity {
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
         }
-        AppState.getInstance().set_activity(this);
 
         setContentView(R.layout.activity_pain_leftright);
 
@@ -26,7 +25,6 @@ public class PainLeftRightSelection extends AppCompatActivity {
         if (genderStr != null) {
             gender = Gender.valueOf(genderStr);
         }
-
 
         questionText = findViewById((R.id.text_question));
         leftText = findViewById((R.id.text_left));
@@ -40,7 +38,15 @@ public class PainLeftRightSelection extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         AppState.getInstance().set_activity(this);
+        AppState.getInstance().initializeTapSdk();
     }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        AppState.getInstance().destroyTapSdk();
+    }
+
+
 
     void genderLoad(){
         switch (gender) {

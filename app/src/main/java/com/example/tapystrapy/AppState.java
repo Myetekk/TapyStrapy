@@ -2,8 +2,10 @@ package com.example.tapystrapy;
 
 import android.app.Activity;
 import android.util.Log;
+import android.widget.Toast;
 import com.tapwithus.sdk.TapSdk;
 import com.example.tapystrapy.model.Gesture;
+import com.tapwithus.sdk.TapSdkFactory;
 
 public class AppState {
     private static AppState instance;
@@ -62,10 +64,39 @@ public class AppState {
     }
 
 
+
     // MyTapListener
     public MyTapListener get_tapListener() { return tapListener; }
     public void set_tapSdk(TapSdk tapSdk) { this.tapSdk = tapSdk; }
     public void set_tapListener(MyTapListener tapListener) { this.tapListener = tapListener; }
+    public void initializeTapSdk() {
+        try {
+            if (mainActivity != null) {
+                tapSdk = TapSdkFactory.getDefault(mainActivity);
+                if (tapSdk != null) {
+                    tapListener = new MyTapListener(tapSdk);
+                    tapSdk.registerTapListener(tapListener);
+                } else {
+                    Toast.makeText(mainActivity, "Failed to initialize Tap SDK", Toast.LENGTH_SHORT).show();
+                    Log.e("TAP", "Failed to initialize Tap SDK ");
+                }
+            }
+        } catch (Exception e) {
+            Toast.makeText(mainActivity, "Error: " + e.getMessage(), Toast.LENGTH_LONG).show();
+            Log.e("TAP", "Error: " + e.getMessage());
+        }
+    }
+    public void destroyTapSdk() {
+        try {
+            tapSdk.unregisterTapListener(tapListener);
+            tapSdk = null;
+            tapListener = null;
+        } catch (Exception e) {
+            Toast.makeText(mainActivity, "Error: " + e.getMessage(), Toast.LENGTH_LONG).show();
+            Log.e("TAP", "Error: " + e.getMessage());
+        }
+    }
+    public boolean get_connectionStatus() { return connectionStatus; }
     public void set_connectionStatus(boolean connectionStatus) { this.connectionStatus = connectionStatus; }
     public void set_tapIdentifier(String tapIdentifier) { this.tapIdentifier = tapIdentifier; }
     public void call_startControllerMode() { if (tapSdk != null) tapSdk.startControllerMode(tapIdentifier); }
@@ -76,6 +107,7 @@ public class AppState {
         this.gesture = gesture;
 
         switch(currentActivity.getClass().getSimpleName()) {
+            case "FeelingsActivity": feelingsActivity.changeChosenElement(gesture); break;
             case "MainActivity": mainActivity.changeChosenElement(gesture); break;
         }
     }
@@ -88,6 +120,7 @@ public class AppState {
     public void call_updateConnectionStatus() { if (debugActivity != null) debugActivity.updateConnectionStatus(connectionStatus); }
     public void call_onConnected() {
         if (debugActivity != null) debugActivity.onConnected();
+        if (feelingsActivity != null) feelingsActivity.changeChosenElement(Gesture.NONE);
         if (mainActivity != null) mainActivity.changeChosenElement(Gesture.NONE);
     }
     public void call_onDisconnected() { if (debugActivity != null) debugActivity.onDisconnected(); }

@@ -11,7 +11,8 @@
                   android:orientation="vertical"
                   android:layout_weight="1">
 
-        <LinearLayout android:layout_width="match_parent"
+        <LinearLayout android:id="@+id/feelings_happy"
+                      android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:orientation="vertical"
                       android:layout_weight="1"
@@ -48,44 +49,8 @@
             </LinearLayout>
         </LinearLayout>
 
-        <LinearLayout android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:orientation="vertical"
-                      android:layout_weight="1"
-                      android:layout_margin="3dp"
-                      android:padding="5dp"
-                      android:background="@color/almost_white"
-                      android:focusable="true"
-                      android:clickable="true"
-                      android:onClick="changeView_Feelings_EmotionLevel"
-                      android:tag="emotion_sad_2">
-            <LinearLayout android:layout_width="wrap_content"
-                          android:layout_height="match_parent"
-                          android:layout_weight="5"
-                          android:layout_gravity="center"
-                          android:gravity="center">
-                <ImageView android:layout_width="match_parent"
-                           android:layout_height="wrap_content"
-                           android:scaleType="centerCrop"
-                           android:adjustViewBounds="true"
-                           android:src="@drawable/emote_sad_2"/>
-            </LinearLayout>
-            <LinearLayout android:layout_width="match_parent"
-                          android:layout_height="wrap_content"
-                          android:layout_weight="1"
-                          android:layout_gravity="center"
-                          android:gravity="center">
-                <TextView android:layout_width="match_parent"
-                          android:layout_height="wrap_content"
-                          android:minHeight="44dp"
-                          android:layout_marginBottom="3dp"
-                          android:gravity="center"
-                          android:text="Smutek"
-                          android:textSize="28sp"/>
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout android:layout_width="match_parent"
+        <LinearLayout android:id="@+id/feelings_fear"
+                      android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:orientation="vertical"
                       android:layout_weight="1"
@@ -122,53 +87,8 @@
             </LinearLayout>
         </LinearLayout>
 
-    </LinearLayout>
-
-
-
-    <LinearLayout android:layout_width="match_parent"
-                  android:layout_height="match_parent"
-                  android:orientation="vertical"
-                  android:layout_weight="1">
-
-        <LinearLayout android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:orientation="vertical"
-                      android:layout_weight="1"
-                      android:layout_margin="3dp"
-                      android:padding="5dp"
-                      android:background="@color/almost_white"
-                      android:focusable="true"
-                      android:clickable="true"
-                      android:onClick="changeView_Feelings_EmotionLevel"
-                      android:tag="emotion_angry_2">
-            <LinearLayout android:layout_width="wrap_content"
-                          android:layout_height="match_parent"
-                          android:layout_weight="5"
-                          android:layout_gravity="center"
-                          android:gravity="center">
-                <ImageView android:layout_width="match_parent"
-                           android:layout_height="wrap_content"
-                           android:scaleType="centerCrop"
-                           android:adjustViewBounds="true"
-                           android:src="@drawable/emote_angry_2"/>
-            </LinearLayout>
-            <LinearLayout android:layout_width="match_parent"
-                          android:layout_height="wrap_content"
-                          android:layout_weight="1"
-                          android:layout_gravity="center"
-                          android:gravity="center">
-                <TextView android:layout_width="match_parent"
-                          android:layout_height="wrap_content"
-                          android:minHeight="44dp"
-                          android:layout_marginBottom="3dp"
-                          android:gravity="center"
-                          android:text="Złość"
-                          android:textSize="28sp"/>
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout android:layout_width="match_parent"
+        <LinearLayout android:id="@+id/feelings_pain"
+                      android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:orientation="vertical"
                       android:layout_weight="1"
@@ -205,7 +125,95 @@
             </LinearLayout>
         </LinearLayout>
 
-        <LinearLayout android:layout_width="match_parent"
+
+    </LinearLayout>
+
+
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:orientation="vertical"
+                  android:layout_weight="1">
+
+
+        <LinearLayout android:id="@+id/feelings_sad"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:orientation="vertical"
+                      android:layout_weight="1"
+                      android:layout_margin="3dp"
+                      android:padding="5dp"
+                      android:background="@color/almost_white"
+                      android:focusable="true"
+                      android:clickable="true"
+                      android:onClick="changeView_Feelings_EmotionLevel"
+                      android:tag="emotion_sad_2">
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="match_parent"
+                          android:layout_weight="5"
+                          android:layout_gravity="center"
+                          android:gravity="center">
+                <ImageView android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:scaleType="centerCrop"
+                           android:adjustViewBounds="true"
+                           android:src="@drawable/emote_sad_2"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_weight="1"
+                          android:layout_gravity="center"
+                          android:gravity="center">
+                <TextView android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:minHeight="44dp"
+                          android:layout_marginBottom="3dp"
+                          android:gravity="center"
+                          android:text="Smutek"
+                          android:textSize="28sp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/feelings_angry"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:orientation="vertical"
+                      android:layout_weight="1"
+                      android:layout_margin="3dp"
+                      android:padding="5dp"
+                      android:background="@color/almost_white"
+                      android:focusable="true"
+                      android:clickable="true"
+                      android:onClick="changeView_Feelings_EmotionLevel"
+                      android:tag="emotion_angry_2">
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="match_parent"
+                          android:layout_weight="5"
+                          android:layout_gravity="center"
+                          android:gravity="center">
+                <ImageView android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:scaleType="centerCrop"
+                           android:adjustViewBounds="true"
+                           android:src="@drawable/emote_angry_2"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_weight="1"
+                          android:layout_gravity="center"
+                          android:gravity="center">
+                <TextView android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:minHeight="44dp"
+                          android:layout_marginBottom="3dp"
+                          android:gravity="center"
+                          android:text="Złość"
+                          android:textSize="28sp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/feelings_tired"
+                      android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:orientation="vertical"
                       android:layout_weight="1"
