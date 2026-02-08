@@ -155,15 +155,15 @@ public class MyTapListener implements TapListener {
     };
 
     private void identifySingleGesture(Point3 gyro) {
-        if (gyro.y < -gyroThresholdInt*0.75  &&  gyro.y < gyro.z*2.5) {
+        if (gyro.y < -gyroThresholdInt*0.75  &&  -gyro.z*11.43 <= gyro.y  &&  gyro.y <= gyro.z) {
             Log.d("TAP_gesture", "UP      Gyro - X: " + gyro.x + ", Y: " + gyro.y + ", Z: " + gyro.z);
             gestureList.add(Gesture.UP);
         }
-        else if (gyro.z < -gyroThresholdInt  &&  gyro.z < gyro.y*1.05) {
+        else if (gyro.z < -gyroThresholdInt  &&  gyro.z <= gyro.y  &&  gyro.y <= -gyro.z*0.087) {
             Log.d("TAP_gesture", "RIGHT   Gyro - X: " + gyro.x + ", Y: " + gyro.y + ", Z: " + gyro.z);
             gestureList.add(Gesture.RIGHT);
         }
-        else if (gyro.z > gyroThresholdInt  &&  gyro.z > gyro.y*1.1) {
+        else if (gyro.z > gyroThresholdInt  &&  -gyro.z*0.087 <= gyro.y  &&  gyro.y <= gyro.z) {
             Log.d("TAP_gesture", "LEFT    Gyro - X: " + gyro.x + ", Y: " + gyro.y + ", Z: " + gyro.z);
             gestureList.add(Gesture.LEFT);
         } else {

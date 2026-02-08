@@ -182,6 +182,10 @@ public class ConfirmationActivity  extends AppCompatActivity {
             Intent intent = new Intent(this, FeelingsActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
             startActivity(intent);
+        } else if (bodyPart != null) {
+            Intent intent = new Intent(this, PainMainSelection.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            startActivity(intent);
         } else { finish(); }
     }
 
