@@ -111,6 +111,12 @@ public class AppState {
             case "FeelingsActivity": feelingsActivity.changeChosenElement(gesture); break;
             case "FinalActivity": finalActivity.changeChosenElement(gesture); break;
             case "MainActivity": mainActivity.changeChosenElement(gesture); break;
+            case "PainHeadSelection": painHeadSelection.changeChosenElement(gesture); break;
+            case "PainHandSelection": painHandSelection.changeChosenElement(gesture); break;
+            case "PainLeftRightSelection": painLeftRightSelection.changeChosenElement(gesture); break;
+            case "PainLegSelection": painLegSelection.changeChosenElement(gesture); break;
+            case "PainMainSelection": painMainSelection.changeChosenElement(gesture); break;
+            case "PainTorsoSelection": painTorsoSelection.changeChosenElement(gesture); break;
         }
     }
 
@@ -122,13 +128,34 @@ public class AppState {
     public void call_updateConnectionStatus() { if (debugActivity != null) debugActivity.updateConnectionStatus(connectionStatus); }
     public void call_onConnected() {
         if (confirmationActivity != null) confirmationActivity.changeChosenElement(Gesture.NONE);
+        if (confirmationActivity != null) confirmationActivity.showCenterElement();
         if (debugActivity != null) debugActivity.onConnected();
         if (emotionLevel != null) emotionLevel.changeChosenElement(Gesture.NONE);
         if (feelingsActivity != null) feelingsActivity.changeChosenElement(Gesture.NONE);
         if (finalActivity != null) finalActivity.changeChosenElement(Gesture.NONE);
         if (mainActivity != null) mainActivity.changeChosenElement(Gesture.NONE);
+        if (painHeadSelection != null) painHeadSelection.changeChosenElement(Gesture.NONE);
+        if (painHandSelection != null) painHandSelection.changeChosenElement(Gesture.NONE);
+        if (painLeftRightSelection != null) painLeftRightSelection.changeChosenElement(Gesture.NONE);
+        if (painLegSelection != null) painLegSelection.changeChosenElement(Gesture.NONE);
+        if (painMainSelection != null) painMainSelection.changeChosenElement(Gesture.NONE);
+        if (painTorsoSelection != null) painTorsoSelection.changeChosenElement(Gesture.NONE);
     }
-    public void call_onDisconnected() { if (debugActivity != null) debugActivity.onDisconnected(); }
+    public void call_onDisconnected() {
+        if (confirmationActivity != null) confirmationActivity.unchoseElement();
+        if (confirmationActivity != null) confirmationActivity.hideCenterElement();
+        if (debugActivity != null) debugActivity.onDisconnected();
+        if (emotionLevel != null) emotionLevel.unchoseElement();
+        if (feelingsActivity != null) feelingsActivity.unchoseElement();
+        if (finalActivity != null) finalActivity.unchoseElement();
+        if (mainActivity != null) mainActivity.unchoseElement();
+        if (painHeadSelection != null) painHeadSelection.unchoseElement();
+        if (painHandSelection != null) painHandSelection.unchoseElement();
+        if (painLeftRightSelection != null) painLeftRightSelection.unchoseElement();
+        if (painLegSelection != null) painLegSelection.unchoseElement();
+        if (painMainSelection != null) painMainSelection.unchoseElement();
+        if (painTorsoSelection != null) painTorsoSelection.unchoseElement();
+    }
     public void call_updateMode(boolean[] modes) { if (debugActivity != null) debugActivity.updateMode(modes); }
 
 

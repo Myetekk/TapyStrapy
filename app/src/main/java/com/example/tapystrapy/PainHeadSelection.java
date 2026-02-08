@@ -3,11 +3,17 @@ package com.example.tapystrapy;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.LinearLayout;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import com.example.tapystrapy.model.BodyPartData;
 import com.example.tapystrapy.model.Gender;
+import com.example.tapystrapy.model.Gesture;
 
 public class PainHeadSelection extends AppCompatActivity {
+    private LinearLayout pain_head_forehead, pain_head_hairback, pain_head_entirehead, pain_head_eye, pain_head_nose, pain_head_tooth, pain_head_ear, pain_head_throat;
+    private int chosenElementId = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -16,26 +22,92 @@ public class PainHeadSelection extends AppCompatActivity {
         }
 
         setContentView(R.layout.activity_pain_head);
-
-        findViewById(R.id.forehead_layout).setTag(new BodyPartData("forehead", "czoło", Gender.NEUTER));
-        findViewById(R.id.hairback_layout).setTag(new BodyPartData("hairback", "tył głowy", Gender.MASCULINE));
-        findViewById(R.id.entirehead_layout).setTag(new BodyPartData("entirehead", "cała głowa", Gender.FEMININE));
-        findViewById(R.id.eye_layout).setTag(new BodyPartData("eyes", "oko", Gender.NEUTER));
-        findViewById(R.id.nose_layout).setTag(new BodyPartData("nose", "nos", Gender.MASCULINE));
-        findViewById(R.id.tooth_layout).setTag(new BodyPartData("tooth", "ząb", Gender.MASCULINE));
-        findViewById(R.id.ear_layout).setTag(new BodyPartData("ears", "ucho", Gender.NEUTER));
-        findViewById(R.id.throat_layout).setTag(new BodyPartData("throat", "gardło", Gender.NEUTER));
+        initializeUIElements();
     }
     @Override
     protected void onResume() {
         super.onResume();
         AppState.getInstance().set_activity(this);
         AppState.getInstance().initializeTapSdk();
+
+        unchoseElement();
+        if (AppState.getInstance().get_connectionStatus()) choseElement();
     }
     @Override
     protected void onPause() {
         super.onPause();
         AppState.getInstance().destroyTapSdk();
+    }
+
+
+
+    private void initializeUIElements() {
+        pain_head_forehead = findViewById(R.id.pain_head_forehead);
+        pain_head_hairback = findViewById(R.id.pain_head_hairback);
+        pain_head_entirehead = findViewById(R.id.pain_head_entirehead);
+        pain_head_eye = findViewById(R.id.pain_head_eye);
+        pain_head_nose = findViewById(R.id.pain_head_nose);
+        pain_head_tooth = findViewById(R.id.pain_head_tooth);
+        pain_head_ear = findViewById(R.id.pain_head_ear);
+        pain_head_throat = findViewById(R.id.pain_head_throat);
+
+        pain_head_forehead.setTag(new BodyPartData("forehead", "czoło", Gender.NEUTER));
+        pain_head_hairback.setTag(new BodyPartData("hairback", "tył głowy", Gender.MASCULINE));
+        pain_head_entirehead.setTag(new BodyPartData("entirehead", "cała głowa", Gender.FEMININE));
+        pain_head_eye.setTag(new BodyPartData("eyes", "oko", Gender.NEUTER));
+        pain_head_nose.setTag(new BodyPartData("nose", "nos", Gender.MASCULINE));
+        pain_head_tooth.setTag(new BodyPartData("tooth", "ząb", Gender.MASCULINE));
+        pain_head_ear.setTag(new BodyPartData("ears", "ucho", Gender.NEUTER));
+        pain_head_throat.setTag(new BodyPartData("throat", "gardło", Gender.NEUTER));
+
+        chosenElementId = 0;
+    }
+
+    public void changeChosenElement(Gesture gesture) {
+        if (gesture==Gesture.UP) {
+            switch (chosenElementId) {
+                case 0: pain_head_forehead.performClick(); break;
+                case 1: pain_head_hairback.performClick(); break;
+                case 2: pain_head_entirehead.performClick(); break;
+                case 3: pain_head_eye.performClick(); break;
+                case 4: pain_head_nose.performClick(); break;
+                case 5: pain_head_tooth.performClick(); break;
+                case 6: pain_head_ear.performClick(); break;
+                case 7: pain_head_throat.performClick(); break;
+            }
+        }
+        else if (gesture==Gesture.RIGHT  &&  chosenElementId<7) {
+            chosenElementId++;
+            choseElement();
+        }
+        else if (gesture==Gesture.LEFT  &&  chosenElementId>0) {
+            chosenElementId--;
+            choseElement();
+        }
+        else choseElement();
+    }
+    private void choseElement() {
+        unchoseElement();
+        switch (chosenElementId) {
+            case 0: pain_head_forehead.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
+            case 1: pain_head_hairback.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
+            case 2: pain_head_entirehead.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
+            case 3: pain_head_eye.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
+            case 4: pain_head_nose.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
+            case 5: pain_head_tooth.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
+            case 6: pain_head_ear.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
+            case 7: pain_head_throat.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
+        }
+    }
+    public void unchoseElement() {
+        pain_head_forehead.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+        pain_head_hairback.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+        pain_head_entirehead.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+        pain_head_eye.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+        pain_head_nose.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+        pain_head_tooth.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+        pain_head_ear.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+        pain_head_throat.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
     }
 
 

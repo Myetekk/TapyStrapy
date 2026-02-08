@@ -23,7 +23,8 @@
                   android:orientation="horizontal"
                   android:layout_weight="1">
 
-        <LinearLayout android:layout_width="match_parent"
+        <LinearLayout android:id="@+id/pain_head_forehead"
+                      android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:orientation="vertical"
                       android:layout_weight="1"
@@ -32,7 +33,6 @@
                       android:background="@color/almost_white"
                       android:focusable="true"
                       android:clickable="true"
-                      android:id="@+id/forehead_layout"
                       android:onClick="changeView_Final">
             <LinearLayout android:layout_width="wrap_content"
                           android:layout_height="match_parent"
@@ -60,7 +60,8 @@
             </LinearLayout>
         </LinearLayout>
 
-        <LinearLayout android:layout_width="match_parent"
+        <LinearLayout android:id="@+id/pain_head_hairback"
+                      android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:orientation="vertical"
                       android:layout_weight="1"
@@ -69,7 +70,6 @@
                       android:background="@color/almost_white"
                       android:focusable="true"
                       android:clickable="true"
-                      android:id="@+id/hairback_layout"
                       android:onClick="changeView_Final">
             <LinearLayout android:layout_width="wrap_content"
                           android:layout_height="match_parent"
@@ -103,7 +103,8 @@
                   android:orientation="horizontal"
                   android:layout_weight="1">
 
-        <LinearLayout android:layout_width="match_parent"
+        <LinearLayout android:id="@+id/pain_head_entirehead"
+                      android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:orientation="vertical"
                       android:layout_weight="1"
@@ -112,7 +113,6 @@
                       android:background="@color/almost_white"
                       android:focusable="true"
                       android:clickable="true"
-                      android:id="@+id/entirehead_layout"
                       android:onClick="changeView_Final">
             <LinearLayout android:layout_width="wrap_content"
                           android:layout_height="match_parent"
@@ -140,7 +140,8 @@
             </LinearLayout>
         </LinearLayout>
 
-        <LinearLayout android:layout_width="match_parent"
+        <LinearLayout android:id="@+id/pain_head_eye"
+                      android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:orientation="vertical"
                       android:layout_weight="1"
@@ -149,7 +150,6 @@
                       android:background="@color/almost_white"
                       android:focusable="true"
                       android:clickable="true"
-                      android:id="@+id/eye_layout"
                       android:onClick="changeView_Pain_Leftright">
             <LinearLayout android:layout_width="wrap_content"
                           android:layout_height="match_parent"
@@ -183,7 +183,8 @@
                   android:orientation="horizontal"
                   android:layout_weight="1">
 
-        <LinearLayout android:layout_width="match_parent"
+        <LinearLayout android:id="@+id/pain_head_nose"
+                      android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:orientation="vertical"
                       android:layout_weight="1"
@@ -192,7 +193,6 @@
                       android:background="@color/almost_white"
                       android:focusable="true"
                       android:clickable="true"
-                      android:id="@+id/nose_layout"
                       android:onClick="changeView_Final">
             <LinearLayout android:layout_width="wrap_content"
                           android:layout_height="match_parent"
@@ -220,7 +220,8 @@
             </LinearLayout>
         </LinearLayout>
 
-        <LinearLayout android:layout_width="match_parent"
+        <LinearLayout android:id="@+id/pain_head_tooth"
+                      android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:orientation="vertical"
                       android:layout_weight="1"
@@ -229,7 +230,6 @@
                       android:background="@color/almost_white"
                       android:focusable="true"
                       android:clickable="true"
-                      android:id="@+id/tooth_layout"
                       android:onClick="changeView_Final">
             <LinearLayout android:layout_width="wrap_content"
                           android:layout_height="match_parent"
@@ -263,7 +263,8 @@
                   android:orientation="horizontal"
                   android:layout_weight="1">
 
-        <LinearLayout android:layout_width="match_parent"
+        <LinearLayout android:id="@+id/pain_head_ear"
+                      android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:orientation="vertical"
                       android:layout_weight="1"
@@ -272,7 +273,6 @@
                       android:background="@color/almost_white"
                       android:focusable="true"
                       android:clickable="true"
-                      android:id="@+id/ear_layout"
                       android:onClick="changeView_Pain_Leftright">
             <LinearLayout android:layout_width="wrap_content"
                           android:layout_height="match_parent"
@@ -299,7 +299,8 @@
                           android:textSize="26sp"/>
             </LinearLayout>
         </LinearLayout>
-        <LinearLayout android:layout_width="match_parent"
+        <LinearLayout android:id="@+id/pain_head_throat"
+                      android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:orientation="vertical"
                       android:layout_weight="1"
@@ -308,7 +309,6 @@
                       android:background="@color/almost_white"
                       android:focusable="true"
                       android:clickable="true"
-                      android:id="@+id/throat_layout"
                       android:onClick="changeView_Final">
             <LinearLayout android:layout_width="wrap_content"
                           android:layout_height="match_parent"

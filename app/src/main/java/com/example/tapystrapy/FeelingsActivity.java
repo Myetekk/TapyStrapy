@@ -83,7 +83,7 @@ public class FeelingsActivity extends AppCompatActivity {
             case 5: feelings_tired.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
         }
     }
-    private void unchoseElement() {
+    public void unchoseElement() {
         feelings_happy.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
         feelings_sad.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
         feelings_fear.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));

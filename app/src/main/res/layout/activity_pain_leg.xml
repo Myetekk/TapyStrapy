@@ -18,7 +18,8 @@
                   android:textSize="35sp"/>
     </LinearLayout>
 
-    <LinearLayout android:layout_width="match_parent"
+    <LinearLayout android:id="@+id/pain_leg_thigh"
+                  android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:orientation="vertical"
                   android:layout_weight="1"
@@ -27,7 +28,6 @@
                   android:background="@color/almost_white"
                   android:focusable="true"
                   android:clickable="true"
-                  android:id="@+id/thigh_layout"
                   android:onClick="changeView_Pain_Leftright">
         <LinearLayout android:layout_width="wrap_content"
                       android:layout_height="match_parent"
@@ -55,7 +55,8 @@
         </LinearLayout>
     </LinearLayout>
 
-    <LinearLayout android:layout_width="match_parent"
+    <LinearLayout android:id="@+id/pain_leg_knee"
+                  android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:orientation="vertical"
                   android:layout_weight="1"
@@ -64,7 +65,6 @@
                   android:background="@color/almost_white"
                   android:focusable="true"
                   android:clickable="true"
-                  android:id="@+id/knee_layout"
                   android:onClick="changeView_Pain_Leftright">
         <LinearLayout android:layout_width="wrap_content"
                       android:layout_height="match_parent"
@@ -92,7 +92,8 @@
         </LinearLayout>
     </LinearLayout>
 
-    <LinearLayout android:layout_width="match_parent"
+    <LinearLayout android:id="@+id/pain_leg_calf"
+                  android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:orientation="vertical"
                   android:layout_weight="1"
@@ -101,7 +102,6 @@
                   android:background="@color/almost_white"
                   android:focusable="true"
                   android:clickable="true"
-                  android:id="@+id/calf_layout"
                   android:onClick="changeView_Pain_Leftright">
         <LinearLayout android:layout_width="wrap_content"
                       android:layout_height="match_parent"
@@ -128,7 +128,8 @@
                       android:textSize="26sp"/>
         </LinearLayout>
     </LinearLayout>
-    <LinearLayout android:layout_width="match_parent"
+    <LinearLayout android:id="@+id/pain_leg_foot"
+                  android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:orientation="vertical"
                   android:layout_weight="1"
@@ -137,7 +138,6 @@
                   android:background="@color/almost_white"
                   android:focusable="true"
                   android:clickable="true"
-                  android:id="@+id/foot_layout"
                   android:onClick="changeView_Pain_Leftright">
         <LinearLayout android:layout_width="wrap_content"
                       android:layout_height="match_parent"

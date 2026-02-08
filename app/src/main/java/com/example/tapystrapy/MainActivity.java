@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
             case 2: main_painSection.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
         }
     }
-    private void unchoseElement() {
+    public void unchoseElement() {
         main_feelingsSection.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
         main_activitiesSection.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
         main_painSection.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));

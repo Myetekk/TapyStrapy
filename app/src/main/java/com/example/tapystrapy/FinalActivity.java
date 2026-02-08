@@ -67,7 +67,7 @@ public class FinalActivity extends AppCompatActivity {
     private void choseElement() {
         finalMenu.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element));
     }
-    private void unchoseElement() {
+    public void unchoseElement() {
         finalMenu.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
     }
 

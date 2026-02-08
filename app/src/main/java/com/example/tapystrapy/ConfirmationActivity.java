@@ -11,11 +11,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import com.example.tapystrapy.model.Gesture;
 
+import static android.view.View.GONE;
+import static android.view.View.VISIBLE;
+
 public class ConfirmationActivity  extends AppCompatActivity {
     String emotion, bodyPart, bodyFullAnswer;
     private ImageView confirmationImage;
     private TextView confirmationLabel;
-    private LinearLayout confirmationAnswerYes, confirmationAnswerMedium, confirmationAnswerNo;
+    private LinearLayout confirmationAnswerYes, confirmationAnswerMedium, confirmationAnswerNo, confirmationAnswers;
     private int chosenElementId = 1;
 
     @Override
@@ -70,11 +73,11 @@ public class ConfirmationActivity  extends AppCompatActivity {
             }
         }
         else if (gesture==Gesture.RIGHT  &&  chosenElementId<2) {
-            chosenElementId++;
+            chosenElementId = 2;
             choseElement();
         }
         else if (gesture==Gesture.LEFT  &&  chosenElementId>0) {
-            chosenElementId--;
+            chosenElementId = 0;
             choseElement();
         }
         else choseElement();
@@ -87,10 +90,22 @@ public class ConfirmationActivity  extends AppCompatActivity {
             case 2: confirmationAnswerNo.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
         }
     }
-    private void unchoseElement() {
+    public void unchoseElement() {
         confirmationAnswerYes.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
         confirmationAnswerMedium.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
         confirmationAnswerNo.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+    }
+
+    public void showCenterElement() {
+        runOnUiThread(() -> {
+            confirmationAnswerMedium.setVisibility(View.VISIBLE);
+        });
+        chosenElementId = 1;
+    }
+    public void hideCenterElement() {
+        runOnUiThread(() -> {
+            confirmationAnswerMedium.setVisibility(View.GONE);
+        });
     }
 
 
@@ -163,9 +178,11 @@ public class ConfirmationActivity  extends AppCompatActivity {
     }
 
     public void confirmationAnswerNo_click(View view) {
-        Intent intent = new Intent(this, FeelingsActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-        startActivity(intent);
+        if (emotion != null) {
+            Intent intent = new Intent(this, FeelingsActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            startActivity(intent);
+        } else { finish(); }
     }
 
     public void changeView_Confirm_Final(View view) {

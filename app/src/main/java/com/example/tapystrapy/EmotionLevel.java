@@ -91,7 +91,7 @@ public class EmotionLevel extends AppCompatActivity {
             case 2: emotionLevel_high.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
         }
     }
-    private void unchoseElement() {
+    public void unchoseElement() {
         emotionLevel_low.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
         emotionLevel_medium.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
         emotionLevel_high.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
