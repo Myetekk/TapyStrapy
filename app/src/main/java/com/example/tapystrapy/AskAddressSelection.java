@@ -17,20 +17,29 @@ public class AskAddressSelection extends AppCompatActivity {
         setContentView(R.layout.activity_ask_address);
     }
 
-    public void changeView_Pain_Head(View view) {
-        Intent intent = new Intent(this, PainHeadSelection.class);
+    //poprawić to by były tylko 2 funkcje i argumenty z layoutu xml patrz pain torso
+    public void changeView_Main_Ask_Request(View view) {
+        Intent intent = new Intent(this, AskMainSelection.class);
+        intent.putExtra("ADDRESS", "request");
+        intent.putExtra("SENTENCE", "Chcę ");
         startActivity(intent);
     }
-    public void changeView_Pain_Hand(View view) {
-        Intent intent = new Intent(this, PainHandSelection.class);
+    public void changeView_Main_Ask_Pleasehelp(View view) {
+        Intent intent = new Intent(this, AskMainSelection.class);
+        intent.putExtra("ADDRESS", "pleasehelp");
+        intent.putExtra("SENTENCE", "Pomóż mi proszę ");
         startActivity(intent);
     }
-    public void changeView_Pain_Torso(View view) {
-        Intent intent = new Intent(this, PainTorsoSelection.class);
+    public void changeView_Ask_Persons_Apologize(View view) {
+        Intent intent = new Intent(this, AskPersonsSelection.class);
+        intent.putExtra("CASE", "Wołacz");
+        intent.putExtra("SENTENCE", "Przepraszam ");
         startActivity(intent);
     }
-    public void changeView_Pain_Leg(View view) {
-        Intent intent = new Intent(this, PainLegSelection.class);
+    public void changeView_Ask_Persons_Thank(View view) {
+        Intent intent = new Intent(this, AskPersonsSelection.class);
+        intent.putExtra("CASE", "Wołacz");
+        intent.putExtra("SENTENCE", "Dziękuję ");
         startActivity(intent);
     }
 }

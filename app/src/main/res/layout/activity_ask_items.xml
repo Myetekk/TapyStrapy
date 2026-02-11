@@ -11,11 +11,12 @@
                   android:background="@color/almost_white"
                   android:layout_gravity="center"
                   android:gravity="center">
-        <TextView android:layout_width="match_parent"
+        <TextView android:id="@+id/questionLabel"
+                  android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:minHeight="60dp"
                   android:gravity="center"
-                  android:text="Co chcesz powiedzieć?"
+                  android:text="Który przedmiot?"
                   android:textSize="35sp"/>
     </LinearLayout>
 
@@ -28,7 +29,8 @@
                   android:background="@color/almost_white"
                   android:focusable="true"
                   android:clickable="true"
-                  android:onClick="changeView_Main_Ask_Request">
+                  android:tag="mug"
+                  android:onClick="changeView_Confirmation">
         <LinearLayout android:layout_width="wrap_content"
                       android:layout_height="match_parent"
                       android:layout_weight="5"
@@ -39,19 +41,20 @@
                        android:layout_height="wrap_content"
                        android:scaleType="centerCrop"
                        android:adjustViewBounds="true"
-                       android:src="@drawable/ask_address_request"/>
+                       android:src="@drawable/ask_items_mug"/>
         </LinearLayout>
         <LinearLayout android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:layout_weight="1"
                       android:layout_gravity="center"
                       android:gravity="center">
-            <TextView android:layout_width="match_parent"
+            <TextView android:id="@+id/mugLabel"
+                      android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:minHeight="40dp"
                       android:layout_marginBottom="3dp"
                       android:gravity="center"
-                      android:text="Chcę"
+                      android:text=""
                       android:textSize="26sp"/>
         </LinearLayout>
     </LinearLayout>
@@ -65,7 +68,8 @@
                   android:background="@color/almost_white"
                   android:focusable="true"
                   android:clickable="true"
-                  android:onClick="changeView_Main_Ask_Pleasehelp">
+                  android:tag="doll"
+                  android:onClick="changeView_Confirmation">
         <LinearLayout android:layout_width="wrap_content"
                       android:layout_height="match_parent"
                       android:layout_weight="5"
@@ -76,19 +80,20 @@
                        android:layout_height="wrap_content"
                        android:scaleType="centerCrop"
                        android:adjustViewBounds="true"
-                       android:src="@drawable/ask_address_pleasehelp"/>
+                       android:src="@drawable/ask_items_doll"/>
         </LinearLayout>
         <LinearLayout android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:layout_weight="1"
                       android:layout_gravity="center"
                       android:gravity="center">
-            <TextView android:layout_width="match_parent"
+            <TextView android:id="@+id/dollLabel"
+                      android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:minHeight="40dp"
                       android:layout_marginBottom="3dp"
                       android:gravity="center"
-                      android:text="Pomóż mi proszę"
+                      android:text=""
                       android:textSize="26sp"/>
         </LinearLayout>
     </LinearLayout>
@@ -102,7 +107,8 @@
                   android:background="@color/almost_white"
                   android:focusable="true"
                   android:clickable="true"
-                  android:onClick="changeView_Ask_Persons_Apologize">
+                  android:tag="book"
+                  android:onClick="changeView_Confirmation">
         <LinearLayout android:layout_width="wrap_content"
                       android:layout_height="match_parent"
                       android:layout_weight="5"
@@ -113,19 +119,20 @@
                        android:layout_height="wrap_content"
                        android:scaleType="centerCrop"
                        android:adjustViewBounds="true"
-                       android:src="@drawable/ask_address_apologize"/>
+                       android:src="@drawable/ask_items_book"/>
         </LinearLayout>
         <LinearLayout android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:layout_weight="1"
                       android:layout_gravity="center"
                       android:gravity="center">
-            <TextView android:layout_width="match_parent"
+            <TextView android:id="@+id/bookLabel"
+                      android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:minHeight="40dp"
                       android:layout_marginBottom="3dp"
                       android:gravity="center"
-                      android:text="Przepraszam"
+                      android:text=""
                       android:textSize="26sp"/>
         </LinearLayout>
     </LinearLayout>
@@ -139,7 +146,8 @@
                   android:background="@color/almost_white"
                   android:focusable="true"
                   android:clickable="true"
-                  android:onClick="changeView_Ask_Persons_Thank">
+                  android:tag="crayons"
+                  android:onClick="changeView_Confirmation">
         <LinearLayout android:layout_width="wrap_content"
                       android:layout_height="match_parent"
                       android:layout_weight="5"
@@ -150,19 +158,20 @@
                        android:layout_height="wrap_content"
                        android:scaleType="centerCrop"
                        android:adjustViewBounds="true"
-                       android:src="@drawable/ask_address_thank"/>
+                       android:src="@drawable/ask_items_crayons"/>
         </LinearLayout>
         <LinearLayout android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:layout_weight="1"
                       android:layout_gravity="center"
                       android:gravity="center">
-            <TextView android:layout_width="match_parent"
+            <TextView android:id="@+id/crayonsLabel"
+                      android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:minHeight="40dp"
                       android:layout_marginBottom="3dp"
                       android:gravity="center"
-                      android:text="Dziękuję"
+                      android:text=""
                       android:textSize="26sp"/>
         </LinearLayout>
     </LinearLayout>

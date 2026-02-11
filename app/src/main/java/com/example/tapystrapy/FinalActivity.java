@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class FinalActivity extends AppCompatActivity {
-    String emotion, bodyPart, bodyFullAnswer;
+    String emotion, sentence, bodyPart, bodyFullAnswer;
     private ImageView finalImage;
     private TextView finalLabel;
 
@@ -21,6 +21,7 @@ public class FinalActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         emotion = intent.getStringExtra("EMOTION");
+        sentence = intent.getStringExtra("SENTENCE");
         bodyPart = intent.getStringExtra("BODY_PART");
         bodyFullAnswer = intent.getStringExtra("FULL_ANSWER");
 
@@ -62,6 +63,10 @@ public class FinalActivity extends AppCompatActivity {
 
                     default: finalImage.setImageResource(R.drawable.tapstrap_icon); finalLabel.setText("-"); break;
                 }
+            }
+            else if (sentence != null) {
+                finalLabel.setText(sentence);
+                // switch z obrazkiem
             }
             else if (bodyPart != null) {
                 finalLabel.setText(bodyFullAnswer);

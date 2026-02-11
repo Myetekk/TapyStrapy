@@ -10,11 +10,12 @@
                   android:background="@color/almost_white"
                   android:layout_gravity="center"
                   android:gravity="center">
-        <TextView android:layout_width="match_parent"
+        <TextView android:id="@+id/questionLabel"
+                  android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:minHeight="60dp"
                   android:gravity="center"
-                  android:text="Co chcesz powiedzieć?"
+                  android:text="Kogo chcesz?"
                   android:textSize="35sp"/>
     </LinearLayout>
 
@@ -32,8 +33,9 @@
                       android:background="@color/almost_white"
                       android:focusable="true"
                       android:clickable="true"
-                      android:id="@+id/address_layout"
-                      android:onClick="changeView_Ask_Address">
+                      android:tag="mum"
+                      android:id="@+id/forehead_layout"
+                      android:onClick="changeView_Confirmation">
             <LinearLayout android:layout_width="wrap_content"
                           android:layout_height="match_parent"
                           android:layout_weight="5"
@@ -43,19 +45,20 @@
                            android:layout_height="wrap_content"
                            android:scaleType="centerCrop"
                            android:adjustViewBounds="true"
-                           android:src="@drawable/ask_address"/>
+                           android:src="@drawable/ask_persons_mum"/>
             </LinearLayout>
             <LinearLayout android:layout_width="match_parent"
                           android:layout_height="wrap_content"
                           android:layout_weight="1"
                           android:layout_gravity="center"
                           android:gravity="center">
-                <TextView android:layout_width="match_parent"
+                <TextView android:id="@+id/mumLabel"
+                          android:layout_width="match_parent"
                           android:layout_height="wrap_content"
                           android:minHeight="40dp"
                           android:layout_marginBottom="3dp"
                           android:gravity="center"
-                          android:text="Zwroty"
+                          android:text=""
                           android:textSize="24sp"/>
             </LinearLayout>
         </LinearLayout>
@@ -69,8 +72,9 @@
                       android:background="@color/almost_white"
                       android:focusable="true"
                       android:clickable="true"
-                      android:id="@+id/basicneeds_layout"
-                      android:onClick="changeView_Ask_Basicneeds">
+                      android:tag="dad"
+                      android:id="@+id/hairback_layout"
+                      android:onClick="changeView_Confirmation">
             <LinearLayout android:layout_width="wrap_content"
                           android:layout_height="match_parent"
                           android:layout_weight="5"
@@ -80,20 +84,21 @@
                            android:layout_height="wrap_content"
                            android:scaleType="centerCrop"
                            android:adjustViewBounds="true"
-                           android:src="@drawable/ask_basicneeds"/>
+                           android:src="@drawable/ask_persons_dad"/>
             </LinearLayout>
             <LinearLayout android:layout_width="match_parent"
                           android:layout_height="wrap_content"
                           android:layout_weight="1"
                           android:layout_gravity="center"
                           android:gravity="center">
-                <TextView android:layout_width="match_parent"
+                <TextView android:id="@+id/dadLabel"
+                          android:layout_width="match_parent"
                           android:layout_height="wrap_content"
                           android:minHeight="40dp"
                           android:layout_marginBottom="3dp"
                           android:gravity="center"
-                          android:text="Podstawowe"
-                          android:textSize="22sp"/>
+                          android:text=""
+                          android:textSize="24sp"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
@@ -112,8 +117,9 @@
                       android:background="@color/almost_white"
                       android:focusable="true"
                       android:clickable="true"
-                      android:id="@+id/persons_layout"
-                      android:onClick="changeView_Ask_Persons">
+                      android:tag="bro"
+                      android:id="@+id/entirehead_layout"
+                      android:onClick="changeView_Confirmation">
             <LinearLayout android:layout_width="wrap_content"
                           android:layout_height="match_parent"
                           android:layout_weight="5"
@@ -123,19 +129,20 @@
                            android:layout_height="wrap_content"
                            android:scaleType="centerCrop"
                            android:adjustViewBounds="true"
-                           android:src="@drawable/ask_persons"/>
+                           android:src="@drawable/ask_persons_brother"/>
             </LinearLayout>
             <LinearLayout android:layout_width="match_parent"
                           android:layout_height="wrap_content"
                           android:layout_weight="1"
                           android:layout_gravity="center"
                           android:gravity="center">
-                <TextView android:layout_width="match_parent"
+                <TextView android:id="@+id/broLabel"
+                          android:layout_width="match_parent"
                           android:layout_height="wrap_content"
                           android:minHeight="40dp"
                           android:layout_marginBottom="3dp"
                           android:gravity="center"
-                          android:text="Osoby"
+                          android:text=""
                           android:textSize="26sp"/>
             </LinearLayout>
         </LinearLayout>
@@ -149,8 +156,9 @@
                       android:background="@color/almost_white"
                       android:focusable="true"
                       android:clickable="true"
-                      android:id="@+id/localisations_layout"
-                      android:onClick="changeView_Ask_Localisations">
+                      android:tag="sis"
+                      android:id="@+id/eye_layout"
+                      android:onClick="changeView_Confirmation">
             <LinearLayout android:layout_width="wrap_content"
                           android:layout_height="match_parent"
                           android:layout_weight="5"
@@ -160,25 +168,24 @@
                            android:layout_height="wrap_content"
                            android:scaleType="centerCrop"
                            android:adjustViewBounds="true"
-                           android:src="@drawable/ask_localisations"/>
+                           android:src="@drawable/ask_persons_sister"/>
             </LinearLayout>
             <LinearLayout android:layout_width="match_parent"
                           android:layout_height="wrap_content"
                           android:layout_weight="1"
                           android:layout_gravity="center"
                           android:gravity="center">
-                <TextView android:layout_width="match_parent"
+                <TextView android:id="@+id/sisLabel"
+                          android:layout_width="match_parent"
                           android:layout_height="wrap_content"
                           android:minHeight="40dp"
                           android:layout_marginBottom="3dp"
                           android:gravity="center"
-                          android:text="Miejsca"
+                          android:text=""
                           android:textSize="26sp"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-
-
 
     <LinearLayout android:layout_width="match_parent"
                   android:layout_height="match_parent"
@@ -194,8 +201,9 @@
                       android:background="@color/almost_white"
                       android:focusable="true"
                       android:clickable="true"
-                      android:id="@+id/items_layout"
-                      android:onClick="changeView_Ask_Items">
+                      android:tag="grandma"
+                      android:id="@+id/nose_layout"
+                      android:onClick="changeView_Confirmation">
             <LinearLayout android:layout_width="wrap_content"
                           android:layout_height="match_parent"
                           android:layout_weight="5"
@@ -205,19 +213,104 @@
                            android:layout_height="wrap_content"
                            android:scaleType="centerCrop"
                            android:adjustViewBounds="true"
-                           android:src="@drawable/ask_items"/>
+                           android:src="@drawable/ask_persons_grandma"/>
             </LinearLayout>
             <LinearLayout android:layout_width="match_parent"
                           android:layout_height="wrap_content"
                           android:layout_weight="1"
                           android:layout_gravity="center"
                           android:gravity="center">
-                <TextView android:layout_width="match_parent"
+                <TextView android:id="@+id/grandmaLabel"
+                          android:layout_width="match_parent"
                           android:layout_height="wrap_content"
                           android:minHeight="40dp"
                           android:layout_marginBottom="3dp"
                           android:gravity="center"
-                          android:text="Przedmioty"
+                          android:text=""
+                          android:textSize="26sp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:orientation="vertical"
+                      android:layout_weight="1"
+                      android:layout_margin="3dp"
+                      android:padding="5dp"
+                      android:background="@color/almost_white"
+                      android:focusable="true"
+                      android:clickable="true"
+                      android:tag="grandpa"
+                      android:id="@+id/tooth_layout"
+                      android:onClick="changeView_Confirmation">
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="match_parent"
+                          android:layout_weight="5"
+                          android:layout_gravity="center"
+                          android:gravity="center">
+                <ImageView android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:scaleType="centerCrop"
+                           android:adjustViewBounds="true"
+                           android:src="@drawable/ask_persons_grandpa"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_weight="1"
+                          android:layout_gravity="center"
+                          android:gravity="center">
+                <TextView android:id="@+id/grandpaLabel"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:minHeight="40dp"
+                          android:layout_marginBottom="3dp"
+                          android:gravity="center"
+                          android:text=""
+                          android:textSize="26sp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:orientation="horizontal"
+                  android:layout_weight="1">
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:orientation="vertical"
+                      android:layout_weight="1"
+                      android:layout_margin="3dp"
+                      android:padding="5dp"
+                      android:background="@color/almost_white"
+                      android:focusable="true"
+                      android:clickable="true"
+                      android:tag="attendant"
+                      android:id="@+id/throat_layout"
+                      android:onClick="changeView_Confirmation">
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="match_parent"
+                          android:layout_weight="5"
+                          android:layout_gravity="center"
+                          android:gravity="center">
+                <ImageView android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:scaleType="centerCrop"
+                           android:adjustViewBounds="true"
+                           android:src="@drawable/ask_persons_attendant"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_weight="1"
+                          android:layout_gravity="center"
+                          android:gravity="center">
+                <TextView android:id="@+id/attendantLabel"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:minHeight="40dp"
+                          android:layout_marginBottom="3dp"
+                          android:gravity="center"
+                          android:text=""
                           android:textSize="26sp"/>
             </LinearLayout>
         </LinearLayout>
