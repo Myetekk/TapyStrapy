@@ -15,7 +15,7 @@ import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 
 public class ConfirmationActivity  extends AppCompatActivity {
-    String emotion, bodyPart, bodyFullAnswer;
+    String emotion, sentence, bodyPart, bodyFullAnswer;
     private ImageView confirmationImage;
     private TextView confirmationLabel;
     private LinearLayout confirmationAnswerYes, confirmationAnswerMedium, confirmationAnswerNo, confirmationAnswers;
@@ -33,6 +33,7 @@ public class ConfirmationActivity  extends AppCompatActivity {
 
         Intent intent = getIntent();
         emotion = intent.getStringExtra("EMOTION");
+        sentence = intent.getStringExtra("SENTENCE");
         bodyPart = intent.getStringExtra("BODY_PART");
         bodyFullAnswer = intent.getStringExtra("FULL_ANSWER");
 
@@ -140,6 +141,10 @@ public class ConfirmationActivity  extends AppCompatActivity {
                     default: confirmationImage.setImageResource(R.drawable.tapstrap_icon); confirmationLabel.setText("-"); break;
                 }
             }
+            else if (sentence != null) {
+                confirmationLabel.setText(sentence);
+                // switch z obrazkiem
+            }
             else if (bodyPart != null) {
                 confirmationLabel.setText(bodyFullAnswer);
 
@@ -193,6 +198,9 @@ public class ConfirmationActivity  extends AppCompatActivity {
         Intent intent = new Intent(this, FinalActivity.class);
         if (emotion != null) {
             intent.putExtra("EMOTION", emotion);
+        }
+        else if (sentence != null) {
+            intent.putExtra("SENTENCE", sentence);
         }
         else if (bodyPart != null) {
             intent.putExtra("BODY_PART", bodyPart);

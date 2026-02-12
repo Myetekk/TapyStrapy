@@ -85,8 +85,8 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, FeelingsActivity.class);
         startActivity(intent);
     }
-    public void changeView_Main_Activities(View view) {
-        Intent intent = new Intent(this, ActivitiesActivity.class);
+    public void changeView_Main_Ask(View view) {
+        Intent intent = new Intent(this, AskMainSelection.class);
         startActivity(intent);
     }
     public void changeView_Main_Pain(View view) {
