@@ -46,8 +46,11 @@ public class ConfirmationActivity  extends AppCompatActivity {
         AppState.getInstance().initializeTapSdk();
 
         unchoseElement();
-        if (AppState.getInstance().get_connectionStatus()) choseElement();
         chosenElementId = 1;
+        if (AppState.getInstance().get_connectionStatus()) {
+            choseElement();
+            showCenterElement();
+        }
     }
     @Override
     protected void onPause() {

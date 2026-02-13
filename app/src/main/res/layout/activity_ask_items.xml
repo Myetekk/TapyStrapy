@@ -20,7 +20,8 @@
                   android:textSize="35sp"/>
     </LinearLayout>
 
-    <LinearLayout android:layout_width="match_parent"
+    <LinearLayout android:id="@+id/ask_items_mug"
+                  android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:orientation="vertical"
                   android:layout_weight="1"
@@ -36,8 +37,7 @@
                       android:layout_weight="5"
                       android:layout_gravity="center"
                       android:gravity="center">
-            <ImageView android:id="@+id/painHeadImage1"
-                       android:layout_width="match_parent"
+            <ImageView android:layout_width="match_parent"
                        android:layout_height="wrap_content"
                        android:scaleType="centerCrop"
                        android:adjustViewBounds="true"
@@ -59,7 +59,8 @@
         </LinearLayout>
     </LinearLayout>
 
-    <LinearLayout android:layout_width="match_parent"
+    <LinearLayout android:id="@+id/ask_items_doll"
+                  android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:orientation="vertical"
                   android:layout_weight="1"
@@ -75,8 +76,7 @@
                       android:layout_weight="5"
                       android:layout_gravity="center"
                       android:gravity="center">
-            <ImageView android:id="@+id/painHandsImage1"
-                       android:layout_width="match_parent"
+            <ImageView android:layout_width="match_parent"
                        android:layout_height="wrap_content"
                        android:scaleType="centerCrop"
                        android:adjustViewBounds="true"
@@ -98,7 +98,8 @@
         </LinearLayout>
     </LinearLayout>
 
-    <LinearLayout android:layout_width="match_parent"
+    <LinearLayout android:id="@+id/ask_items_book"
+                  android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:orientation="vertical"
                   android:layout_weight="1"
@@ -114,8 +115,7 @@
                       android:layout_weight="5"
                       android:layout_gravity="center"
                       android:gravity="center">
-            <ImageView android:id="@+id/painBodyImage1"
-                       android:layout_width="match_parent"
+            <ImageView android:layout_width="match_parent"
                        android:layout_height="wrap_content"
                        android:scaleType="centerCrop"
                        android:adjustViewBounds="true"
@@ -137,7 +137,8 @@
         </LinearLayout>
     </LinearLayout>
 
-    <LinearLayout android:layout_width="match_parent"
+    <LinearLayout android:id="@+id/ask_items_crayons"
+                  android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:orientation="vertical"
                   android:layout_weight="1"
@@ -153,8 +154,7 @@
                       android:layout_weight="5"
                       android:layout_gravity="center"
                       android:gravity="center">
-            <ImageView android:id="@+id/painLegsImage1"
-                       android:layout_width="match_parent"
+            <ImageView android:layout_width="match_parent"
                        android:layout_height="wrap_content"
                        android:scaleType="centerCrop"
                        android:adjustViewBounds="true"

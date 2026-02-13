@@ -11,7 +11,12 @@ public class AppState {
     private static AppState instance;
     private Activity currentActivity;
 
-    private ActivitiesActivity activitiesActivity;
+    private AskAddressSelection askAddressSelection;
+    private AskBasicneedsSelection askBasicneedsSelection;
+    private AskItemsSelection askItemsSelection;
+    private AskLocalisationsSelection askLocalisationsSelection;
+    private AskMainSelection askMainSelection;
+    private AskPersonsSelection askPersonsSelection;
     private ConfirmationActivity confirmationActivity;
     private DebugActivity debugActivity;
     private EmotionLevel emotionLevel;
@@ -46,7 +51,12 @@ public class AppState {
     public void set_activity(Activity activity) {
         this.currentActivity = activity;
         switch(currentActivity.getClass().getSimpleName()) {
-            case "ActivitiesActivity": activitiesActivity = (ActivitiesActivity) activity; break;
+            case "AskAddressSelection": askAddressSelection = (AskAddressSelection) activity; break;
+            case "AskBasicneedsSelection": askBasicneedsSelection = (AskBasicneedsSelection) activity; break;
+            case "AskItemsSelection": askItemsSelection = (AskItemsSelection) activity; break;
+            case "AskLocalisationsSelection": askLocalisationsSelection = (AskLocalisationsSelection) activity; break;
+            case "AskMainSelection": askMainSelection = (AskMainSelection) activity; break;
+            case "AskPersonsSelection": askPersonsSelection = (AskPersonsSelection) activity; break;
             case "ConfirmationActivity": confirmationActivity = (ConfirmationActivity) activity; break;
             case "DebugActivity": debugActivity = (DebugActivity) activity; break;
             case "EmotionLevel": emotionLevel = (EmotionLevel) activity; break;
@@ -106,6 +116,12 @@ public class AppState {
         this.gesture = gesture;
 
         switch(currentActivity.getClass().getSimpleName()) {
+            case "AskAddressSelection": askAddressSelection.changeChosenElement(gesture); break;
+            case "AskBasicneedsSelection": askBasicneedsSelection.changeChosenElement(gesture); break;
+            case "AskItemsSelection": askItemsSelection.changeChosenElement(gesture); break;
+            case "AskLocalisationsSelection": askLocalisationsSelection.changeChosenElement(gesture); break;
+            case "AskMainSelection": askMainSelection.changeChosenElement(gesture); break;
+            case "AskPersonsSelection": askPersonsSelection.changeChosenElement(gesture); break;
             case "ConfirmationActivity": confirmationActivity.changeChosenElement(gesture); break;
             case "EmotionLevel": emotionLevel.changeChosenElement(gesture); break;
             case "FeelingsActivity": feelingsActivity.changeChosenElement(gesture); break;
@@ -127,8 +143,13 @@ public class AppState {
     public void call_updateGyro(double[] gyro) { if (debugActivity != null) debugActivity.updateGyro(gyro); }
     public void call_updateConnectionStatus() { if (debugActivity != null) debugActivity.updateConnectionStatus(connectionStatus); }
     public void call_onConnected() {
-        if (confirmationActivity != null) confirmationActivity.changeChosenElement(Gesture.NONE);
-        if (confirmationActivity != null) confirmationActivity.showCenterElement();
+        if (confirmationActivity != null) { confirmationActivity.changeChosenElement(Gesture.NONE); confirmationActivity.showCenterElement(); }
+        if (askAddressSelection != null) askAddressSelection.changeChosenElement(Gesture.NONE);
+        if (askBasicneedsSelection != null) askBasicneedsSelection.changeChosenElement(Gesture.NONE);
+        if (askItemsSelection != null) askItemsSelection.changeChosenElement(Gesture.NONE);
+        if (askLocalisationsSelection != null) askLocalisationsSelection.changeChosenElement(Gesture.NONE);
+        if (askMainSelection != null) askMainSelection.changeChosenElement(Gesture.NONE);
+        if (askPersonsSelection != null) askPersonsSelection.changeChosenElement(Gesture.NONE);
         if (debugActivity != null) debugActivity.onConnected();
         if (emotionLevel != null) emotionLevel.changeChosenElement(Gesture.NONE);
         if (feelingsActivity != null) feelingsActivity.changeChosenElement(Gesture.NONE);
@@ -142,8 +163,13 @@ public class AppState {
         if (painTorsoSelection != null) painTorsoSelection.changeChosenElement(Gesture.NONE);
     }
     public void call_onDisconnected() {
-        if (confirmationActivity != null) confirmationActivity.unchoseElement();
-        if (confirmationActivity != null) confirmationActivity.hideCenterElement();
+        if (confirmationActivity != null) { confirmationActivity.unchoseElement(); confirmationActivity.hideCenterElement(); }
+        if (askAddressSelection != null) askAddressSelection.unchoseElement();
+        if (askBasicneedsSelection != null) askBasicneedsSelection.unchoseElement();
+        if (askItemsSelection != null) askItemsSelection.unchoseElement();
+        if (askLocalisationsSelection != null) askLocalisationsSelection.unchoseElement();
+        if (askMainSelection != null) askMainSelection.unchoseElement();
+        if (askPersonsSelection != null) askPersonsSelection.unchoseElement();
         if (debugActivity != null) debugActivity.onDisconnected();
         if (emotionLevel != null) emotionLevel.unchoseElement();
         if (feelingsActivity != null) feelingsActivity.unchoseElement();

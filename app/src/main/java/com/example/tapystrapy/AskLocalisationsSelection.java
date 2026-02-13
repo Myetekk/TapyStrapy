@@ -3,20 +3,25 @@ package com.example.tapystrapy;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import com.example.tapystrapy.model.Gesture;
 
 public class AskLocalisationsSelection extends AppCompatActivity {
     String caseText, sentence;
     private TextView questionLabel, houseLabel, rehabLabel, outdoorLabel, shopLabel, schoolLabel;
+    private LinearLayout ask_localisations_house, ask_localisations_rehabcenter, ask_localisations_outdoor, ask_localisations_shop, ask_localisations_school;
+    private int chosenElementId = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
         }
+
         setContentView(R.layout.activity_ask_localisations);
         initializeUIElements();
 
@@ -29,6 +34,22 @@ public class AskLocalisationsSelection extends AppCompatActivity {
             sentence = "";
         }
     }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        AppState.getInstance().set_activity(this);
+        AppState.getInstance().initializeTapSdk();
+
+        unchoseElement();
+        if (AppState.getInstance().get_connectionStatus()) choseElement();
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        AppState.getInstance().destroyTapSdk();
+    }
+
+
 
     private void initializeUIElements(){
         questionLabel = findViewById(R.id.questionLabel);
@@ -37,7 +58,53 @@ public class AskLocalisationsSelection extends AppCompatActivity {
         outdoorLabel = findViewById(R.id.outdoorLabel);
         shopLabel = findViewById(R.id.shopLabel);
         schoolLabel = findViewById(R.id.schoolLabel);
+
+        ask_localisations_house = findViewById(R.id.ask_localisations_house);
+        ask_localisations_rehabcenter = findViewById(R.id.ask_localisations_rehabcenter);
+        ask_localisations_outdoor = findViewById(R.id.ask_localisations_outdoor);
+        ask_localisations_shop = findViewById(R.id.ask_localisations_shop);
+        ask_localisations_school = findViewById(R.id.ask_localisations_school);
     }
+
+    public void changeChosenElement(Gesture gesture) {
+        if (gesture==Gesture.UP) {
+            switch (chosenElementId) {
+                case 0: ask_localisations_house.performClick(); break;
+                case 1: ask_localisations_rehabcenter.performClick(); break;
+                case 2: ask_localisations_outdoor.performClick(); break;
+                case 3: ask_localisations_shop.performClick(); break;
+                case 4: ask_localisations_school.performClick(); break;
+            }
+        }
+        else if (gesture==Gesture.RIGHT  &&  chosenElementId<4) {
+            chosenElementId++;
+            choseElement();
+        }
+        else if (gesture==Gesture.LEFT  &&  chosenElementId>0) {
+            chosenElementId--;
+            choseElement();
+        }
+        else choseElement();
+    }
+    private void choseElement() {
+        unchoseElement();
+        switch (chosenElementId) {
+            case 0: ask_localisations_house.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
+            case 1: ask_localisations_rehabcenter.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
+            case 2: ask_localisations_outdoor.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
+            case 3: ask_localisations_shop.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
+            case 4: ask_localisations_school.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
+        }
+    }
+    public void unchoseElement() {
+        ask_localisations_house.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+        ask_localisations_rehabcenter.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+        ask_localisations_outdoor.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+        ask_localisations_shop.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+        ask_localisations_school.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+    }
+
+
 
     private void setCases(String caseText){
         if (caseText.equals("Mianownik")){

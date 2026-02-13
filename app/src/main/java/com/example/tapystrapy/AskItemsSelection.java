@@ -3,20 +3,25 @@ package com.example.tapystrapy;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import com.example.tapystrapy.model.Gesture;
 
 public class AskItemsSelection extends AppCompatActivity {
     String caseText, sentence;
     private TextView questionLabel, mugLabel, dollLabel, bookLabel, crayonsLabel;
+    private LinearLayout ask_items_mug, ask_items_doll, ask_items_book, ask_items_crayons;
+    private int chosenElementId = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
         }
+
         setContentView(R.layout.activity_ask_items);
         initializeUIElements();
 
@@ -29,6 +34,22 @@ public class AskItemsSelection extends AppCompatActivity {
             sentence = "";
         }
     }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        AppState.getInstance().set_activity(this);
+        AppState.getInstance().initializeTapSdk();
+
+        unchoseElement();
+        if (AppState.getInstance().get_connectionStatus()) choseElement();
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        AppState.getInstance().destroyTapSdk();
+    }
+
+
 
     private void initializeUIElements(){
         questionLabel = findViewById(R.id.questionLabel);
@@ -36,7 +57,49 @@ public class AskItemsSelection extends AppCompatActivity {
         dollLabel = findViewById(R.id.dollLabel);
         bookLabel = findViewById(R.id.bookLabel);
         crayonsLabel = findViewById(R.id.crayonsLabel);
+
+        ask_items_mug = findViewById(R.id.ask_items_mug);
+        ask_items_doll = findViewById(R.id.ask_items_doll);
+        ask_items_book = findViewById(R.id.ask_items_book);
+        ask_items_crayons = findViewById(R.id.ask_items_crayons);
     }
+
+    public void changeChosenElement(Gesture gesture) {
+        if (gesture==Gesture.UP) {
+            switch (chosenElementId) {
+                case 0: ask_items_mug.performClick(); break;
+                case 1: ask_items_doll.performClick(); break;
+                case 2: ask_items_book.performClick(); break;
+                case 3: ask_items_crayons.performClick(); break;
+            }
+        }
+        else if (gesture==Gesture.RIGHT  &&  chosenElementId<3) {
+            chosenElementId++;
+            choseElement();
+        }
+        else if (gesture==Gesture.LEFT  &&  chosenElementId>0) {
+            chosenElementId--;
+            choseElement();
+        }
+        else choseElement();
+    }
+    private void choseElement() {
+        unchoseElement();
+        switch (chosenElementId) {
+            case 0: ask_items_mug.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
+            case 1: ask_items_doll.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
+            case 2: ask_items_book.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
+            case 3: ask_items_crayons.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
+        }
+    }
+    public void unchoseElement() {
+        ask_items_mug.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+        ask_items_doll.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+        ask_items_book.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+        ask_items_crayons.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+    }
+
+
 
     private void setCases(String caseText){
         if (caseText.equals("Mianownik")){

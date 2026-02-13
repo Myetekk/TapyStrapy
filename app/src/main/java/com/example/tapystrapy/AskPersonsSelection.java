@@ -3,20 +3,25 @@ package com.example.tapystrapy;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import com.example.tapystrapy.model.Gesture;
 
 public class AskPersonsSelection extends AppCompatActivity {
     String caseText, sentence;
     private TextView questionLabel, mumLabel, dadLabel, broLabel, sisLabel, grandmaLabel, grandpaLabel, attendantLabel;
+    private LinearLayout ask_persons_mum, ask_persons_dad, ask_persons_brother, ask_persons_sister, ask_persons_grandma, ask_persons_grandpa, ask_persons_attendant;
+    private int chosenElementId = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
         }
+
         setContentView(R.layout.activity_ask_persons);
         initializeUIElements();
 
@@ -29,6 +34,22 @@ public class AskPersonsSelection extends AppCompatActivity {
             sentence = "";
         }
     }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        AppState.getInstance().set_activity(this);
+        AppState.getInstance().initializeTapSdk();
+
+        unchoseElement();
+        if (AppState.getInstance().get_connectionStatus()) choseElement();
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        AppState.getInstance().destroyTapSdk();
+    }
+
+
 
     private void initializeUIElements(){
         questionLabel = findViewById(R.id.questionLabel);
@@ -39,7 +60,61 @@ public class AskPersonsSelection extends AppCompatActivity {
         grandmaLabel = findViewById(R.id.grandmaLabel);
         grandpaLabel = findViewById(R.id.grandpaLabel);
         attendantLabel = findViewById(R.id.attendantLabel);
+
+        ask_persons_mum = findViewById(R.id.ask_persons_mum);
+        ask_persons_dad = findViewById(R.id.ask_persons_dad);
+        ask_persons_brother = findViewById(R.id.ask_persons_brother);
+        ask_persons_sister = findViewById(R.id.ask_persons_sister);
+        ask_persons_grandma = findViewById(R.id.ask_persons_grandma);
+        ask_persons_grandpa = findViewById(R.id.ask_persons_grandpa);
+        ask_persons_attendant = findViewById(R.id.ask_persons_attendant);
     }
+
+    public void changeChosenElement(Gesture gesture) {
+        if (gesture==Gesture.UP) {
+            switch (chosenElementId) {
+                case 0: ask_persons_mum.performClick(); break;
+                case 1: ask_persons_dad.performClick(); break;
+                case 2: ask_persons_brother.performClick(); break;
+                case 3: ask_persons_sister.performClick(); break;
+                case 4: ask_persons_grandma.performClick(); break;
+                case 5: ask_persons_grandpa.performClick(); break;
+                case 6: ask_persons_attendant.performClick(); break;
+            }
+        }
+        else if (gesture==Gesture.RIGHT  &&  chosenElementId<6) {
+            chosenElementId++;
+            choseElement();
+        }
+        else if (gesture==Gesture.LEFT  &&  chosenElementId>0) {
+            chosenElementId--;
+            choseElement();
+        }
+        else choseElement();
+    }
+    private void choseElement() {
+        unchoseElement();
+        switch (chosenElementId) {
+            case 0: ask_persons_mum.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
+            case 1: ask_persons_dad.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
+            case 2: ask_persons_brother.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
+            case 3: ask_persons_sister.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
+            case 4: ask_persons_grandma.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
+            case 5: ask_persons_grandpa.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
+            case 6: ask_persons_attendant.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
+        }
+    }
+    public void unchoseElement() {
+        ask_persons_mum.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+        ask_persons_dad.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+        ask_persons_brother.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+        ask_persons_sister.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+        ask_persons_grandma.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+        ask_persons_grandpa.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+        ask_persons_attendant.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+    }
+
+
 
     private void setCases(String caseText){
         if (caseText.equals("Mianownik")){
