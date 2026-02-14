@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:padding="5dp">
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_margin="3dp"
+                  android:background="@color/almost_white"
+                  android:layout_gravity="center"
+                  android:gravity="center">
+        <TextView android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:minHeight="60dp"
+                  android:gravity="center"
+                  android:text="Co chcesz powiedzieć?"
+                  android:textSize="35sp"/>
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:orientation="horizontal">
+
+        <LinearLayout android:id="@+id/ask_address_request"
+                      android:layout_width="wrap_content"
+                      android:layout_height="match_parent"
+                      android:orientation="vertical"
+                      android:layout_weight="1"
+                      android:layout_margin="3dp"
+                      android:padding="5dp"
+                      android:background="@color/almost_white"
+                      android:focusable="true"
+                      android:clickable="true"
+                      android:onClick="changeView_Main_Ask_Request">
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="match_parent"
+                          android:layout_weight="5"
+                          android:layout_gravity="center"
+                          android:gravity="center">
+                <ImageView android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:scaleType="centerCrop"
+                           android:adjustViewBounds="true"
+                           android:src="@drawable/ask_address_request"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_weight="1"
+                          android:layout_gravity="center"
+                          android:gravity="center">
+                <TextView android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:minHeight="44dp"
+                          android:layout_marginBottom="3dp"
+                          android:gravity="center"
+                          android:text="Chcę"
+                          android:textSize="28sp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/ask_address_pleasehelp"
+                      android:layout_width="wrap_content"
+                      android:layout_height="match_parent"
+                      android:orientation="vertical"
+                      android:layout_weight="1"
+                      android:layout_margin="3dp"
+                      android:padding="5dp"
+                      android:background="@color/almost_white"
+                      android:focusable="true"
+                      android:clickable="true"
+                      android:onClick="changeView_Main_Ask_Pleasehelp">
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="match_parent"
+                          android:layout_weight="5"
+                          android:layout_gravity="center"
+                          android:gravity="center">
+                <ImageView android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:scaleType="centerCrop"
+                           android:adjustViewBounds="true"
+                           android:src="@drawable/ask_address_pleasehelp"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_weight="1"
+                          android:layout_gravity="center"
+                          android:gravity="center">
+                <TextView android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:minHeight="44dp"
+                          android:layout_marginBottom="3dp"
+                          android:gravity="center"
+                          android:text="Pomóż mi proszę"
+                          android:textSize="20sp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/ask_address_apologize"
+                      android:layout_width="wrap_content"
+                      android:layout_height="match_parent"
+                      android:orientation="vertical"
+                      android:layout_weight="1"
+                      android:layout_margin="3dp"
+                      android:padding="5dp"
+                      android:background="@color/almost_white"
+                      android:focusable="true"
+                      android:clickable="true"
+                      android:onClick="changeView_Ask_Persons_Apologize">
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="match_parent"
+                          android:layout_weight="5"
+                          android:layout_gravity="center"
+                          android:gravity="center">
+                <ImageView android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:scaleType="centerCrop"
+                           android:adjustViewBounds="true"
+                           android:src="@drawable/ask_address_apologize"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_weight="1"
+                          android:layout_gravity="center"
+                          android:gravity="center">
+                <TextView android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:minHeight="44dp"
+                          android:layout_marginBottom="3dp"
+                          android:gravity="center"
+                          android:text="Przepraszam"
+                          android:textSize="26sp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/ask_address_thank"
+                      android:layout_width="wrap_content"
+                      android:layout_height="match_parent"
+                      android:orientation="vertical"
+                      android:layout_weight="1"
+                      android:layout_margin="3dp"
+                      android:padding="5dp"
+                      android:background="@color/almost_white"
+                      android:focusable="true"
+                      android:clickable="true"
+                      android:onClick="changeView_Ask_Persons_Thank">
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="match_parent"
+                          android:layout_weight="5"
+                          android:layout_gravity="center"
+                          android:gravity="center">
+                <ImageView android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:scaleType="centerCrop"
+                           android:adjustViewBounds="true"
+                           android:src="@drawable/ask_address_thank"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_weight="1"
+                          android:layout_gravity="center"
+                          android:gravity="center">
+                <TextView android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:minHeight="44dp"
+                          android:layout_marginBottom="3dp"
+                          android:gravity="center"
+                          android:text="Dziękuję"
+                          android:textSize="28sp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

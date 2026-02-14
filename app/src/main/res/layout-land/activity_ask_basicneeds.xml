@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:padding="5dp">
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_margin="3dp"
+                  android:background="@color/almost_white"
+                  android:layout_gravity="center"
+                  android:gravity="center">
+        <TextView android:id="@+id/questionLabel"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:minHeight="60dp"
+                  android:gravity="center"
+                  android:text="Co chcesz powiedzieć?"
+                  android:textSize="35sp"/>
+    </LinearLayout>
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:orientation="horizontal"
+                  android:layout_weight="1">
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:orientation="horizontal">
+
+        <LinearLayout android:id="@+id/ask_basicneeds_toilet"
+                      android:layout_width="wrap_content"
+                      android:layout_height="match_parent"
+                      android:orientation="vertical"
+                      android:layout_weight="1"
+                      android:layout_margin="3dp"
+                      android:padding="5dp"
+                      android:background="@color/almost_white"
+                      android:focusable="true"
+                      android:clickable="true"
+                      android:tag="toilet"
+                      android:onClick="changeView_Confirmation">
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="match_parent"
+                          android:layout_weight="5"
+                          android:layout_gravity="center"
+                          android:gravity="center">
+                <ImageView android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:scaleType="centerCrop"
+                           android:adjustViewBounds="true"
+                           android:src="@drawable/ask_basicneeds_toilet"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_weight="1"
+                          android:layout_gravity="center"
+                          android:gravity="center">
+                <TextView android:id="@+id/toiletLabel"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:minHeight="44dp"
+                          android:layout_marginBottom="3dp"
+                          android:gravity="center"
+                          android:text=""
+                          android:textSize="28sp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/ask_basicneeds_drink"
+                      android:layout_width="wrap_content"
+                      android:layout_height="match_parent"
+                      android:orientation="vertical"
+                      android:layout_weight="1"
+                      android:layout_margin="3dp"
+                      android:padding="5dp"
+                      android:background="@color/almost_white"
+                      android:focusable="true"
+                      android:clickable="true"
+                      android:tag="drink"
+                      android:onClick="changeView_Confirmation">
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="match_parent"
+                          android:layout_weight="5"
+                          android:layout_gravity="center"
+                          android:gravity="center">
+                <ImageView android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:scaleType="centerCrop"
+                           android:adjustViewBounds="true"
+                           android:src="@drawable/ask_basicneeds_drink"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_weight="1"
+                          android:layout_gravity="center"
+                          android:gravity="center">
+                <TextView android:id="@+id/drinkLabel"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:minHeight="44dp"
+                          android:layout_marginBottom="3dp"
+                          android:gravity="center"
+                          android:text=""
+                          android:textSize="28sp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/ask_basicneeds_eat"
+                      android:layout_width="wrap_content"
+                      android:layout_height="match_parent"
+                      android:orientation="vertical"
+                      android:layout_weight="1"
+                      android:layout_margin="3dp"
+                      android:padding="5dp"
+                      android:background="@color/almost_white"
+                      android:focusable="true"
+                      android:clickable="true"
+                      android:tag="eat"
+                      android:onClick="changeView_Confirmation">
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="match_parent"
+                          android:layout_weight="5"
+                          android:layout_gravity="center"
+                          android:gravity="center">
+                <ImageView android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:scaleType="centerCrop"
+                           android:adjustViewBounds="true"
+                           android:src="@drawable/ask_basicneeds_eat"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_weight="1"
+                          android:layout_gravity="center"
+                          android:gravity="center">
+                <TextView android:id="@+id/eatLabel"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:minHeight="44dp"
+                          android:layout_marginBottom="3dp"
+                          android:gravity="center"
+                          android:text=""
+                          android:textSize="28sp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:orientation="horizontal"
+                  android:layout_weight="1">
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:orientation="horizontal">
+
+            <LinearLayout android:id="@+id/ask_basicneeds_play"
+                          android:layout_width="wrap_content"
+                          android:layout_height="match_parent"
+                          android:orientation="vertical"
+                          android:layout_weight="1"
+                          android:layout_margin="3dp"
+                          android:padding="5dp"
+                          android:background="@color/almost_white"
+                          android:focusable="true"
+                          android:clickable="true"
+                          android:tag="play"
+                          android:onClick="changeView_Confirmation">
+                <LinearLayout android:layout_width="wrap_content"
+                              android:layout_height="match_parent"
+                              android:layout_weight="5"
+                              android:layout_gravity="center"
+                              android:gravity="center">
+                    <ImageView android:layout_width="match_parent"
+                               android:layout_height="wrap_content"
+                               android:scaleType="centerCrop"
+                               android:adjustViewBounds="true"
+                               android:src="@drawable/ask_basicneeds_play"/>
+                </LinearLayout>
+                <LinearLayout android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:layout_weight="1"
+                              android:layout_gravity="center"
+                              android:gravity="center">
+                    <TextView android:id="@+id/playLabel"
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:minHeight="44dp"
+                              android:layout_marginBottom="3dp"
+                              android:gravity="center"
+                              android:text=""
+                              android:textSize="28sp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/ask_basicneeds_sleep"
+                          android:layout_width="wrap_content"
+                          android:layout_height="match_parent"
+                          android:orientation="vertical"
+                          android:layout_weight="1"
+                          android:layout_margin="3dp"
+                          android:padding="5dp"
+                          android:background="@color/almost_white"
+                          android:focusable="true"
+                          android:clickable="true"
+                          android:tag="sleep"
+                          android:onClick="changeView_Confirmation">
+                <LinearLayout android:layout_width="wrap_content"
+                              android:layout_height="match_parent"
+                              android:layout_weight="5"
+                              android:layout_gravity="center"
+                              android:gravity="center">
+                    <ImageView android:layout_width="match_parent"
+                               android:layout_height="wrap_content"
+                               android:scaleType="centerCrop"
+                               android:adjustViewBounds="true"
+                               android:src="@drawable/ask_basicneeds_sleep"/>
+                </LinearLayout>
+                <LinearLayout android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:layout_weight="1"
+                              android:layout_gravity="center"
+                              android:gravity="center">
+                    <TextView android:id="@+id/sleepLabel"
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:minHeight="44dp"
+                              android:layout_marginBottom="3dp"
+                              android:gravity="center"
+                              android:text=""
+                              android:textSize="28sp"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

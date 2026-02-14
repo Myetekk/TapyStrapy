@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:padding="5dp">
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_margin="3dp"
+                  android:background="@color/almost_white"
+                  android:layout_gravity="center"
+                  android:gravity="center">
+        <TextView android:id="@+id/questionLabel"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:minHeight="60dp"
+                  android:gravity="center"
+                  android:text="Gdzie chcesz?"
+                  android:textSize="35sp"/>
+    </LinearLayout>
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:orientation="horizontal"
+                  android:layout_weight="1">
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:orientation="horizontal">
+
+        <LinearLayout android:id="@+id/ask_localisations_house"
+                      android:layout_width="wrap_content"
+                      android:layout_height="match_parent"
+                      android:orientation="vertical"
+                      android:layout_weight="1"
+                      android:layout_margin="3dp"
+                      android:padding="5dp"
+                      android:background="@color/almost_white"
+                      android:focusable="true"
+                      android:clickable="true"
+                      android:tag="house"
+                      android:onClick="changeView_Confirmation">
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="match_parent"
+                          android:layout_weight="5"
+                          android:layout_gravity="center"
+                          android:gravity="center">
+                <ImageView android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:scaleType="centerCrop"
+                           android:adjustViewBounds="true"
+                           android:src="@drawable/ask_localisations_house"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_weight="1"
+                          android:layout_gravity="center"
+                          android:gravity="center">
+                <TextView android:id="@+id/houseLabel"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:minHeight="44dp"
+                          android:layout_marginBottom="3dp"
+                          android:gravity="center"
+                          android:text=""
+                          android:textSize="28sp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/ask_localisations_rehabcenter"
+                      android:layout_width="wrap_content"
+                      android:layout_height="match_parent"
+                      android:orientation="vertical"
+                      android:layout_weight="1"
+                      android:layout_margin="3dp"
+                      android:padding="5dp"
+                      android:background="@color/almost_white"
+                      android:focusable="true"
+                      android:clickable="true"
+                      android:tag="rehab"
+                      android:onClick="changeView_Confirmation">
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="match_parent"
+                          android:layout_weight="5"
+                          android:layout_gravity="center"
+                          android:gravity="center">
+                <ImageView android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:scaleType="centerCrop"
+                           android:adjustViewBounds="true"
+                           android:src="@drawable/ask_localisations_rehabcenter"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_weight="1"
+                          android:layout_gravity="center"
+                          android:gravity="center">
+                <TextView android:id="@+id/rehabLabel"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:minHeight="44dp"
+                          android:layout_marginBottom="3dp"
+                          android:gravity="center"
+                          android:text=""
+                          android:textSize="28sp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/ask_localisations_outdoor"
+                      android:layout_width="wrap_content"
+                      android:layout_height="match_parent"
+                      android:orientation="vertical"
+                      android:layout_weight="1"
+                      android:layout_margin="3dp"
+                      android:padding="5dp"
+                      android:background="@color/almost_white"
+                      android:focusable="true"
+                      android:clickable="true"
+                      android:tag="outdoor"
+                      android:onClick="changeView_Confirmation">
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="match_parent"
+                          android:layout_weight="5"
+                          android:layout_gravity="center"
+                          android:gravity="center">
+                <ImageView android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:scaleType="centerCrop"
+                           android:adjustViewBounds="true"
+                           android:src="@drawable/ask_localisations_outdoor"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_weight="1"
+                          android:layout_gravity="center"
+                          android:gravity="center">
+                <TextView android:id="@+id/outdoorLabel"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:minHeight="44dp"
+                          android:layout_marginBottom="3dp"
+                          android:gravity="center"
+                          android:text=""
+                          android:textSize="28sp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:orientation="horizontal"
+                  android:layout_weight="1">
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:orientation="horizontal">
+
+            <LinearLayout android:id="@+id/ask_localisations_shop"
+                          android:layout_width="wrap_content"
+                          android:layout_height="match_parent"
+                          android:orientation="vertical"
+                          android:layout_weight="1"
+                          android:layout_margin="3dp"
+                          android:padding="5dp"
+                          android:background="@color/almost_white"
+                          android:focusable="true"
+                          android:clickable="true"
+                          android:tag="shop"
+                          android:onClick="changeView_Confirmation">
+                <LinearLayout android:layout_width="wrap_content"
+                              android:layout_height="match_parent"
+                              android:layout_weight="5"
+                              android:layout_gravity="center"
+                              android:gravity="center">
+                    <ImageView android:layout_width="match_parent"
+                               android:layout_height="wrap_content"
+                               android:scaleType="centerCrop"
+                               android:adjustViewBounds="true"
+                               android:src="@drawable/ask_localisations_shop"/>
+                </LinearLayout>
+                <LinearLayout android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:layout_weight="1"
+                              android:layout_gravity="center"
+                              android:gravity="center">
+                    <TextView android:id="@+id/shopLabel"
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:minHeight="44dp"
+                              android:layout_marginBottom="3dp"
+                              android:gravity="center"
+                              android:text=""
+                              android:textSize="28sp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/ask_localisations_school"
+                          android:layout_width="wrap_content"
+                          android:layout_height="match_parent"
+                          android:orientation="vertical"
+                          android:layout_weight="1"
+                          android:layout_margin="3dp"
+                          android:padding="5dp"
+                          android:background="@color/almost_white"
+                          android:focusable="true"
+                          android:clickable="true"
+                          android:tag="school"
+                          android:onClick="changeView_Confirmation">
+                <LinearLayout android:layout_width="wrap_content"
+                              android:layout_height="match_parent"
+                              android:layout_weight="5"
+                              android:layout_gravity="center"
+                              android:gravity="center">
+                    <ImageView android:layout_width="match_parent"
+                               android:layout_height="wrap_content"
+                               android:scaleType="centerCrop"
+                               android:adjustViewBounds="true"
+                               android:src="@drawable/ask_localisations_school"/>
+                </LinearLayout>
+                <LinearLayout android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:layout_weight="1"
+                              android:layout_gravity="center"
+                              android:gravity="center">
+                    <TextView android:id="@+id/schoolLabel"
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:minHeight="44dp"
+                              android:layout_marginBottom="3dp"
+                              android:gravity="center"
+                              android:text=""
+                              android:textSize="28sp"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

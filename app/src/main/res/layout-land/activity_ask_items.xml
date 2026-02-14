@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:padding="5dp">
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_margin="3dp"
+                  android:background="@color/almost_white"
+                  android:layout_gravity="center"
+                  android:gravity="center">
+        <TextView android:id="@+id/questionLabel"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:minHeight="60dp"
+                  android:gravity="center"
+                  android:text="Który przedmiot?"
+                  android:textSize="35sp"/>
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:orientation="horizontal">
+
+        <LinearLayout android:id="@+id/ask_items_mug"
+                      android:layout_width="wrap_content"
+                      android:layout_height="match_parent"
+                      android:orientation="vertical"
+                      android:layout_weight="1"
+                      android:layout_margin="3dp"
+                      android:padding="5dp"
+                      android:background="@color/almost_white"
+                      android:focusable="true"
+                      android:clickable="true"
+                      android:tag="mug"
+                      android:onClick="changeView_Confirmation">
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="match_parent"
+                          android:layout_weight="5"
+                          android:layout_gravity="center"
+                          android:gravity="center">
+                <ImageView android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:scaleType="centerCrop"
+                           android:adjustViewBounds="true"
+                           android:src="@drawable/ask_items_mug"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_weight="1"
+                          android:layout_gravity="center"
+                          android:gravity="center">
+                <TextView android:id="@+id/mugLabel"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:minHeight="44dp"
+                          android:layout_marginBottom="3dp"
+                          android:gravity="center"
+                          android:text=""
+                          android:textSize="28sp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/ask_items_doll"
+                      android:layout_width="wrap_content"
+                      android:layout_height="match_parent"
+                      android:orientation="vertical"
+                      android:layout_weight="1"
+                      android:layout_margin="3dp"
+                      android:padding="5dp"
+                      android:background="@color/almost_white"
+                      android:focusable="true"
+                      android:clickable="true"
+                      android:tag="doll"
+                      android:onClick="changeView_Confirmation">
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="match_parent"
+                          android:layout_weight="5"
+                          android:layout_gravity="center"
+                          android:gravity="center">
+                <ImageView android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:scaleType="centerCrop"
+                           android:adjustViewBounds="true"
+                           android:src="@drawable/ask_items_doll"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_weight="1"
+                          android:layout_gravity="center"
+                          android:gravity="center">
+                <TextView android:id="@+id/dollLabel"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:minHeight="44dp"
+                          android:layout_marginBottom="3dp"
+                          android:gravity="center"
+                          android:text=""
+                          android:textSize="28sp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/ask_items_book"
+                      android:layout_width="wrap_content"
+                      android:layout_height="match_parent"
+                      android:orientation="vertical"
+                      android:layout_weight="1"
+                      android:layout_margin="3dp"
+                      android:padding="5dp"
+                      android:background="@color/almost_white"
+                      android:focusable="true"
+                      android:clickable="true"
+                      android:tag="book"
+                      android:onClick="changeView_Confirmation">
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="match_parent"
+                          android:layout_weight="5"
+                          android:layout_gravity="center"
+                          android:gravity="center">
+                <ImageView android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:scaleType="centerCrop"
+                           android:adjustViewBounds="true"
+                           android:src="@drawable/ask_items_book"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_weight="1"
+                          android:layout_gravity="center"
+                          android:gravity="center">
+                <TextView android:id="@+id/bookLabel"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:minHeight="44dp"
+                          android:layout_marginBottom="3dp"
+                          android:gravity="center"
+                          android:text=""
+                          android:textSize="28sp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/ask_items_crayons"
+                      android:layout_width="wrap_content"
+                      android:layout_height="match_parent"
+                      android:orientation="vertical"
+                      android:layout_weight="1"
+                      android:layout_margin="3dp"
+                      android:padding="5dp"
+                      android:background="@color/almost_white"
+                      android:focusable="true"
+                      android:clickable="true"
+                      android:tag="crayons"
+                      android:onClick="changeView_Confirmation">
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="match_parent"
+                          android:layout_weight="5"
+                          android:layout_gravity="center"
+                          android:gravity="center">
+                <ImageView android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:scaleType="centerCrop"
+                           android:adjustViewBounds="true"
+                           android:src="@drawable/ask_items_crayons"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_weight="1"
+                          android:layout_gravity="center"
+                          android:gravity="center">
+                <TextView android:id="@+id/crayonsLabel"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:minHeight="44dp"
+                          android:layout_marginBottom="3dp"
+                          android:gravity="center"
+                          android:text=""
+                          android:textSize="28sp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

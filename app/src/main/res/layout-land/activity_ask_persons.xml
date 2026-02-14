@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:padding="5dp">
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_margin="3dp"
+                  android:background="@color/almost_white"
+                  android:layout_gravity="center"
+                  android:gravity="center">
+        <TextView android:id="@+id/questionLabel"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:minHeight="60dp"
+                  android:gravity="center"
+                  android:text="Kogo chcesz?"
+                  android:textSize="35sp"/>
+    </LinearLayout>
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:orientation="horizontal"
+                  android:layout_weight="1">
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:orientation="horizontal">
+
+        <LinearLayout android:id="@+id/ask_persons_mum"
+                      android:layout_width="wrap_content"
+                      android:layout_height="match_parent"
+                      android:orientation="vertical"
+                      android:layout_weight="1"
+                      android:layout_margin="3dp"
+                      android:padding="5dp"
+                      android:background="@color/almost_white"
+                      android:focusable="true"
+                      android:clickable="true"
+                      android:tag="mum"
+                      android:onClick="changeView_Confirmation">
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="match_parent"
+                          android:layout_weight="5"
+                          android:layout_gravity="center"
+                          android:gravity="center">
+                <ImageView android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:scaleType="centerCrop"
+                           android:adjustViewBounds="true"
+                           android:src="@drawable/ask_persons_mum"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_weight="1"
+                          android:layout_gravity="center"
+                          android:gravity="center">
+                <TextView android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:minHeight="44dp"
+                          android:layout_marginBottom="3dp"
+                          android:gravity="center"
+                          android:text=""
+                          android:textSize="28sp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/ask_persons_dad"
+                      android:layout_width="wrap_content"
+                      android:layout_height="match_parent"
+                      android:orientation="vertical"
+                      android:layout_weight="1"
+                      android:layout_margin="3dp"
+                      android:padding="5dp"
+                      android:background="@color/almost_white"
+                      android:focusable="true"
+                      android:clickable="true"
+                      android:tag="dad"
+                      android:onClick="changeView_Confirmation">
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="match_parent"
+                          android:layout_weight="5"
+                          android:layout_gravity="center"
+                          android:gravity="center">
+                <ImageView android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:scaleType="centerCrop"
+                           android:adjustViewBounds="true"
+                           android:src="@drawable/ask_persons_dad"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_weight="1"
+                          android:layout_gravity="center"
+                          android:gravity="center">
+                <TextView android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:minHeight="44dp"
+                          android:layout_marginBottom="3dp"
+                          android:gravity="center"
+                          android:text=""
+                          android:textSize="28sp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/ask_persons_brother"
+                      android:layout_width="wrap_content"
+                      android:layout_height="match_parent"
+                      android:orientation="vertical"
+                      android:layout_weight="1"
+                      android:layout_margin="3dp"
+                      android:padding="5dp"
+                      android:background="@color/almost_white"
+                      android:focusable="true"
+                      android:clickable="true"
+                      android:tag="bro"
+                      android:onClick="changeView_Confirmation">
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="match_parent"
+                          android:layout_weight="5"
+                          android:layout_gravity="center"
+                          android:gravity="center">
+                <ImageView android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:scaleType="centerCrop"
+                           android:adjustViewBounds="true"
+                           android:src="@drawable/ask_persons_brother"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_weight="1"
+                          android:layout_gravity="center"
+                          android:gravity="center">
+                <TextView android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:minHeight="44dp"
+                          android:layout_marginBottom="3dp"
+                          android:gravity="center"
+                          android:text=""
+                          android:textSize="28sp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/ask_persons_sister"
+                      android:layout_width="wrap_content"
+                      android:layout_height="match_parent"
+                      android:orientation="vertical"
+                      android:layout_weight="1"
+                      android:layout_margin="3dp"
+                      android:padding="5dp"
+                      android:background="@color/almost_white"
+                      android:focusable="true"
+                      android:clickable="true"
+                      android:tag="sis"
+                      android:onClick="changeView_Confirmation">
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="match_parent"
+                          android:layout_weight="5"
+                          android:layout_gravity="center"
+                          android:gravity="center">
+                <ImageView android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:scaleType="centerCrop"
+                           android:adjustViewBounds="true"
+                           android:src="@drawable/ask_persons_sister"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_weight="1"
+                          android:layout_gravity="center"
+                          android:gravity="center">
+                <TextView android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:minHeight="44dp"
+                          android:layout_marginBottom="3dp"
+                          android:gravity="center"
+                          android:text=""
+                          android:textSize="28sp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:orientation="horizontal"
+                  android:layout_weight="1">
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:orientation="horizontal">
+
+            <LinearLayout android:id="@+id/ask_persons_grandma"
+                          android:layout_width="wrap_content"
+                          android:layout_height="match_parent"
+                          android:orientation="vertical"
+                          android:layout_weight="1"
+                          android:layout_margin="3dp"
+                          android:padding="5dp"
+                          android:background="@color/almost_white"
+                          android:focusable="true"
+                          android:clickable="true"
+                          android:tag="grandma"
+                          android:onClick="changeView_Confirmation">
+                <LinearLayout android:layout_width="wrap_content"
+                              android:layout_height="match_parent"
+                              android:layout_weight="5"
+                              android:layout_gravity="center"
+                              android:gravity="center">
+                    <ImageView android:layout_width="match_parent"
+                               android:layout_height="wrap_content"
+                               android:scaleType="centerCrop"
+                               android:adjustViewBounds="true"
+                               android:src="@drawable/ask_persons_grandma"/>
+                </LinearLayout>
+                <LinearLayout android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:layout_weight="1"
+                              android:layout_gravity="center"
+                              android:gravity="center">
+                    <TextView android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:minHeight="44dp"
+                              android:layout_marginBottom="3dp"
+                              android:gravity="center"
+                              android:text=""
+                              android:textSize="28sp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/ask_persons_grandpa"
+                          android:layout_width="wrap_content"
+                          android:layout_height="match_parent"
+                          android:orientation="vertical"
+                          android:layout_weight="1"
+                          android:layout_margin="3dp"
+                          android:padding="5dp"
+                          android:background="@color/almost_white"
+                          android:focusable="true"
+                          android:clickable="true"
+                          android:tag="grandpa"
+                          android:onClick="changeView_Confirmation">
+                <LinearLayout android:layout_width="wrap_content"
+                              android:layout_height="match_parent"
+                              android:layout_weight="5"
+                              android:layout_gravity="center"
+                              android:gravity="center">
+                    <ImageView android:layout_width="match_parent"
+                               android:layout_height="wrap_content"
+                               android:scaleType="centerCrop"
+                               android:adjustViewBounds="true"
+                               android:src="@drawable/ask_persons_grandpa"/>
+                </LinearLayout>
+                <LinearLayout android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:layout_weight="1"
+                              android:layout_gravity="center"
+                              android:gravity="center">
+                    <TextView android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:minHeight="44dp"
+                              android:layout_marginBottom="3dp"
+                              android:gravity="center"
+                              android:text=""
+                              android:textSize="28sp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/ask_persons_attendant"
+                          android:layout_width="wrap_content"
+                          android:layout_height="match_parent"
+                          android:orientation="vertical"
+                          android:layout_weight="1"
+                          android:layout_margin="3dp"
+                          android:padding="5dp"
+                          android:background="@color/almost_white"
+                          android:focusable="true"
+                          android:clickable="true"
+                          android:tag="attendant"
+                          android:onClick="changeView_Confirmation">
+                <LinearLayout android:layout_width="wrap_content"
+                              android:layout_height="match_parent"
+                              android:layout_weight="5"
+                              android:layout_gravity="center"
+                              android:gravity="center">
+                    <ImageView android:layout_width="match_parent"
+                               android:layout_height="wrap_content"
+                               android:scaleType="centerCrop"
+                               android:adjustViewBounds="true"
+                               android:src="@drawable/ask_persons_attendant"/>
+                </LinearLayout>
+                <LinearLayout android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:layout_weight="1"
+                              android:layout_gravity="center"
+                              android:gravity="center">
+                    <TextView android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:minHeight="44dp"
+                              android:layout_marginBottom="3dp"
+                              android:gravity="center"
+                              android:text=""
+                              android:textSize="28sp"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
