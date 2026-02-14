@@ -4,6 +4,7 @@
               android:layout_height="match_parent"
               android:orientation="vertical"
               android:padding="5dp">
+
     <LinearLayout android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:layout_margin="3dp"
@@ -39,7 +40,8 @@
                           android:layout_weight="5"
                           android:layout_gravity="center"
                           android:gravity="center">
-                <ImageView android:layout_width="match_parent"
+                <ImageView android:id="@+id/ask_address_image"
+                           android:layout_width="match_parent"
                            android:layout_height="wrap_content"
                            android:scaleType="centerCrop"
                            android:adjustViewBounds="true"
@@ -76,7 +78,8 @@
                           android:layout_weight="5"
                           android:layout_gravity="center"
                           android:gravity="center">
-                <ImageView android:layout_width="match_parent"
+                <ImageView android:id="@+id/ask_basicneeds_image"
+                           android:layout_width="match_parent"
                            android:layout_height="wrap_content"
                            android:scaleType="centerCrop"
                            android:adjustViewBounds="true"
@@ -119,7 +122,8 @@
                           android:layout_weight="5"
                           android:layout_gravity="center"
                           android:gravity="center">
-                <ImageView android:layout_width="match_parent"
+                <ImageView android:id="@+id/ask_persons_image"
+                           android:layout_width="match_parent"
                            android:layout_height="wrap_content"
                            android:scaleType="centerCrop"
                            android:adjustViewBounds="true"
@@ -156,7 +160,8 @@
                           android:layout_weight="5"
                           android:layout_gravity="center"
                           android:gravity="center">
-                <ImageView android:layout_width="match_parent"
+                <ImageView android:id="@+id/ask_localisations_image"
+                           android:layout_width="match_parent"
                            android:layout_height="wrap_content"
                            android:scaleType="centerCrop"
                            android:adjustViewBounds="true"
@@ -201,7 +206,8 @@
                           android:layout_weight="5"
                           android:layout_gravity="center"
                           android:gravity="center">
-                <ImageView android:layout_width="match_parent"
+                <ImageView android:id="@+id/ask_items_image"
+                           android:layout_width="match_parent"
                            android:layout_height="wrap_content"
                            android:scaleType="centerCrop"
                            android:adjustViewBounds="true"

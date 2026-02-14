@@ -3,6 +3,7 @@ package com.example.tapystrapy;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +14,7 @@ public class AskPersonsSelection extends AppCompatActivity {
     String caseText, sentence;
     private TextView questionLabel, mumLabel, dadLabel, broLabel, sisLabel, grandmaLabel, grandpaLabel, attendantLabel;
     private LinearLayout ask_persons_mum, ask_persons_dad, ask_persons_brother, ask_persons_sister, ask_persons_grandma, ask_persons_grandpa, ask_persons_attendant;
+    private ImageView ask_persons_mum_image, ask_persons_dad_image, ask_persons_brother_image, ask_persons_sister_image, ask_persons_grandma_image, ask_persons_grandpa_image, ask_persons_attendant_image;
     private int chosenElementId = 0;
 
     @Override
@@ -68,6 +70,14 @@ public class AskPersonsSelection extends AppCompatActivity {
         ask_persons_grandma = findViewById(R.id.ask_persons_grandma);
         ask_persons_grandpa = findViewById(R.id.ask_persons_grandpa);
         ask_persons_attendant = findViewById(R.id.ask_persons_attendant);
+
+        ask_persons_mum_image = findViewById(R.id.ask_persons_mum_image);
+        ask_persons_dad_image = findViewById(R.id.ask_persons_dad_image);
+        ask_persons_brother_image = findViewById(R.id.ask_persons_brother_image);
+        ask_persons_sister_image = findViewById(R.id.ask_persons_sister_image);
+        ask_persons_grandma_image = findViewById(R.id.ask_persons_grandma_image);
+        ask_persons_grandpa_image = findViewById(R.id.ask_persons_grandpa_image);
+        ask_persons_attendant_image = findViewById(R.id.ask_persons_attendant_image);
     }
 
     public void changeChosenElement(Gesture gesture) {
@@ -93,25 +103,37 @@ public class AskPersonsSelection extends AppCompatActivity {
         else choseElement();
     }
     private void choseElement() {
-        unchoseElement();
-        switch (chosenElementId) {
-            case 0: ask_persons_mum.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
-            case 1: ask_persons_dad.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
-            case 2: ask_persons_brother.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
-            case 3: ask_persons_sister.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
-            case 4: ask_persons_grandma.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
-            case 5: ask_persons_grandpa.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
-            case 6: ask_persons_attendant.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
-        }
+        runOnUiThread(() -> {
+            unchoseElement();
+            switch (chosenElementId) {
+                case 0: ask_persons_mum.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); ask_persons_mum_image.setImageResource(R.drawable.ask_persons_mum_chosen); break;
+                case 1: ask_persons_dad.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); ask_persons_dad_image.setImageResource(R.drawable.ask_persons_dad_chosen); break;
+                case 2: ask_persons_brother.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); ask_persons_brother_image.setImageResource(R.drawable.ask_persons_brother_chosen); break;
+                case 3: ask_persons_sister.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); ask_persons_sister_image.setImageResource(R.drawable.ask_persons_sister_chosen); break;
+                case 4: ask_persons_grandma.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); ask_persons_grandma_image.setImageResource(R.drawable.ask_persons_grandma_chosen); break;
+                case 5: ask_persons_grandpa.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); ask_persons_grandpa_image.setImageResource(R.drawable.ask_persons_grandpa_chosen); break;
+                case 6: ask_persons_attendant.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); ask_persons_attendant_image.setImageResource(R.drawable.ask_persons_attendant_chosen); break;
+            }
+        });
     }
     public void unchoseElement() {
-        ask_persons_mum.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
-        ask_persons_dad.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
-        ask_persons_brother.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
-        ask_persons_sister.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
-        ask_persons_grandma.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
-        ask_persons_grandpa.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
-        ask_persons_attendant.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+        runOnUiThread(() -> {
+            ask_persons_mum.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+            ask_persons_dad.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+            ask_persons_brother.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+            ask_persons_sister.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+            ask_persons_grandma.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+            ask_persons_grandpa.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+            ask_persons_attendant.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+
+            ask_persons_mum_image.setImageResource(R.drawable.ask_persons_mum);
+            ask_persons_dad_image.setImageResource(R.drawable.ask_persons_dad);
+            ask_persons_brother_image.setImageResource(R.drawable.ask_persons_brother);
+            ask_persons_sister_image.setImageResource(R.drawable.ask_persons_sister);
+            ask_persons_grandma_image.setImageResource(R.drawable.ask_persons_grandma);
+            ask_persons_grandpa_image.setImageResource(R.drawable.ask_persons_grandpa);
+            ask_persons_attendant_image.setImageResource(R.drawable.ask_persons_attendant);
+        });
     }
 
 

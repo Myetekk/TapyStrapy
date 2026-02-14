@@ -221,6 +221,10 @@ public class ConfirmationActivity  extends AppCompatActivity {
             Intent intent = new Intent(this, PainMainSelection.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
             startActivity(intent);
+        } else if (sentence != null) {
+            Intent intent = new Intent(this, AskMainSelection.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            startActivity(intent);
         } else { finish(); }
     }
 

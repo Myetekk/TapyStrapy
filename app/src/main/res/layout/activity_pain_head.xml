@@ -39,7 +39,8 @@
                           android:layout_weight="5"
                           android:layout_gravity="center"
                           android:gravity="center">
-                <ImageView android:layout_width="match_parent"
+                <ImageView android:id="@+id/pain_forehead_image"
+                           android:layout_width="match_parent"
                            android:layout_height="wrap_content"
                            android:scaleType="centerCrop"
                            android:adjustViewBounds="true"
@@ -76,7 +77,8 @@
                           android:layout_weight="5"
                           android:layout_gravity="center"
                           android:gravity="center">
-                <ImageView android:layout_width="match_parent"
+                <ImageView android:id="@+id/pain_hairback_image"
+                           android:layout_width="match_parent"
                            android:layout_height="wrap_content"
                            android:scaleType="centerCrop"
                            android:adjustViewBounds="true"
@@ -119,7 +121,8 @@
                           android:layout_weight="5"
                           android:layout_gravity="center"
                           android:gravity="center">
-                <ImageView android:layout_width="match_parent"
+                <ImageView android:id="@+id/pain_entirehead_image"
+                           android:layout_width="match_parent"
                            android:layout_height="wrap_content"
                            android:scaleType="centerCrop"
                            android:adjustViewBounds="true"
@@ -156,7 +159,8 @@
                           android:layout_weight="5"
                           android:layout_gravity="center"
                           android:gravity="center">
-                <ImageView android:layout_width="match_parent"
+                <ImageView android:id="@+id/pain_eyes_image"
+                           android:layout_width="match_parent"
                            android:layout_height="wrap_content"
                            android:scaleType="centerCrop"
                            android:adjustViewBounds="true"
@@ -199,7 +203,8 @@
                           android:layout_weight="5"
                           android:layout_gravity="center"
                           android:gravity="center">
-                <ImageView android:layout_width="match_parent"
+                <ImageView android:id="@+id/pain_nose_image"
+                           android:layout_width="match_parent"
                            android:layout_height="wrap_content"
                            android:scaleType="centerCrop"
                            android:adjustViewBounds="true"
@@ -236,7 +241,8 @@
                           android:layout_weight="5"
                           android:layout_gravity="center"
                           android:gravity="center">
-                <ImageView android:layout_width="match_parent"
+                <ImageView android:id="@+id/pain_tooth_image"
+                           android:layout_width="match_parent"
                            android:layout_height="wrap_content"
                            android:scaleType="centerCrop"
                            android:adjustViewBounds="true"
@@ -279,7 +285,8 @@
                           android:layout_weight="5"
                           android:layout_gravity="center"
                           android:gravity="center">
-                <ImageView android:layout_width="match_parent"
+                <ImageView android:id="@+id/pain_ears_image"
+                           android:layout_width="match_parent"
                            android:layout_height="wrap_content"
                            android:scaleType="centerCrop"
                            android:adjustViewBounds="true"
@@ -315,7 +322,8 @@
                           android:layout_weight="5"
                           android:layout_gravity="center"
                           android:gravity="center">
-                <ImageView android:layout_width="match_parent"
+                <ImageView android:id="@+id/pain_throat_image"
+                           android:layout_width="match_parent"
                            android:layout_height="wrap_content"
                            android:scaleType="centerCrop"
                            android:adjustViewBounds="true"

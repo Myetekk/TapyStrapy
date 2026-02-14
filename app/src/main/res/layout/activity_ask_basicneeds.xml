@@ -4,11 +4,7 @@
               android:layout_height="match_parent"
               android:orientation="vertical"
               android:padding="5dp">
-    <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="5dp">
+
         <LinearLayout android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:layout_margin="3dp"
@@ -46,7 +42,8 @@
                               android:layout_weight="5"
                               android:layout_gravity="center"
                               android:gravity="center">
-                    <ImageView android:layout_width="match_parent"
+                    <ImageView android:id="@+id/ask_basicneeds_toilet_image"
+                               android:layout_width="match_parent"
                                android:layout_height="wrap_content"
                                android:scaleType="centerCrop"
                                android:adjustViewBounds="true"
@@ -85,7 +82,8 @@
                               android:layout_weight="5"
                               android:layout_gravity="center"
                               android:gravity="center">
-                    <ImageView android:layout_width="match_parent"
+                    <ImageView android:id="@+id/ask_basicneeds_drink_image"
+                               android:layout_width="match_parent"
                                android:layout_height="wrap_content"
                                android:scaleType="centerCrop"
                                android:adjustViewBounds="true"
@@ -116,125 +114,127 @@
             <LinearLayout android:id="@+id/ask_basicneeds_eat"
                           android:layout_width="match_parent"
                           android:layout_height="wrap_content"
-                          android:orientation="vertical"
-                          android:layout_weight="1"
-                          android:layout_margin="3dp"
-                          android:padding="5dp"
-                          android:background="@color/almost_white"
-                          android:focusable="true"
-                          android:clickable="true"
-                          android:tag="eat"
-                          android:onClick="changeView_Confirmation">
-                <LinearLayout android:layout_width="wrap_content"
-                              android:layout_height="match_parent"
-                              android:layout_weight="5"
-                              android:layout_gravity="center"
-                              android:gravity="center">
-                    <ImageView android:layout_width="match_parent"
-                               android:layout_height="wrap_content"
-                               android:scaleType="centerCrop"
-                               android:adjustViewBounds="true"
-                               android:src="@drawable/ask_basicneeds_eat"/>
-                </LinearLayout>
-                <LinearLayout android:layout_width="match_parent"
-                              android:layout_height="wrap_content"
-                              android:layout_weight="1"
-                              android:layout_gravity="center"
-                              android:gravity="center">
-                    <TextView android:id="@+id/eatLabel"
-                              android:layout_width="match_parent"
-                              android:layout_height="wrap_content"
-                              android:minHeight="40dp"
-                              android:layout_marginBottom="3dp"
-                              android:gravity="center"
-                              android:text=""
-                              android:textSize="26sp"/>
-                </LinearLayout>
+                      android:orientation="vertical"
+                      android:layout_weight="1"
+                      android:layout_margin="3dp"
+                      android:padding="5dp"
+                      android:background="@color/almost_white"
+                      android:focusable="true"
+                      android:clickable="true"
+                      android:tag="eat"
+                      android:onClick="changeView_Confirmation">
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="match_parent"
+                          android:layout_weight="5"
+                          android:layout_gravity="center"
+                          android:gravity="center">
+                <ImageView android:id="@+id/ask_basicneeds_eat_image"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:scaleType="centerCrop"
+                           android:adjustViewBounds="true"
+                           android:src="@drawable/ask_basicneeds_eat"/>
             </LinearLayout>
-
-            <LinearLayout android:id="@+id/ask_basicneeds_play"
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_weight="1"
+                          android:layout_gravity="center"
+                          android:gravity="center">
+                <TextView android:id="@+id/eatLabel"
                           android:layout_width="match_parent"
                           android:layout_height="wrap_content"
-                          android:orientation="vertical"
-                          android:layout_weight="1"
-                          android:layout_margin="3dp"
-                          android:padding="5dp"
-                          android:background="@color/almost_white"
-                          android:focusable="true"
-                          android:clickable="true"
-                          android:tag="play"
-                          android:onClick="changeView_Confirmation">
-                <LinearLayout android:layout_width="wrap_content"
-                              android:layout_height="match_parent"
-                              android:layout_weight="5"
-                              android:layout_gravity="center"
-                              android:gravity="center">
-                    <ImageView android:layout_width="match_parent"
-                               android:layout_height="wrap_content"
-                               android:scaleType="centerCrop"
-                               android:adjustViewBounds="true"
-                               android:src="@drawable/ask_basicneeds_play"/>
-                </LinearLayout>
-                <LinearLayout android:layout_width="match_parent"
-                              android:layout_height="wrap_content"
-                              android:layout_weight="1"
-                              android:layout_gravity="center"
-                              android:gravity="center">
-                    <TextView android:id="@+id/playLabel"
-                              android:layout_width="match_parent"
-                              android:layout_height="wrap_content"
-                              android:minHeight="40dp"
-                              android:layout_marginBottom="3dp"
-                              android:gravity="center"
-                              android:text=""
-                              android:textSize="26sp"/>
-                </LinearLayout>
+                          android:minHeight="40dp"
+                          android:layout_marginBottom="3dp"
+                          android:gravity="center"
+                          android:text=""
+                          android:textSize="26sp"/>
             </LinearLayout>
         </LinearLayout>
 
-
-        <LinearLayout android:layout_width="match_parent"
-                      android:layout_height="match_parent"
-                      android:orientation="horizontal"
-                      android:layout_weight="1">
-
-            <LinearLayout android:id="@+id/ask_basicneeds_sleep"
+        <LinearLayout android:id="@+id/ask_basicneeds_play"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:orientation="vertical"
+                      android:layout_weight="1"
+                      android:layout_margin="3dp"
+                      android:padding="5dp"
+                      android:background="@color/almost_white"
+                      android:focusable="true"
+                      android:clickable="true"
+                      android:tag="play"
+                      android:onClick="changeView_Confirmation">
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="match_parent"
+                          android:layout_weight="5"
+                          android:layout_gravity="center"
+                          android:gravity="center">
+                <ImageView android:id="@+id/ask_basicneeds_play_image"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:scaleType="centerCrop"
+                           android:adjustViewBounds="true"
+                           android:src="@drawable/ask_basicneeds_play"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_weight="1"
+                          android:layout_gravity="center"
+                          android:gravity="center">
+                <TextView android:id="@+id/playLabel"
                           android:layout_width="match_parent"
                           android:layout_height="wrap_content"
-                          android:orientation="vertical"
+                          android:minHeight="40dp"
+                          android:layout_marginBottom="3dp"
+                          android:gravity="center"
+                          android:text=""
+                          android:textSize="26sp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:orientation="horizontal"
+                  android:layout_weight="1">
+
+        <LinearLayout android:id="@+id/ask_basicneeds_sleep"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:orientation="vertical"
+                      android:layout_weight="1"
+                      android:layout_margin="3dp"
+                      android:padding="5dp"
+                      android:background="@color/almost_white"
+                      android:focusable="true"
+                      android:clickable="true"
+                      android:tag="sleep"
+                      android:onClick="changeView_Confirmation">
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="match_parent"
+                          android:layout_weight="5"
+                          android:layout_gravity="center"
+                          android:gravity="center">
+                <ImageView android:id="@+id/ask_basicneeds_sleep_image"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:scaleType="centerCrop"
+                           android:adjustViewBounds="true"
+                           android:src="@drawable/ask_basicneeds_sleep"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
                           android:layout_weight="1"
-                          android:layout_margin="3dp"
-                          android:padding="5dp"
-                          android:background="@color/almost_white"
-                          android:focusable="true"
-                          android:clickable="true"
-                          android:tag="sleep"
-                          android:onClick="changeView_Confirmation">
-                <LinearLayout android:layout_width="wrap_content"
-                              android:layout_height="match_parent"
-                              android:layout_weight="5"
-                              android:layout_gravity="center"
-                              android:gravity="center">
-                    <ImageView android:layout_width="match_parent"
-                               android:layout_height="wrap_content"
-                               android:scaleType="centerCrop"
-                               android:adjustViewBounds="true"
-                               android:src="@drawable/ask_basicneeds_sleep"/>
-                </LinearLayout>
-                <LinearLayout android:layout_width="match_parent"
-                              android:layout_height="wrap_content"
-                              android:layout_weight="1"
-                              android:layout_gravity="center"
-                              android:gravity="center">
-                    <TextView android:id="@+id/sleepLabel"
-                              android:layout_width="match_parent"
-                              android:layout_height="wrap_content"
-                              android:minHeight="40dp"
-                              android:layout_marginBottom="3dp"
-                              android:gravity="center"
-                              android:text=""
-                              android:textSize="26sp"/>
-                </LinearLayout>
+                          android:layout_gravity="center"
+                          android:gravity="center">
+                <TextView android:id="@+id/sleepLabel"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:minHeight="40dp"
+                          android:layout_marginBottom="3dp"
+                          android:gravity="center"
+                          android:text=""
+                          android:textSize="26sp"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

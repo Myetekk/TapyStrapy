@@ -3,6 +3,7 @@ package com.example.tapystrapy;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +14,7 @@ public class AskBasicneedsSelection extends AppCompatActivity {
     String caseText, sentence;
     private TextView questionLabel, toiletLabel, drinkLabel, eatLabel, playLabel, sleepLabel;
     private LinearLayout ask_basicneeds_toilet, ask_basicneeds_drink, ask_basicneeds_eat, ask_basicneeds_play, ask_basicneeds_sleep;
+    private ImageView ask_basicneeds_toilet_image, ask_basicneeds_drink_image, ask_basicneeds_eat_image, ask_basicneeds_play_image, ask_basicneeds_sleep_image;
     private int chosenElementId = 0;
 
     @Override
@@ -64,6 +66,12 @@ public class AskBasicneedsSelection extends AppCompatActivity {
         ask_basicneeds_eat = findViewById(R.id.ask_basicneeds_eat);
         ask_basicneeds_play = findViewById(R.id.ask_basicneeds_play);
         ask_basicneeds_sleep = findViewById(R.id.ask_basicneeds_sleep);
+
+        ask_basicneeds_toilet_image = findViewById(R.id.ask_basicneeds_toilet_image);
+        ask_basicneeds_drink_image = findViewById(R.id.ask_basicneeds_drink_image);
+        ask_basicneeds_eat_image = findViewById(R.id.ask_basicneeds_eat_image);
+        ask_basicneeds_play_image = findViewById(R.id.ask_basicneeds_play_image);
+        ask_basicneeds_sleep_image = findViewById(R.id.ask_basicneeds_sleep_image);
     }
 
     public void changeChosenElement(Gesture gesture) {
@@ -87,21 +95,31 @@ public class AskBasicneedsSelection extends AppCompatActivity {
         else choseElement();
     }
     private void choseElement() {
-        unchoseElement();
-        switch (chosenElementId) {
-            case 0: ask_basicneeds_toilet.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
-            case 1: ask_basicneeds_drink.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
-            case 2: ask_basicneeds_eat.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
-            case 3: ask_basicneeds_play.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
-            case 4: ask_basicneeds_sleep.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
-        }
+        runOnUiThread(() -> {
+            unchoseElement();
+            switch (chosenElementId) {
+                case 0: ask_basicneeds_toilet.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); ask_basicneeds_toilet_image.setImageResource(R.drawable.ask_basicneeds_toilet_chosen); break;
+                case 1: ask_basicneeds_drink.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); ask_basicneeds_drink_image.setImageResource(R.drawable.ask_basicneeds_eat_chosen); break;
+                case 2: ask_basicneeds_eat.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); ask_basicneeds_eat_image.setImageResource(R.drawable.ask_basicneeds_eat_chosen); break;
+                case 3: ask_basicneeds_play.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); ask_basicneeds_play_image.setImageResource(R.drawable.ask_basicneeds_play_chosen); break;
+                case 4: ask_basicneeds_sleep.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); ask_basicneeds_sleep_image.setImageResource(R.drawable.ask_basicneeds_sleep_chosen); break;
+            }
+        });
     }
     public void unchoseElement() {
-        ask_basicneeds_toilet.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
-        ask_basicneeds_drink.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
-        ask_basicneeds_eat.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
-        ask_basicneeds_play.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
-        ask_basicneeds_sleep.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+        runOnUiThread(() -> {
+            ask_basicneeds_toilet.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+            ask_basicneeds_drink.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+            ask_basicneeds_eat.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+            ask_basicneeds_play.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+            ask_basicneeds_sleep.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+
+            ask_basicneeds_toilet_image.setImageResource(R.drawable.ask_basicneeds_toilet);
+            ask_basicneeds_drink_image.setImageResource(R.drawable.ask_basicneeds_drink);
+            ask_basicneeds_eat_image.setImageResource(R.drawable.ask_basicneeds_eat);
+            ask_basicneeds_play_image.setImageResource(R.drawable.ask_basicneeds_play);
+            ask_basicneeds_sleep_image.setImageResource(R.drawable.ask_basicneeds_sleep);
+        });
     }
 
 

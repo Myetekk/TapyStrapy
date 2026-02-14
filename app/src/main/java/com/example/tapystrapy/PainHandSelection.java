@@ -3,6 +3,7 @@ package com.example.tapystrapy;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -12,6 +13,7 @@ import com.example.tapystrapy.model.Gesture;
 
 public class PainHandSelection extends AppCompatActivity {
     private LinearLayout pain_hand_arm, pain_hand_elbow, pain_hand_palm;
+    private ImageView pain_arm_image, pain_elbow_image, pain_palm_image;
     private int chosenElementId = 0;
 
     @Override
@@ -46,6 +48,10 @@ public class PainHandSelection extends AppCompatActivity {
         pain_hand_elbow = findViewById(R.id.pain_hand_elbow);
         pain_hand_palm = findViewById(R.id.pain_hand_palm);
 
+        pain_arm_image = findViewById(R.id.pain_arm_image);
+        pain_elbow_image = findViewById(R.id.pain_elbow_image);
+        pain_palm_image = findViewById(R.id.pain_palm_image);
+
         pain_hand_arm.setTag(new BodyPartData("arm", "ramię", Gender.NEUTER));
         pain_hand_elbow.setTag(new BodyPartData("elbow", "łokieć", Gender.MASCULINE));
         pain_hand_palm.setTag(new BodyPartData("palm", "dłoń", Gender.FEMININE));
@@ -72,17 +78,25 @@ public class PainHandSelection extends AppCompatActivity {
         else choseElement();
     }
     private void choseElement() {
-        unchoseElement();
-        switch (chosenElementId) {
-            case 0: pain_hand_arm.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
-            case 1: pain_hand_elbow.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
-            case 2: pain_hand_palm.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
-        }
+        runOnUiThread(() -> {
+            unchoseElement();
+            switch (chosenElementId) {
+                case 0: pain_hand_arm.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); pain_arm_image.setImageResource(R.drawable.pain_arm_chosen); break;
+                case 1: pain_hand_elbow.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); pain_elbow_image.setImageResource(R.drawable.pain_elbow_chosen); break;
+                case 2: pain_hand_palm.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); pain_palm_image.setImageResource(R.drawable.pain_palm_chosen); break;
+            }
+        });
     }
     public void unchoseElement() {
-        pain_hand_arm.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
-        pain_hand_elbow.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
-        pain_hand_palm.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+        runOnUiThread(() -> {
+            pain_hand_arm.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+            pain_hand_elbow.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+            pain_hand_palm.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+
+            pain_arm_image.setImageResource(R.drawable.pain_arm);
+            pain_elbow_image.setImageResource(R.drawable.pain_elbow);
+            pain_palm_image.setImageResource(R.drawable.pain_palm);
+        });
     }
 
 

@@ -3,6 +3,7 @@ package com.example.tapystrapy;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -10,6 +11,7 @@ import com.example.tapystrapy.model.Gesture;
 
 public class AskAddressSelection extends AppCompatActivity {
     private LinearLayout ask_address_request, ask_address_pleasehelp, ask_address_apologize, ask_address_thank;
+    private ImageView ask_address_request_image, ask_address_pleasehelp_image, ask_address_apologize_image, ask_address_thank_image;
     private int chosenElementId = 0;
 
     @Override
@@ -45,6 +47,11 @@ public class AskAddressSelection extends AppCompatActivity {
         ask_address_apologize = findViewById(R.id.ask_address_apologize);
         ask_address_thank = findViewById(R.id.ask_address_thank);
 
+        ask_address_request_image = findViewById(R.id.ask_address_request_image);
+        ask_address_pleasehelp_image = findViewById(R.id.ask_address_pleasehelp_image);
+        ask_address_apologize_image = findViewById(R.id.ask_address_apologize_image);
+        ask_address_thank_image = findViewById(R.id.ask_address_thank_image);
+
         chosenElementId = 0;
     }
 
@@ -70,10 +77,10 @@ public class AskAddressSelection extends AppCompatActivity {
     private void choseElement() {
         unchoseElement();
         switch (chosenElementId) {
-            case 0: ask_address_request.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
-            case 1: ask_address_pleasehelp.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
-            case 2: ask_address_apologize.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
-            case 3: ask_address_thank.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
+            case 0: ask_address_request.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); ask_address_request_image.setImageResource(R.drawable.ask_address_request_chosen); break;
+            case 1: ask_address_pleasehelp.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); ask_address_pleasehelp_image.setImageResource(R.drawable.ask_address_pleasehelp_chosen); break;
+            case 2: ask_address_apologize.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); ask_address_apologize_image.setImageResource(R.drawable.ask_address_apologize_chosen); break;
+            case 3: ask_address_thank.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); ask_address_thank_image.setImageResource(R.drawable.ask_address_thank_chosen); break;
         }
     }
     public void unchoseElement() {
@@ -81,6 +88,11 @@ public class AskAddressSelection extends AppCompatActivity {
         ask_address_pleasehelp.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
         ask_address_apologize.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
         ask_address_thank.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+
+        ask_address_request_image.setImageResource(R.drawable.ask_address_request);
+        ask_address_pleasehelp_image.setImageResource(R.drawable.ask_address_pleasehelp);
+        ask_address_apologize_image.setImageResource(R.drawable.ask_address_apologize);
+        ask_address_thank_image.setImageResource(R.drawable.ask_address_thank);
     }
 
 

@@ -3,6 +3,7 @@ package com.example.tapystrapy;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +14,7 @@ public class AskLocalisationsSelection extends AppCompatActivity {
     String caseText, sentence;
     private TextView questionLabel, houseLabel, rehabLabel, outdoorLabel, shopLabel, schoolLabel;
     private LinearLayout ask_localisations_house, ask_localisations_rehabcenter, ask_localisations_outdoor, ask_localisations_shop, ask_localisations_school;
+    private ImageView ask_localisations_house_image, ask_localisations_rehabcenter_image, ask_localisations_outdoor_image, ask_localisations_shop_image, ask_localisations_school_image;
     private int chosenElementId = 0;
 
     @Override
@@ -64,6 +66,12 @@ public class AskLocalisationsSelection extends AppCompatActivity {
         ask_localisations_outdoor = findViewById(R.id.ask_localisations_outdoor);
         ask_localisations_shop = findViewById(R.id.ask_localisations_shop);
         ask_localisations_school = findViewById(R.id.ask_localisations_school);
+
+        ask_localisations_house_image = findViewById(R.id.ask_localisations_house_image);
+        ask_localisations_rehabcenter_image = findViewById(R.id.ask_localisations_rehabcenter_image);
+        ask_localisations_outdoor_image = findViewById(R.id.ask_localisations_outdoor_image);
+        ask_localisations_shop_image = findViewById(R.id.ask_localisations_shop_image);
+        ask_localisations_school_image = findViewById(R.id.ask_localisations_school_image);
     }
 
     public void changeChosenElement(Gesture gesture) {
@@ -87,21 +95,31 @@ public class AskLocalisationsSelection extends AppCompatActivity {
         else choseElement();
     }
     private void choseElement() {
-        unchoseElement();
-        switch (chosenElementId) {
-            case 0: ask_localisations_house.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
-            case 1: ask_localisations_rehabcenter.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
-            case 2: ask_localisations_outdoor.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
-            case 3: ask_localisations_shop.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
-            case 4: ask_localisations_school.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
-        }
+        runOnUiThread(() -> {
+            unchoseElement();
+            switch (chosenElementId) {
+                case 0: ask_localisations_house.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); ask_localisations_house_image.setImageResource(R.drawable.ask_localisations_house_chosen); break;
+                case 1: ask_localisations_rehabcenter.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); ask_localisations_rehabcenter_image.setImageResource(R.drawable.ask_localisations_rehabcenter_chosen); break;
+                case 2: ask_localisations_outdoor.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); ask_localisations_outdoor_image.setImageResource(R.drawable.ask_localisations_outdoor_chosen); break;
+                case 3: ask_localisations_shop.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); ask_localisations_shop_image.setImageResource(R.drawable.ask_localisations_shop_chosen); break;
+                case 4: ask_localisations_school.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); ask_localisations_school_image.setImageResource(R.drawable.ask_localisations_school_chosen); break;
+            }
+        });
     }
     public void unchoseElement() {
-        ask_localisations_house.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
-        ask_localisations_rehabcenter.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
-        ask_localisations_outdoor.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
-        ask_localisations_shop.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
-        ask_localisations_school.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+        runOnUiThread(() -> {
+            ask_localisations_house.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+            ask_localisations_rehabcenter.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+            ask_localisations_outdoor.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+            ask_localisations_shop.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+            ask_localisations_school.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+
+            ask_localisations_house_image.setImageResource(R.drawable.ask_localisations_house);
+            ask_localisations_rehabcenter_image.setImageResource(R.drawable.ask_localisations_rehabcenter);
+            ask_localisations_outdoor_image.setImageResource(R.drawable.ask_localisations_outdoor);
+            ask_localisations_shop_image.setImageResource(R.drawable.ask_localisations_shop);
+            ask_localisations_school_image.setImageResource(R.drawable.ask_localisations_school);
+        });
     }
 
 

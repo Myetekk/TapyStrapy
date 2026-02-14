@@ -3,6 +3,7 @@ package com.example.tapystrapy;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -12,6 +13,7 @@ import com.example.tapystrapy.model.Gesture;
 
 public class PainLegSelection extends AppCompatActivity {
     private LinearLayout pain_leg_thigh, pain_leg_knee, pain_leg_calf, pain_leg_foot;
+    private ImageView pain_thigh_image, pain_knee_image, pain_calf_image, pain_foot_image;
     private int chosenElementId = 0;
 
     @Override
@@ -47,6 +49,11 @@ public class PainLegSelection extends AppCompatActivity {
         pain_leg_calf = findViewById(R.id.pain_leg_calf);
         pain_leg_foot = findViewById(R.id.pain_leg_foot);
 
+        pain_thigh_image = findViewById(R.id.pain_thigh_image);
+        pain_knee_image = findViewById(R.id.pain_knee_image);
+        pain_calf_image = findViewById(R.id.pain_calf_image);
+        pain_foot_image = findViewById(R.id.pain_foot_image);
+
         pain_leg_thigh.setTag(new BodyPartData("thigh", "udo", Gender.NEUTER));
         pain_leg_knee.setTag(new BodyPartData("knee", "kolano", Gender.NEUTER));
         pain_leg_calf.setTag(new BodyPartData("calf", "łydka", Gender.FEMININE));
@@ -77,10 +84,10 @@ public class PainLegSelection extends AppCompatActivity {
     private void choseElement() {
         unchoseElement();
         switch (chosenElementId) {
-            case 0: pain_leg_thigh.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
-            case 1: pain_leg_knee.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
-            case 2: pain_leg_calf.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
-            case 3: pain_leg_foot.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
+            case 0: pain_leg_thigh.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); pain_thigh_image.setImageResource(R.drawable.pain_thigh_chosen); break;
+            case 1: pain_leg_knee.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); pain_knee_image.setImageResource(R.drawable.pain_knee_chosen); break;
+            case 2: pain_leg_calf.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); pain_calf_image.setImageResource(R.drawable.pain_calf_chosen); break;
+            case 3: pain_leg_foot.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); pain_foot_image.setImageResource(R.drawable.pain_foot_chosen); break;
         }
     }
     public void unchoseElement() {
@@ -88,6 +95,11 @@ public class PainLegSelection extends AppCompatActivity {
         pain_leg_knee.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
         pain_leg_calf.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
         pain_leg_foot.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+
+        pain_thigh_image.setImageResource(R.drawable.pain_thigh);
+        pain_knee_image.setImageResource(R.drawable.pain_knee);
+        pain_calf_image.setImageResource(R.drawable.pain_calf);
+        pain_foot_image.setImageResource(R.drawable.pain_foot);
     }
 
 

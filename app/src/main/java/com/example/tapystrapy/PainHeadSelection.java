@@ -3,6 +3,7 @@ package com.example.tapystrapy;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -12,6 +13,7 @@ import com.example.tapystrapy.model.Gesture;
 
 public class PainHeadSelection extends AppCompatActivity {
     private LinearLayout pain_head_forehead, pain_head_hairback, pain_head_entirehead, pain_head_eye, pain_head_nose, pain_head_tooth, pain_head_ear, pain_head_throat;
+    private ImageView pain_forehead_image, pain_hairback_image, pain_entirehead_image, pain_eyes_image, pain_nose_image, pain_tooth_image, pain_ears_image, pain_throat_image;
     private int chosenElementId = 0;
 
     @Override
@@ -51,6 +53,15 @@ public class PainHeadSelection extends AppCompatActivity {
         pain_head_ear = findViewById(R.id.pain_head_ear);
         pain_head_throat = findViewById(R.id.pain_head_throat);
 
+        pain_forehead_image = findViewById(R.id.pain_forehead_image);
+        pain_hairback_image = findViewById(R.id.pain_hairback_image);
+        pain_entirehead_image = findViewById(R.id.pain_entirehead_image);
+        pain_eyes_image = findViewById(R.id.pain_eyes_image);
+        pain_nose_image = findViewById(R.id.pain_nose_image);
+        pain_tooth_image = findViewById(R.id.pain_tooth_image);
+        pain_ears_image = findViewById(R.id.pain_ears_image);
+        pain_throat_image = findViewById(R.id.pain_throat_image);
+
         pain_head_forehead.setTag(new BodyPartData("forehead", "czoło", Gender.NEUTER));
         pain_head_hairback.setTag(new BodyPartData("hairback", "tył głowy", Gender.MASCULINE));
         pain_head_entirehead.setTag(new BodyPartData("entirehead", "cała głowa", Gender.FEMININE));
@@ -87,27 +98,40 @@ public class PainHeadSelection extends AppCompatActivity {
         else choseElement();
     }
     private void choseElement() {
-        unchoseElement();
-        switch (chosenElementId) {
-            case 0: pain_head_forehead.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
-            case 1: pain_head_hairback.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
-            case 2: pain_head_entirehead.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
-            case 3: pain_head_eye.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
-            case 4: pain_head_nose.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
-            case 5: pain_head_tooth.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
-            case 6: pain_head_ear.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
-            case 7: pain_head_throat.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
-        }
+        runOnUiThread(() -> {
+            unchoseElement();
+            switch (chosenElementId) {
+                case 0: pain_head_forehead.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); pain_forehead_image.setImageResource(R.drawable.pain_forehead_chosen); break;
+                case 1: pain_head_hairback.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); pain_hairback_image.setImageResource(R.drawable.pain_hairback_chosen); break;
+                case 2: pain_head_entirehead.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); pain_entirehead_image.setImageResource(R.drawable.pain_entirehead_chosen); break;
+                case 3: pain_head_eye.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); pain_eyes_image.setImageResource(R.drawable.pain_eyes_chosen); break;
+                case 4: pain_head_nose.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); pain_nose_image.setImageResource(R.drawable.pain_nose_chosen); break;
+                case 5: pain_head_tooth.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); pain_tooth_image.setImageResource(R.drawable.pain_tooth_chosen); break;
+                case 6: pain_head_ear.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); pain_ears_image.setImageResource(R.drawable.pain_ears_chosen); break;
+                case 7: pain_head_throat.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); pain_throat_image.setImageResource(R.drawable.pain_throat_chosen); break;
+            }
+        });
     }
     public void unchoseElement() {
-        pain_head_forehead.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
-        pain_head_hairback.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
-        pain_head_entirehead.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
-        pain_head_eye.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
-        pain_head_nose.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
-        pain_head_tooth.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
-        pain_head_ear.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
-        pain_head_throat.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+        runOnUiThread(() -> {
+            pain_head_forehead.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+            pain_head_hairback.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+            pain_head_entirehead.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+            pain_head_eye.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+            pain_head_nose.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+            pain_head_tooth.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+            pain_head_ear.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+            pain_head_throat.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+
+            pain_forehead_image.setImageResource(R.drawable.pain_forehead);
+            pain_hairback_image.setImageResource(R.drawable.pain_hairback);
+            pain_entirehead_image.setImageResource(R.drawable.pain_entirehead);
+            pain_eyes_image.setImageResource(R.drawable.pain_eyes);
+            pain_nose_image.setImageResource(R.drawable.pain_nose);
+            pain_tooth_image.setImageResource(R.drawable.pain_tooth);
+            pain_ears_image.setImageResource(R.drawable.pain_ears);
+            pain_throat_image.setImageResource(R.drawable.pain_throat);
+        });
     }
 
 

@@ -84,17 +84,186 @@ public class EmotionLevel extends AppCompatActivity {
         else choseElement();
     }
     private void choseElement() {
+        runOnUiThread(() -> {
         unchoseElement();
-        switch (chosenElementId) {
-            case 0: emotionLevel_low.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
-            case 1: emotionLevel_medium.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
-            case 2: emotionLevel_high.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
-        }
+            switch (chosenElementId) {
+                case 0:
+                    emotionLevel_low.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element));
+                    switch (emotion) {
+                        case "emotion_happy_2": {
+                            emotionLevelImage1.setImageResource(R.drawable.emote_happy_1_chosen);
+                            emotionLevelImage2.setImageResource(R.drawable.emote_happy_2);
+                            emotionLevelImage3.setImageResource(R.drawable.emote_happy_3);
+                            break;
+                        }
+                        case "emotion_sad_2": {
+                            emotionLevelImage1.setImageResource(R.drawable.emote_sad_1_chosen);
+                            emotionLevelImage2.setImageResource(R.drawable.emote_sad_2);
+                            emotionLevelImage3.setImageResource(R.drawable.emote_sad_3);
+                            break;
+                        }
+                        case "emotion_fear_2": {
+                            emotionLevelImage1.setImageResource(R.drawable.emote_feared_1_chosen);
+                            emotionLevelImage2.setImageResource(R.drawable.emote_feared_2);
+                            emotionLevelImage3.setImageResource(R.drawable.emote_feared_3);
+                            break;
+                        }
+                        case "emotion_angry_2": {
+                            emotionLevelImage1.setImageResource(R.drawable.emote_angry_1_chosen);
+                            emotionLevelImage2.setImageResource(R.drawable.emote_angry_2);
+                            emotionLevelImage3.setImageResource(R.drawable.emote_angry_3);
+                            break;
+                        }
+                        case "emotion_pain_2": {
+                            emotionLevelImage1.setImageResource(R.drawable.emote_pain_1_chosen);
+                            emotionLevelImage2.setImageResource(R.drawable.emote_pain_2);
+                            emotionLevelImage3.setImageResource(R.drawable.emote_pain_3);
+                            break;
+                        }
+                        case "emotion_tired_2": {
+                            emotionLevelImage1.setImageResource(R.drawable.emote_tired_1_chosen);
+                            emotionLevelImage2.setImageResource(R.drawable.emote_tired_2);
+                            emotionLevelImage3.setImageResource(R.drawable.emote_tired_3);
+                            break;
+                        }
+                    }
+                    break;
+                case 1:
+                    emotionLevel_medium.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element));
+                    switch (emotion) {
+                        case "emotion_happy_2": {
+                            emotionLevelImage1.setImageResource(R.drawable.emote_happy_1);
+                            emotionLevelImage2.setImageResource(R.drawable.emote_happy_2_chosen);
+                            emotionLevelImage3.setImageResource(R.drawable.emote_happy_3);
+                            break;
+                        }
+                        case "emotion_sad_2": {
+                            emotionLevelImage1.setImageResource(R.drawable.emote_sad_1);
+                            emotionLevelImage2.setImageResource(R.drawable.emote_sad_2_chosen);
+                            emotionLevelImage3.setImageResource(R.drawable.emote_sad_3);
+                            break;
+                        }
+                        case "emotion_fear_2": {
+                            emotionLevelImage1.setImageResource(R.drawable.emote_feared_1);
+                            emotionLevelImage2.setImageResource(R.drawable.emote_feared_2_chosen);
+                            emotionLevelImage3.setImageResource(R.drawable.emote_feared_3);
+                            break;
+                        }
+                        case "emotion_angry_2": {
+                            emotionLevelImage1.setImageResource(R.drawable.emote_angry_1);
+                            emotionLevelImage2.setImageResource(R.drawable.emote_angry_2_chosen);
+                            emotionLevelImage3.setImageResource(R.drawable.emote_angry_3);
+                            break;
+                        }
+                        case "emotion_pain_2": {
+                            emotionLevelImage1.setImageResource(R.drawable.emote_pain_1);
+                            emotionLevelImage2.setImageResource(R.drawable.emote_pain_2_chosen);
+                            emotionLevelImage3.setImageResource(R.drawable.emote_pain_3);
+                            break;
+                        }
+                        case "emotion_tired_2": {
+                            emotionLevelImage1.setImageResource(R.drawable.emote_tired_1);
+                            emotionLevelImage2.setImageResource(R.drawable.emote_tired_2_chosen);
+                            emotionLevelImage3.setImageResource(R.drawable.emote_tired_3);
+                            break;
+                        }
+                    }
+                    break;
+                case 2:
+                    emotionLevel_high.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element));
+                    switch (emotion) {
+                        case "emotion_happy_2": {
+                            emotionLevelImage1.setImageResource(R.drawable.emote_happy_1);
+                            emotionLevelImage2.setImageResource(R.drawable.emote_happy_2);
+                            emotionLevelImage3.setImageResource(R.drawable.emote_happy_3_chosen);
+                            break;
+                        }
+                        case "emotion_sad_2": {
+                            emotionLevelImage1.setImageResource(R.drawable.emote_sad_1);
+                            emotionLevelImage2.setImageResource(R.drawable.emote_sad_2);
+                            emotionLevelImage3.setImageResource(R.drawable.emote_sad_3_chosen);
+                            break;
+                        }
+                        case "emotion_fear_2": {
+                            emotionLevelImage1.setImageResource(R.drawable.emote_feared_1);
+                            emotionLevelImage2.setImageResource(R.drawable.emote_feared_2);
+                            emotionLevelImage3.setImageResource(R.drawable.emote_feared_3_chosen);
+                            break;
+                        }
+                        case "emotion_angry_2": {
+                            emotionLevelImage1.setImageResource(R.drawable.emote_angry_1);
+                            emotionLevelImage2.setImageResource(R.drawable.emote_angry_2);
+                            emotionLevelImage3.setImageResource(R.drawable.emote_angry_3_chosen);
+                            break;
+                        }
+                        case "emotion_pain_2": {
+                            emotionLevelImage1.setImageResource(R.drawable.emote_pain_1);
+                            emotionLevelImage2.setImageResource(R.drawable.emote_pain_2);
+                            emotionLevelImage3.setImageResource(R.drawable.emote_pain_3_chosen);
+                            break;
+                        }
+                        case "emotion_tired_2": {
+                            emotionLevelImage1.setImageResource(R.drawable.emote_tired_1);
+                            emotionLevelImage2.setImageResource(R.drawable.emote_tired_2);
+                            emotionLevelImage3.setImageResource(R.drawable.emote_tired_3_chosen);
+                            break;
+                        }
+                    }
+                    break;
+            }
+        });
     }
     public void unchoseElement() {
-        emotionLevel_low.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
-        emotionLevel_medium.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
-        emotionLevel_high.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+        runOnUiThread(() -> {
+            emotionLevel_low.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+            emotionLevel_medium.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+            emotionLevel_high.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+
+            switch (emotion) {
+                case "emotion_happy_2": {
+                    emotionLevelImage1.setImageResource(R.drawable.emote_happy_1);
+                    emotionLevelImage2.setImageResource(R.drawable.emote_happy_2);
+                    emotionLevelImage3.setImageResource(R.drawable.emote_happy_3);
+                    break;
+                }
+                case "emotion_sad_2": {
+                    emotionLevelImage1.setImageResource(R.drawable.emote_sad_1);
+                    emotionLevelImage2.setImageResource(R.drawable.emote_sad_2);
+                    emotionLevelImage3.setImageResource(R.drawable.emote_sad_3);
+                    break;
+                }
+                case "emotion_fear_2": {
+                    emotionLevelImage1.setImageResource(R.drawable.emote_feared_1);
+                    emotionLevelImage2.setImageResource(R.drawable.emote_feared_2);
+                    emotionLevelImage3.setImageResource(R.drawable.emote_feared_3);
+                    break;
+                }
+                case "emotion_angry_2": {
+                    emotionLevelImage1.setImageResource(R.drawable.emote_angry_1);
+                    emotionLevelImage2.setImageResource(R.drawable.emote_angry_2);
+                    emotionLevelImage3.setImageResource(R.drawable.emote_angry_3);
+                    break;
+                }
+                case "emotion_pain_2": {
+                    emotionLevelImage1.setImageResource(R.drawable.emote_pain_1);
+                    emotionLevelImage2.setImageResource(R.drawable.emote_pain_2);
+                    emotionLevelImage3.setImageResource(R.drawable.emote_pain_3);
+                    break;
+                }
+                case "emotion_tired_2": {
+                    emotionLevelImage1.setImageResource(R.drawable.emote_tired_1);
+                    emotionLevelImage2.setImageResource(R.drawable.emote_tired_2);
+                    emotionLevelImage3.setImageResource(R.drawable.emote_tired_3);
+                    break;
+                }
+                default: {
+                    emotionLevelImage1.setImageResource(R.drawable.icon_image);
+                    emotionLevelImage2.setImageResource(R.drawable.icon_image);
+                    emotionLevelImage3.setImageResource(R.drawable.icon_image);
+                    break;
+                }
+            }
+        });
     }
 
 
@@ -149,7 +318,12 @@ public class EmotionLevel extends AppCompatActivity {
                     emotionLevelLabel2.setText("Zmęczenie");
                     emotionLevelLabel3.setText("Duże zmęczenie");
                 } break;
-                default: emotionLevelImage1.setImageResource(R.drawable.tapstrap_icon); break;
+                default: {
+                    emotionLevelImage1.setImageResource(R.drawable.icon_image);
+                    emotionLevelImage2.setImageResource(R.drawable.icon_image);
+                    emotionLevelImage3.setImageResource(R.drawable.icon_image);
+                    break;
+                }
             }
         }
         catch (Exception e) {

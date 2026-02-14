@@ -37,7 +37,8 @@
                       android:layout_weight="5"
                       android:layout_gravity="center"
                       android:gravity="center">
-            <ImageView android:layout_width="match_parent"
+            <ImageView android:id="@+id/ask_items_mug_image"
+                       android:layout_width="match_parent"
                        android:layout_height="wrap_content"
                        android:scaleType="centerCrop"
                        android:adjustViewBounds="true"
@@ -76,7 +77,8 @@
                       android:layout_weight="5"
                       android:layout_gravity="center"
                       android:gravity="center">
-            <ImageView android:layout_width="match_parent"
+            <ImageView android:id="@+id/ask_items_doll_image"
+                       android:layout_width="match_parent"
                        android:layout_height="wrap_content"
                        android:scaleType="centerCrop"
                        android:adjustViewBounds="true"
@@ -115,7 +117,8 @@
                       android:layout_weight="5"
                       android:layout_gravity="center"
                       android:gravity="center">
-            <ImageView android:layout_width="match_parent"
+            <ImageView android:id="@+id/ask_items_book_image"
+                       android:layout_width="match_parent"
                        android:layout_height="wrap_content"
                        android:scaleType="centerCrop"
                        android:adjustViewBounds="true"
@@ -154,7 +157,8 @@
                       android:layout_weight="5"
                       android:layout_gravity="center"
                       android:gravity="center">
-            <ImageView android:layout_width="match_parent"
+            <ImageView android:id="@+id/ask_items_crayons_image"
+                       android:layout_width="match_parent"
                        android:layout_height="wrap_content"
                        android:scaleType="centerCrop"
                        android:adjustViewBounds="true"

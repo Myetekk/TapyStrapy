@@ -44,7 +44,8 @@
                           android:layout_weight="5"
                           android:layout_gravity="center"
                           android:gravity="center">
-                <ImageView android:layout_width="match_parent"
+                <ImageView android:id="@+id/ask_basicneeds_toilet_image"
+                           android:layout_width="match_parent"
                            android:layout_height="wrap_content"
                            android:scaleType="centerCrop"
                            android:adjustViewBounds="true"
@@ -83,7 +84,8 @@
                           android:layout_weight="5"
                           android:layout_gravity="center"
                           android:gravity="center">
-                <ImageView android:layout_width="match_parent"
+                <ImageView android:id="@+id/ask_basicneeds_drink_image"
+                           android:layout_width="match_parent"
                            android:layout_height="wrap_content"
                            android:scaleType="centerCrop"
                            android:adjustViewBounds="true"
@@ -122,7 +124,8 @@
                           android:layout_weight="5"
                           android:layout_gravity="center"
                           android:gravity="center">
-                <ImageView android:layout_width="match_parent"
+                <ImageView android:id="@+id/ask_basicneeds_eat_image"
+                           android:layout_width="match_parent"
                            android:layout_height="wrap_content"
                            android:scaleType="centerCrop"
                            android:adjustViewBounds="true"
@@ -172,7 +175,8 @@
                               android:layout_weight="5"
                               android:layout_gravity="center"
                               android:gravity="center">
-                    <ImageView android:layout_width="match_parent"
+                    <ImageView android:id="@+id/ask_basicneeds_play_image"
+                               android:layout_width="match_parent"
                                android:layout_height="wrap_content"
                                android:scaleType="centerCrop"
                                android:adjustViewBounds="true"
@@ -211,7 +215,8 @@
                               android:layout_weight="5"
                               android:layout_gravity="center"
                               android:gravity="center">
-                    <ImageView android:layout_width="match_parent"
+                    <ImageView android:id="@+id/ask_basicneeds_sleep_image"
+                               android:layout_width="match_parent"
                                android:layout_height="wrap_content"
                                android:scaleType="centerCrop"
                                android:adjustViewBounds="true"

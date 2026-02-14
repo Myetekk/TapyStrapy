@@ -3,6 +3,7 @@ package com.example.tapystrapy;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -11,6 +12,7 @@ import com.example.tapystrapy.model.Gesture;
 public class AskMainSelection extends AppCompatActivity {
     String address, sentence;
     LinearLayout ask_address_layout, ask_basicneeds_layout, ask_persons_layout, ask_localisations_layout, ask_items_layout;
+    private ImageView ask_address_image, ask_basicneeds_image, ask_persons_image, ask_localisations_image, ask_items_image;
     private int chosenElementId = 0;
 
     @Override
@@ -35,7 +37,7 @@ public class AskMainSelection extends AppCompatActivity {
             disableLayout(ask_address_layout);
             disableLayout(ask_localisations_layout);
             disableLayout(ask_items_layout);
-        }
+        } else address = "";
         sentence = intent.getStringExtra("SENTENCE");
         if (sentence == null) {
             sentence = "";
@@ -79,6 +81,12 @@ public class AskMainSelection extends AppCompatActivity {
         ask_persons_layout = findViewById(R.id.ask_persons_layout);
         ask_localisations_layout = findViewById(R.id.ask_localisations_layout);
         ask_items_layout = findViewById(R.id.ask_items_layout);
+
+        ask_address_image = findViewById(R.id.ask_address_image);
+        ask_basicneeds_image = findViewById(R.id.ask_basicneeds_image);
+        ask_persons_image = findViewById(R.id.ask_persons_image);
+        ask_localisations_image = findViewById(R.id.ask_localisations_image);
+        ask_items_image = findViewById(R.id.ask_items_image);
     }
 
     public void changeChosenElement(Gesture gesture) {
@@ -112,21 +120,31 @@ public class AskMainSelection extends AppCompatActivity {
         else choseElement();
     }
     private void choseElement() {
-        unchoseElement();
-        switch (chosenElementId) {
-            case 0: ask_address_layout.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
-            case 1: ask_basicneeds_layout.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
-            case 2: ask_persons_layout.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
-            case 3: ask_localisations_layout.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
-            case 4: ask_items_layout.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
-        }
+        runOnUiThread(() -> {
+            unchoseElement();
+            switch (chosenElementId) {
+                case 0: ask_address_layout.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); ask_address_image.setImageResource(R.drawable.ask_address_chosen); break;
+                case 1: ask_basicneeds_layout.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); ask_basicneeds_image.setImageResource(R.drawable.ask_basicneeds_chosen); break;
+                case 2: ask_persons_layout.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); ask_persons_image.setImageResource(R.drawable.ask_persons_chosen); break;
+                case 3: ask_localisations_layout.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); ask_localisations_image.setImageResource(R.drawable.ask_localisations_chosen); break;
+                case 4: ask_items_layout.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); ask_items_image.setImageResource(R.drawable.ask_items_chosen); break;
+            }
+        });
     }
     public void unchoseElement() {
-        ask_address_layout.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
-        ask_basicneeds_layout.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
-        ask_persons_layout.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
-        ask_localisations_layout.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
-        ask_items_layout.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+        runOnUiThread(() -> {
+            ask_address_layout.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+            ask_basicneeds_layout.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+            ask_persons_layout.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+            ask_localisations_layout.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+            ask_items_layout.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+
+            ask_address_image.setImageResource(R.drawable.ask_address);
+            ask_basicneeds_image.setImageResource(R.drawable.ask_basicneeds);
+            ask_persons_image.setImageResource(R.drawable.ask_persons);
+            ask_localisations_image.setImageResource(R.drawable.ask_localisations);
+            ask_items_image.setImageResource(R.drawable.ask_items);
+        });
     }
 
 

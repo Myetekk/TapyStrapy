@@ -3,6 +3,7 @@ package com.example.tapystrapy;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -12,6 +13,7 @@ import com.example.tapystrapy.model.Gesture;
 
 public class PainTorsoSelection extends AppCompatActivity {
     private LinearLayout pain_torso_shoulders, pain_torso_chest, pain_torso_stomach, pain_torso_back, pain_torso_lowerback;
+    private ImageView pain_shoulders_image, pain_chest_image, pain_stomach_image, pain_back_image, pain_lowerback_image;
     private int chosenElementId = 0;
 
     @Override
@@ -48,6 +50,12 @@ public class PainTorsoSelection extends AppCompatActivity {
         pain_torso_back = findViewById(R.id.pain_torso_back);
         pain_torso_lowerback = findViewById(R.id.pain_torso_lowerback);
 
+        pain_shoulders_image = findViewById(R.id.pain_shoulders_image);
+        pain_chest_image = findViewById(R.id.pain_chest_image);
+        pain_stomach_image = findViewById(R.id.pain_stomach_image);
+        pain_back_image = findViewById(R.id.pain_back_image);
+        pain_lowerback_image = findViewById(R.id.pain_lowerback_image);
+
         pain_torso_shoulders.setTag(new BodyPartData("shoulders", "bark", Gender.MASCULINE));
         pain_torso_chest.setTag(new BodyPartData("chest", "klatka piersiowa", Gender.FEMININE));
         pain_torso_stomach.setTag(new BodyPartData("stomach", "brzuch", Gender.MASCULINE));
@@ -78,21 +86,31 @@ public class PainTorsoSelection extends AppCompatActivity {
         else choseElement();
     }
     private void choseElement() {
-        unchoseElement();
-        switch (chosenElementId) {
-            case 0: pain_torso_shoulders.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
-            case 1: pain_torso_chest.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
-            case 2: pain_torso_stomach.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
-            case 3: pain_torso_back.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
-            case 4: pain_torso_lowerback.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
-        }
+        runOnUiThread(() -> {
+            unchoseElement();
+            switch (chosenElementId) {
+                case 0: pain_torso_shoulders.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); pain_shoulders_image.setImageResource(R.drawable.pain_shoulders_chosen); break;
+                case 1: pain_torso_chest.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); pain_chest_image.setImageResource(R.drawable.pain_chest_chosen); break;
+                case 2: pain_torso_stomach.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); pain_stomach_image.setImageResource(R.drawable.pain_stomach_chosen); break;
+                case 3: pain_torso_back.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); pain_back_image.setImageResource(R.drawable.pain_back_chosen); break;
+                case 4: pain_torso_lowerback.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); pain_lowerback_image.setImageResource(R.drawable.pain_lowerback_chosen); break;
+            }
+        });
     }
     public void unchoseElement() {
-        pain_torso_shoulders.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
-        pain_torso_chest.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
-        pain_torso_stomach.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
-        pain_torso_back.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
-        pain_torso_lowerback.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+        runOnUiThread(() -> {
+            pain_torso_shoulders.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+            pain_torso_chest.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+            pain_torso_stomach.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+            pain_torso_back.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+            pain_torso_lowerback.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+
+            pain_shoulders_image.setImageResource(R.drawable.pain_shoulders);
+            pain_chest_image.setImageResource(R.drawable.pain_chest);
+            pain_stomach_image.setImageResource(R.drawable.pain_stomach);
+            pain_back_image.setImageResource(R.drawable.pain_back);
+            pain_lowerback_image.setImageResource(R.drawable.pain_lowerback);
+        });
     }
 
 

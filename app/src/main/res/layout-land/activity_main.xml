@@ -29,7 +29,8 @@
                               android:layout_weight="5"
                               android:layout_gravity="center"
                               android:gravity="center">
-                    <ImageView android:layout_width="match_parent"
+                    <ImageView android:id="@+id/main_feelings_image"
+                               android:layout_width="match_parent"
                                android:layout_height="wrap_content"
                                android:scaleType="centerCrop"
                                android:adjustViewBounds="true"
@@ -66,7 +67,8 @@
                               android:layout_weight="5"
                               android:layout_gravity="center"
                               android:gravity="center">
-                    <ImageView android:layout_width="match_parent"
+                    <ImageView android:id="@+id/main_ask_image"
+                               android:layout_width="match_parent"
                                android:layout_height="wrap_content"
                                android:scaleType="centerCrop"
                                android:adjustViewBounds="true"
@@ -103,7 +105,8 @@
                               android:layout_weight="5"
                               android:layout_gravity="center"
                               android:gravity="center">
-                    <ImageView android:layout_width="match_parent"
+                    <ImageView android:id="@+id/main_pain_image"
+                               android:layout_width="match_parent"
                                android:layout_height="wrap_content"
                                android:scaleType="centerCrop"
                                android:adjustViewBounds="true"

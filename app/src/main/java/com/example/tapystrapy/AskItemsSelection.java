@@ -3,6 +3,7 @@ package com.example.tapystrapy;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +14,7 @@ public class AskItemsSelection extends AppCompatActivity {
     String caseText, sentence;
     private TextView questionLabel, mugLabel, dollLabel, bookLabel, crayonsLabel;
     private LinearLayout ask_items_mug, ask_items_doll, ask_items_book, ask_items_crayons;
+    private ImageView ask_items_mug_image, ask_items_doll_image, ask_items_book_image, ask_items_crayons_image;
     private int chosenElementId = 0;
 
     @Override
@@ -62,6 +64,11 @@ public class AskItemsSelection extends AppCompatActivity {
         ask_items_doll = findViewById(R.id.ask_items_doll);
         ask_items_book = findViewById(R.id.ask_items_book);
         ask_items_crayons = findViewById(R.id.ask_items_crayons);
+
+        ask_items_mug_image = findViewById(R.id.ask_items_mug_image);
+        ask_items_doll_image = findViewById(R.id.ask_items_doll_image);
+        ask_items_book_image = findViewById(R.id.ask_items_book_image);
+        ask_items_crayons_image = findViewById(R.id.ask_items_crayons_image);
     }
 
     public void changeChosenElement(Gesture gesture) {
@@ -84,19 +91,28 @@ public class AskItemsSelection extends AppCompatActivity {
         else choseElement();
     }
     private void choseElement() {
-        unchoseElement();
-        switch (chosenElementId) {
-            case 0: ask_items_mug.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
-            case 1: ask_items_doll.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
-            case 2: ask_items_book.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
-            case 3: ask_items_crayons.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); break;
-        }
+        runOnUiThread(() -> {
+            unchoseElement();
+            switch (chosenElementId) {
+                case 0: ask_items_mug.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); ask_items_mug_image.setImageResource(R.drawable.ask_items_mug_chosen); break;
+                case 1: ask_items_doll.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); ask_items_doll_image.setImageResource(R.drawable.ask_items_doll_chosen); break;
+                case 2: ask_items_book.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); ask_items_book_image.setImageResource(R.drawable.ask_items_book_chosen); break;
+                case 3: ask_items_crayons.setBackgroundColor(ContextCompat.getColor(this, R.color.chosen_element)); ask_items_crayons_image.setImageResource(R.drawable.ask_items_crayons_chosen); break;
+            }
+        });
     }
     public void unchoseElement() {
-        ask_items_mug.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
-        ask_items_doll.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
-        ask_items_book.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
-        ask_items_crayons.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+        runOnUiThread(() -> {
+            ask_items_mug.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+            ask_items_doll.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+            ask_items_book.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+            ask_items_crayons.setBackgroundColor(ContextCompat.getColor(this, R.color.almost_white));
+
+            ask_items_mug_image.setImageResource(R.drawable.ask_items_mug);
+            ask_items_doll_image.setImageResource(R.drawable.ask_items_doll);
+            ask_items_book_image.setImageResource(R.drawable.ask_items_book);
+            ask_items_crayons_image.setImageResource(R.drawable.ask_items_crayons);
+        });
     }
 
 

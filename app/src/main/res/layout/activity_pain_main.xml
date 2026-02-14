@@ -35,7 +35,7 @@
                       android:layout_weight="5"
                       android:layout_gravity="center"
                       android:gravity="center">
-            <ImageView android:id="@+id/painHeadImage1"
+            <ImageView android:id="@+id/pain_head_image"
                        android:layout_width="match_parent"
                        android:layout_height="wrap_content"
                        android:scaleType="centerCrop"
@@ -73,7 +73,7 @@
                       android:layout_weight="5"
                       android:layout_gravity="center"
                       android:gravity="center">
-            <ImageView android:id="@+id/painHandsImage1"
+            <ImageView android:id="@+id/pain_hands_image"
                        android:layout_width="match_parent"
                        android:layout_height="wrap_content"
                        android:scaleType="centerCrop"
@@ -111,7 +111,7 @@
                       android:layout_weight="5"
                       android:layout_gravity="center"
                       android:gravity="center">
-            <ImageView android:id="@+id/painBodyImage1"
+            <ImageView android:id="@+id/pain_body_image"
                        android:layout_width="match_parent"
                        android:layout_height="wrap_content"
                        android:scaleType="centerCrop"
@@ -149,7 +149,7 @@
                       android:layout_weight="5"
                       android:layout_gravity="center"
                       android:gravity="center">
-            <ImageView android:id="@+id/painLegsImage1"
+            <ImageView android:id="@+id/pain_legs_image"
                        android:layout_width="match_parent"
                        android:layout_height="wrap_content"
                        android:scaleType="centerCrop"
