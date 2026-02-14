@@ -148,8 +148,7 @@ public class AskPersonsSelection extends AppCompatActivity {
             attendantLabel.setText("opiekunie");
         }
     }
-    public String formSentence(View view){
-        String tag = (String) view.getTag();
+    public String formSentence(String tag){
         String formedSentence = "";
         switch (tag){
             case "mum": formedSentence = sentence + mumLabel.getText().toString(); break;
@@ -165,7 +164,10 @@ public class AskPersonsSelection extends AppCompatActivity {
 
     public void changeView_Confirmation(View view){
         Intent intent = new Intent(this, ConfirmationActivity.class);
-        String formedSentence = formSentence(view);
+        String sentenceTag = (String) view.getTag();
+        String formedSentence = formSentence(sentenceTag);
+
+        intent.putExtra("SENTENCE_TAG", sentenceTag);
         intent.putExtra("SENTENCE", formedSentence);
         startActivity(intent);
     }

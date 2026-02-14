@@ -15,7 +15,7 @@ import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 
 public class ConfirmationActivity  extends AppCompatActivity {
-    String emotion, sentence, bodyPart, bodyFullAnswer;
+    String emotion, sentenceTag, sentence, bodyPart, bodyFullAnswer;
     private ImageView confirmationImage;
     private TextView confirmationLabel;
     private LinearLayout confirmationAnswerYes, confirmationAnswerMedium, confirmationAnswerNo, confirmationAnswers;
@@ -33,6 +33,7 @@ public class ConfirmationActivity  extends AppCompatActivity {
 
         Intent intent = getIntent();
         emotion = intent.getStringExtra("EMOTION");
+        sentenceTag = intent.getStringExtra("SENTENCE_TAG");
         sentence = intent.getStringExtra("SENTENCE");
         bodyPart = intent.getStringExtra("BODY_PART");
         bodyFullAnswer = intent.getStringExtra("FULL_ANSWER");
@@ -146,7 +147,33 @@ public class ConfirmationActivity  extends AppCompatActivity {
             }
             else if (sentence != null) {
                 confirmationLabel.setText(sentence);
-                // switch z obrazkiem
+
+                switch (sentenceTag) {
+                    case "toilet": confirmationImage.setImageResource(R.drawable.ask_basicneeds_toilet); break;
+                    case "drink": confirmationImage.setImageResource(R.drawable.ask_basicneeds_drink); break;
+                    case "eat": confirmationImage.setImageResource(R.drawable.ask_basicneeds_eat); break;
+                    case "play": confirmationImage.setImageResource(R.drawable.ask_basicneeds_play); break;
+                    case "sleep": confirmationImage.setImageResource(R.drawable.ask_basicneeds_sleep); break;
+
+                    case "mum": confirmationImage.setImageResource(R.drawable.ask_persons_mum); break;
+                    case "dad": confirmationImage.setImageResource(R.drawable.ask_persons_dad); break;
+                    case "bro": confirmationImage.setImageResource(R.drawable.ask_persons_brother); break;
+                    case "sis": confirmationImage.setImageResource(R.drawable.ask_persons_sister); break;
+                    case "grandma": confirmationImage.setImageResource(R.drawable.ask_persons_grandma); break;
+                    case "grandpa": confirmationImage.setImageResource(R.drawable.ask_persons_grandpa); break;
+                    case "attendant": confirmationImage.setImageResource(R.drawable.ask_persons_attendant); break;
+
+                    case "house": confirmationImage.setImageResource(R.drawable.ask_localisations_house); break;
+                    case "rehab": confirmationImage.setImageResource(R.drawable.ask_localisations_rehabcenter); break;
+                    case "outdoor": confirmationImage.setImageResource(R.drawable.ask_localisations_outdoor); break;
+                    case "shop": confirmationImage.setImageResource(R.drawable.ask_localisations_shop); break;
+                    case "school": confirmationImage.setImageResource(R.drawable.ask_localisations_school); break;
+
+                    case "mug": confirmationImage.setImageResource(R.drawable.ask_items_mug); break;
+                    case "doll": confirmationImage.setImageResource(R.drawable.ask_items_doll); break;
+                    case "book": confirmationImage.setImageResource(R.drawable.ask_items_book); break;
+                    case "crayons": confirmationImage.setImageResource(R.drawable.ask_items_crayons); break;
+                }
             }
             else if (bodyPart != null) {
                 confirmationLabel.setText(bodyFullAnswer);
@@ -203,6 +230,7 @@ public class ConfirmationActivity  extends AppCompatActivity {
             intent.putExtra("EMOTION", emotion);
         }
         else if (sentence != null) {
+            intent.putExtra("SENTENCE_TAG", sentenceTag);
             intent.putExtra("SENTENCE", sentence);
         }
         else if (bodyPart != null) {

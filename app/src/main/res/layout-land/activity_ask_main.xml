@@ -15,125 +15,212 @@
                   android:layout_height="wrap_content"
                   android:minHeight="60dp"
                   android:gravity="center"
-                  android:text="Gdzie ręka boli?"
+                  android:text="Co chcesz powiedzieć?"
                   android:textSize="35sp"/>
+    </LinearLayout>
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:orientation="horizontal"
+                  android:layout_weight="1">
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:orientation="horizontal">
+
+            <LinearLayout android:id="@+id/ask_address_layout"
+                          android:layout_width="wrap_content"
+                          android:layout_height="match_parent"
+                          android:orientation="vertical"
+                          android:layout_weight="1"
+                          android:layout_margin="3dp"
+                          android:padding="5dp"
+                          android:background="@color/almost_white"
+                          android:focusable="true"
+                          android:clickable="true"
+                          android:onClick="changeView_Ask_Address">
+                <LinearLayout android:layout_width="wrap_content"
+                              android:layout_height="match_parent"
+                              android:layout_weight="5"
+                              android:layout_gravity="center"
+                              android:gravity="center">
+                    <ImageView android:layout_width="match_parent"
+                               android:layout_height="wrap_content"
+                               android:scaleType="centerCrop"
+                               android:adjustViewBounds="true"
+                               android:src="@drawable/ask_address"/>
+                </LinearLayout>
+                <LinearLayout android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:layout_weight="1"
+                              android:layout_gravity="center"
+                              android:gravity="center">
+                    <TextView android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:minHeight="44dp"
+                              android:layout_marginBottom="3dp"
+                              android:gravity="center"
+                              android:text="Zwroty"
+                              android:textSize="28sp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/ask_basicneeds_layout"
+                          android:layout_width="wrap_content"
+                          android:layout_height="match_parent"
+                          android:orientation="vertical"
+                          android:layout_weight="1"
+                          android:layout_margin="3dp"
+                          android:padding="5dp"
+                          android:background="@color/almost_white"
+                          android:focusable="true"
+                          android:clickable="true"
+                          android:onClick="changeView_Ask_Basicneeds">
+                <LinearLayout android:layout_width="wrap_content"
+                              android:layout_height="match_parent"
+                              android:layout_weight="5"
+                              android:layout_gravity="center"
+                              android:gravity="center">
+                    <ImageView android:layout_width="match_parent"
+                               android:layout_height="wrap_content"
+                               android:scaleType="centerCrop"
+                               android:adjustViewBounds="true"
+                               android:src="@drawable/ask_basicneeds"/>
+                </LinearLayout>
+                <LinearLayout android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:layout_weight="1"
+                              android:layout_gravity="center"
+                              android:gravity="center">
+                    <TextView android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:minHeight="44dp"
+                              android:layout_marginBottom="3dp"
+                              android:gravity="center"
+                              android:text="Podstawowe"
+                              android:textSize="28sp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/ask_persons_layout"
+                          android:layout_width="wrap_content"
+                          android:layout_height="match_parent"
+                          android:orientation="vertical"
+                          android:layout_weight="1"
+                          android:layout_margin="3dp"
+                          android:padding="5dp"
+                          android:background="@color/almost_white"
+                          android:focusable="true"
+                          android:clickable="true"
+                          android:onClick="changeView_Ask_Persons">
+                <LinearLayout android:layout_width="wrap_content"
+                              android:layout_height="match_parent"
+                              android:layout_weight="5"
+                              android:layout_gravity="center"
+                              android:gravity="center">
+                    <ImageView android:layout_width="match_parent"
+                               android:layout_height="wrap_content"
+                               android:scaleType="centerCrop"
+                               android:adjustViewBounds="true"
+                               android:src="@drawable/ask_persons"/>
+                </LinearLayout>
+                <LinearLayout android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:layout_weight="1"
+                              android:layout_gravity="center"
+                              android:gravity="center">
+                    <TextView android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:minHeight="44dp"
+                              android:layout_marginBottom="3dp"
+                              android:gravity="center"
+                              android:text="Osoby"
+                              android:textSize="28sp"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
     </LinearLayout>
 
     <LinearLayout android:layout_width="match_parent"
                   android:layout_height="match_parent"
-                  android:orientation="horizontal">
-
-        <LinearLayout android:id="@+id/pain_hand_arm"
-                      android:layout_width="wrap_content"
+                  android:orientation="horizontal"
+                  android:layout_weight="1">
+        <LinearLayout android:layout_width="match_parent"
                       android:layout_height="match_parent"
-                      android:orientation="vertical"
-                      android:layout_weight="1"
-                      android:layout_margin="3dp"
-                      android:padding="5dp"
-                      android:background="@color/almost_white"
-                      android:focusable="true"
-                      android:clickable="true"
-                      android:onClick="changeView_Pain_Leftright">
-            <LinearLayout android:layout_width="wrap_content"
-                          android:layout_height="match_parent"
-                          android:layout_weight="5"
-                          android:layout_gravity="center"
-                          android:gravity="center">
-                <ImageView android:layout_width="match_parent"
-                           android:layout_height="wrap_content"
-                           android:scaleType="centerCrop"
-                           android:adjustViewBounds="true"
-                           android:src="@drawable/pain_arm"/>
-            </LinearLayout>
-            <LinearLayout android:layout_width="match_parent"
-                          android:layout_height="wrap_content"
-                          android:layout_weight="1"
-                          android:layout_gravity="center"
-                          android:gravity="center">
-                <TextView android:layout_width="match_parent"
-                          android:layout_height="wrap_content"
-                          android:minHeight="44dp"
-                          android:layout_marginBottom="3dp"
-                          android:gravity="center"
-                          android:text="Ramię"
-                          android:textSize="28sp"/>
-            </LinearLayout>
-        </LinearLayout>
+                      android:orientation="horizontal">
 
-        <LinearLayout android:id="@+id/pain_hand_elbow"
-                      android:layout_width="wrap_content"
-                      android:layout_height="match_parent"
-                      android:orientation="vertical"
-                      android:layout_weight="1"
-                      android:layout_margin="3dp"
-                      android:padding="5dp"
-                      android:background="@color/almost_white"
-                      android:focusable="true"
-                      android:clickable="true"
-                      android:onClick="changeView_Pain_Leftright">
-            <LinearLayout android:layout_width="wrap_content"
+            <LinearLayout android:id="@+id/ask_localisations_layout"
+                          android:layout_width="wrap_content"
                           android:layout_height="match_parent"
-                          android:layout_weight="5"
-                          android:layout_gravity="center"
-                          android:gravity="center">
-                <ImageView android:layout_width="match_parent"
-                           android:layout_height="wrap_content"
-                           android:scaleType="centerCrop"
-                           android:adjustViewBounds="true"
-                           android:src="@drawable/pain_elbow"/>
-            </LinearLayout>
-            <LinearLayout android:layout_width="match_parent"
-                          android:layout_height="wrap_content"
+                          android:orientation="vertical"
                           android:layout_weight="1"
-                          android:layout_gravity="center"
-                          android:gravity="center">
-                <TextView android:layout_width="match_parent"
-                          android:layout_height="wrap_content"
-                          android:minHeight="44dp"
-                          android:layout_marginBottom="3dp"
-                          android:gravity="center"
-                          android:text="Łokieć"
-                          android:textSize="28sp"/>
+                          android:layout_margin="3dp"
+                          android:padding="5dp"
+                          android:background="@color/almost_white"
+                          android:focusable="true"
+                          android:clickable="true"
+                          android:onClick="changeView_Ask_Localisations">
+                <LinearLayout android:layout_width="wrap_content"
+                              android:layout_height="match_parent"
+                              android:layout_weight="5"
+                              android:layout_gravity="center"
+                              android:gravity="center">
+                    <ImageView android:layout_width="match_parent"
+                               android:layout_height="wrap_content"
+                               android:scaleType="centerCrop"
+                               android:adjustViewBounds="true"
+                               android:src="@drawable/ask_localisations"/>
+                </LinearLayout>
+                <LinearLayout android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:layout_weight="1"
+                              android:layout_gravity="center"
+                              android:gravity="center">
+                    <TextView android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:minHeight="44dp"
+                              android:layout_marginBottom="3dp"
+                              android:gravity="center"
+                              android:text="Miejsca"
+                              android:textSize="28sp"/>
+                </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
 
-        <LinearLayout android:id="@+id/pain_hand_palm"
-                      android:layout_width="wrap_content"
-                      android:layout_height="match_parent"
-                      android:orientation="vertical"
-                      android:layout_weight="1"
-                      android:layout_margin="3dp"
-                      android:padding="5dp"
-                      android:background="@color/almost_white"
-                      android:focusable="true"
-                      android:clickable="true"
-                      android:onClick="changeView_Pain_Leftright">
-            <LinearLayout android:layout_width="wrap_content"
+            <LinearLayout android:id="@+id/ask_items_layout"
+                          android:layout_width="wrap_content"
                           android:layout_height="match_parent"
-                          android:layout_weight="5"
-                          android:layout_gravity="center"
-                          android:gravity="center">
-                <ImageView android:layout_width="match_parent"
-                           android:layout_height="wrap_content"
-                           android:scaleType="centerCrop"
-                           android:adjustViewBounds="true"
-                           android:src="@drawable/pain_palm"/>
-            </LinearLayout>
-            <LinearLayout android:layout_width="match_parent"
-                          android:layout_height="wrap_content"
+                          android:orientation="vertical"
                           android:layout_weight="1"
-                          android:layout_gravity="center"
-                          android:gravity="center">
-                <TextView android:layout_width="match_parent"
-                          android:layout_height="wrap_content"
-                          android:minHeight="44dp"
-                          android:layout_marginBottom="3dp"
-                          android:gravity="center"
-                          android:text="Dłoń"
-                          android:textSize="28sp"/>
+                          android:layout_margin="3dp"
+                          android:padding="5dp"
+                          android:background="@color/almost_white"
+                          android:focusable="true"
+                          android:clickable="true"
+                          android:onClick="changeView_Ask_Items">
+                <LinearLayout android:layout_width="wrap_content"
+                              android:layout_height="match_parent"
+                              android:layout_weight="5"
+                              android:layout_gravity="center"
+                              android:gravity="center">
+                    <ImageView android:layout_width="match_parent"
+                               android:layout_height="wrap_content"
+                               android:scaleType="centerCrop"
+                               android:adjustViewBounds="true"
+                               android:src="@drawable/ask_items"/>
+                </LinearLayout>
+                <LinearLayout android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:layout_weight="1"
+                              android:layout_gravity="center"
+                              android:gravity="center">
+                    <TextView android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:minHeight="44dp"
+                              android:layout_marginBottom="3dp"
+                              android:gravity="center"
+                              android:text="Przedmioty"
+                              android:textSize="28sp"/>
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-
-
 </LinearLayout>

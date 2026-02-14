@@ -12,7 +12,7 @@ import androidx.core.content.ContextCompat;
 import com.example.tapystrapy.model.Gesture;
 
 public class FinalActivity extends AppCompatActivity {
-    String emotion, sentence, bodyPart, bodyFullAnswer;
+    String emotion, sentenceTag, sentence, bodyPart, bodyFullAnswer;
     private ImageView finalImage;
     private TextView finalLabel;
     private LinearLayout finalMenu;
@@ -29,6 +29,7 @@ public class FinalActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         emotion = intent.getStringExtra("EMOTION");
+        sentenceTag = intent.getStringExtra("SENTENCE_TAG");
         sentence = intent.getStringExtra("SENTENCE");
         bodyPart = intent.getStringExtra("BODY_PART");
         bodyFullAnswer = intent.getStringExtra("FULL_ANSWER");
@@ -106,7 +107,33 @@ public class FinalActivity extends AppCompatActivity {
             }
             else if (sentence != null) {
                 finalLabel.setText(sentence);
-                // switch z obrazkiem
+
+                switch (sentenceTag) {
+                    case "toilet": finalImage.setImageResource(R.drawable.ask_basicneeds_toilet); break;
+                    case "drink": finalImage.setImageResource(R.drawable.ask_basicneeds_drink); break;
+                    case "eat": finalImage.setImageResource(R.drawable.ask_basicneeds_eat); break;
+                    case "play": finalImage.setImageResource(R.drawable.ask_basicneeds_play); break;
+                    case "sleep": finalImage.setImageResource(R.drawable.ask_basicneeds_sleep); break;
+
+                    case "mum": finalImage.setImageResource(R.drawable.ask_persons_mum); break;
+                    case "dad": finalImage.setImageResource(R.drawable.ask_persons_dad); break;
+                    case "bro": finalImage.setImageResource(R.drawable.ask_persons_brother); break;
+                    case "sis": finalImage.setImageResource(R.drawable.ask_persons_sister); break;
+                    case "grandma": finalImage.setImageResource(R.drawable.ask_persons_grandma); break;
+                    case "grandpa": finalImage.setImageResource(R.drawable.ask_persons_grandpa); break;
+                    case "attendant": finalImage.setImageResource(R.drawable.ask_persons_attendant); break;
+
+                    case "house": finalImage.setImageResource(R.drawable.ask_localisations_house); break;
+                    case "rehab": finalImage.setImageResource(R.drawable.ask_localisations_rehabcenter); break;
+                    case "outdoor": finalImage.setImageResource(R.drawable.ask_localisations_outdoor); break;
+                    case "shop": finalImage.setImageResource(R.drawable.ask_localisations_shop); break;
+                    case "school": finalImage.setImageResource(R.drawable.ask_localisations_school); break;
+
+                    case "mug": finalImage.setImageResource(R.drawable.ask_items_mug); break;
+                    case "doll": finalImage.setImageResource(R.drawable.ask_items_doll); break;
+                    case "book": finalImage.setImageResource(R.drawable.ask_items_book); break;
+                    case "crayons": finalImage.setImageResource(R.drawable.ask_items_crayons); break;
+                }
             }
             else if (bodyPart != null) {
                 finalLabel.setText(bodyFullAnswer);
