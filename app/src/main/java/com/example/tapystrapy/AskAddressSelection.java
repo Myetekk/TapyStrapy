@@ -84,30 +84,31 @@ public class AskAddressSelection extends AppCompatActivity {
     }
 
 
+    public void changeView_Main_Ask(View view) {
+        Intent intent = new Intent(this, AskMainSelection.class);
+        String tag = (String)  view.getTag();
+        intent.putExtra("ADDRESS", tag);
+        if (tag.equals("request")) {
+            intent.putExtra("SENTENCE", "Chcę ");
+        }
+        else {
+            intent.putExtra("SENTENCE", "Pomóż mi proszę ");
+        }
+        startActivity(intent);
+    }
 
-    //poprawić to by były tylko 2 funkcje i argumenty z layoutu xml patrz pain torso
-    public void changeView_Main_Ask_Request(View view) {
-        Intent intent = new Intent(this, AskMainSelection.class);
-        intent.putExtra("ADDRESS", "request");
-        intent.putExtra("SENTENCE", "Chcę ");
-        startActivity(intent);
-    }
-    public void changeView_Main_Ask_Pleasehelp(View view) {
-        Intent intent = new Intent(this, AskMainSelection.class);
-        intent.putExtra("ADDRESS", "pleasehelp");
-        intent.putExtra("SENTENCE", "Pomóż mi proszę ");
-        startActivity(intent);
-    }
-    public void changeView_Ask_Persons_Apologize(View view) {
+    public void changeView_Ask_Persons(View view) {
         Intent intent = new Intent(this, AskPersonsSelection.class);
-        intent.putExtra("CASE", "Wołacz");
-        intent.putExtra("SENTENCE", "Przepraszam ");
-        startActivity(intent);
-    }
-    public void changeView_Ask_Persons_Thank(View view) {
-        Intent intent = new Intent(this, AskPersonsSelection.class);
-        intent.putExtra("CASE", "Wołacz");
-        intent.putExtra("SENTENCE", "Dziękuję ");
+        String tag = (String)  view.getTag();
+
+        if (tag.equals("apologize")) {
+            intent.putExtra("CASE", "Wołacz");
+            intent.putExtra("SENTENCE", "Przepraszam ");
+        }
+        else {
+            intent.putExtra("CASE", "Wołacz");
+            intent.putExtra("SENTENCE", "Dziękuję ");
+        }
         startActivity(intent);
     }
 }
