@@ -65,7 +65,7 @@ public class PainHeadSelection extends AppCompatActivity {
         pain_head_forehead.setTag(new BodyPartData("forehead", "czoło", Gender.NEUTER));
         pain_head_hairback.setTag(new BodyPartData("hairback", "tył głowy", Gender.MASCULINE));
         pain_head_entirehead.setTag(new BodyPartData("entirehead", "cała głowa", Gender.FEMININE));
-        pain_head_eye.setTag(new BodyPartData("eyes", "oko", Gender.NEUTER));
+        pain_head_eye.setTag(new BodyPartData("eyes", "oczy", Gender.NEUTER));
         pain_head_nose.setTag(new BodyPartData("nose", "nos", Gender.MASCULINE));
         pain_head_tooth.setTag(new BodyPartData("tooth", "ząb", Gender.MASCULINE));
         pain_head_ear.setTag(new BodyPartData("ears", "ucho", Gender.NEUTER));
@@ -158,7 +158,7 @@ public class PainHeadSelection extends AppCompatActivity {
         return fullAnswer;
     }
 
-    public void changeView_Final(View view) {
+    public void changeView_Confirmation(View view) {
         Intent intent = new Intent(this, ConfirmationActivity.class);
         BodyPartData bodyPartData = (BodyPartData) view.getTag();
         String fullAnswer = getFullAnswer(view);

@@ -186,23 +186,32 @@ public class ConfirmationActivity  extends AppCompatActivity {
                     case "pain_eyes": confirmationImage.setImageResource(R.drawable.pain_eyes); break;
                     case "pain_nose": confirmationImage.setImageResource(R.drawable.pain_nose); break;
                     case "pain_tooth": confirmationImage.setImageResource(R.drawable.pain_tooth); break;
-                    case "pain_ears": confirmationImage.setImageResource(R.drawable.pain_ears); break;
+                    case "pain_ears_l": confirmationImage.setImageResource(R.drawable.pain_ears_l); break;
+                    case "pain_ears_r": confirmationImage.setImageResource(R.drawable.pain_ears); break;
                     case "pain_throat": confirmationImage.setImageResource(R.drawable.pain_throat); break;
                     // hands
-                    case "pain_arm": confirmationImage.setImageResource(R.drawable.pain_arm); break;
-                    case "pain_elbow": confirmationImage.setImageResource(R.drawable.pain_elbow); break;
-                    case "pain_palm": confirmationImage.setImageResource(R.drawable.pain_palm); break;
+                    case "pain_arm_l": confirmationImage.setImageResource(R.drawable.pain_arm_l); break;
+                    case "pain_arm_r": confirmationImage.setImageResource(R.drawable.pain_arm); break;
+                    case "pain_elbow_l": confirmationImage.setImageResource(R.drawable.pain_elbow_l); break;
+                    case "pain_elbow_r": confirmationImage.setImageResource(R.drawable.pain_elbow); break;
+                    case "pain_palm_l": confirmationImage.setImageResource(R.drawable.pain_palm_l); break;
+                    case "pain_palm_r": confirmationImage.setImageResource(R.drawable.pain_palm); break;
                     //torso
-                    case "pain_shoulders": confirmationImage.setImageResource(R.drawable.pain_shoulders); break;
+                    case "pain_shoulders_l": confirmationImage.setImageResource(R.drawable.pain_shoulders_l); break;
+                    case "pain_shoulders_r": confirmationImage.setImageResource(R.drawable.pain_shoulders_r); break;
                     case "pain_chest": confirmationImage.setImageResource(R.drawable.pain_chest); break;
                     case "pain_stomach": confirmationImage.setImageResource(R.drawable.pain_stomach); break;
                     case "pain_back": confirmationImage.setImageResource(R.drawable.pain_back); break;
                     case "pain_lowerback": confirmationImage.setImageResource(R.drawable.pain_lowerback); break;
                     // legs
-                    case "pain_thigh": confirmationImage.setImageResource(R.drawable.pain_thigh); break;
-                    case "pain_knee": confirmationImage.setImageResource(R.drawable.pain_knee); break;
-                    case "pain_calf": confirmationImage.setImageResource(R.drawable.pain_calf); break;
-                    case "pain_foot": confirmationImage.setImageResource(R.drawable.pain_foot); break;
+                    case "pain_thigh_l": confirmationImage.setImageResource(R.drawable.pain_thigh_l); break;
+                    case "pain_thigh_r": confirmationImage.setImageResource(R.drawable.pain_thigh); break;
+                    case "pain_knee_l": confirmationImage.setImageResource(R.drawable.pain_knee_l); break;
+                    case "pain_knee_r": confirmationImage.setImageResource(R.drawable.pain_knee); break;
+                    case "pain_calf_l": confirmationImage.setImageResource(R.drawable.pain_calf_l); break;
+                    case "pain_calf_r": confirmationImage.setImageResource(R.drawable.pain_calf); break;
+                    case "pain_foot_l": confirmationImage.setImageResource(R.drawable.pain_foot_l); break;
+                    case "pain_foot_r": confirmationImage.setImageResource(R.drawable.pain_foot); break;
                     default: confirmationImage.setImageResource(R.drawable.tapstrap_icon); break;
                 }
             }

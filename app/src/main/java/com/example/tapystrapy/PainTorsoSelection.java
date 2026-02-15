@@ -137,7 +137,7 @@ public class PainTorsoSelection extends AppCompatActivity {
         return fullAnswer;
     }
 
-    public void changeView_Final(View view){
+    public void changeView_Confirmation(View view){
         Intent intent = new Intent(this, ConfirmationActivity.class);
         BodyPartData bodyPartData = (BodyPartData) view.getTag();
         String fullAnswer = getFullAnswer(view);
